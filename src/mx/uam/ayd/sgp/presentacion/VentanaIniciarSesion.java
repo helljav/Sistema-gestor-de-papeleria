@@ -15,6 +15,7 @@ import java.awt.Toolkit;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -49,6 +50,13 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
     private org.edisoncor.gui.panel.PanelImage panelImage5;
     private org.edisoncor.gui.panel.PanelImage panelImage6;
     // End of variables declaration//GEN-END:variables
+    
+    /**
+     * Metodo ventana error de usuario, no identificado
+     */
+    public void alertaMensaje() {
+    	JOptionPane.showMessageDialog(null,"Usuario no identificado");
+    }
 	
 
 

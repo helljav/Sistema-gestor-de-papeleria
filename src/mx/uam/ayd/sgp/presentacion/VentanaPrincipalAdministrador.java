@@ -7,8 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 import mx.uam.ayd.sgp.negocio.ControlAutenticacionUsusario;
 import mx.uam.ayd.sgp.negocio.ControlVAdministrador;
+import mx.uam.ayd.sgp.persistencia.DAOProducto;
 
 import java.awt.Toolkit;
 import javax.swing.JLabel;
@@ -22,11 +24,14 @@ import java.awt.Component;
 import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Cursor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaPrincipalAdministrador extends JFrame {
 
 	private JPanel contentPane;
 	private ControlVAdministrador control;
+	private ControlAlmacen alma;
 
 	
 	public VentanaPrincipalAdministrador(ControlVAdministrador ctrl) {
@@ -39,6 +44,15 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblElegirAlmacen = new JLabel("Elegir almacen");
+		lblElegirAlmacen.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ctrl.DespliegaVSeleccion();
+				/**DAOProducto dao=new DAOProducto();
+				alma=new ControlAlmacen(dao);
+				alma.iniciaSeleccionDeAlmacen();**/
+			}
+		});
 		lblElegirAlmacen.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblElegirAlmacen.setVerticalAlignment(SwingConstants.TOP);
 		lblElegirAlmacen.setVerticalTextPosition(SwingConstants.BOTTOM);
