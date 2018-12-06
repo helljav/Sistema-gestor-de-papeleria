@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Dec 05 23:02:26 CST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-81e5-44ff-000006a4e3c8 
+on database directory C:\Users\HP\Desktop\Eclipse\Sistema Gestor de Papeleria\BaseDeDatos with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/C:/Users/HP/Desktop/Eclipse/Practica%207%20A&DS/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_191-b12
+user.dir=C:\Users\HP\Desktop\Eclipse\Sistema Gestor de Papeleria
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
