@@ -10,6 +10,13 @@ import mx.uam.ayd.sgp.modelo.Usuario;
 
 public class DAOUsuario {
 	
+	/**
+	 * Accede a la base de datos para identificar al usuario y la contraseña
+	 * @param usuario
+	 * @param contraseña
+	 * @return
+	 */
+	
 	public Usuario Autentifica(String usuario, String contraseña) {
 		System.out.println("holi");
 		

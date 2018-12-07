@@ -15,6 +15,7 @@ import java.awt.Toolkit;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -49,6 +50,13 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
     private org.edisoncor.gui.panel.PanelImage panelImage5;
     private org.edisoncor.gui.panel.PanelImage panelImage6;
     // End of variables declaration//GEN-END:variables
+    
+    /**
+     * Metodo ventana error de usuario, no identificado
+     */
+    public void alertaMensaje() {
+    	JOptionPane.showMessageDialog(null,"Usuario no identificado");
+    }
 	
 
 
@@ -233,10 +241,10 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	        		.addGroup(jPanel1Layout.createSequentialGroup()
 	        			.addComponent(jLabel1, GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
 	        			.addContainerGap())
-	        		.addGroup(jPanel1Layout.createSequentialGroup()
-	        			.addGap(123)
+	        		.addGroup(Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+	        			.addGap(131)
 	        			.addComponent(panelImage1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-	        			.addPreferredGap(ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+	        			.addPreferredGap(ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
 	        			.addComponent(panelImage6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 	        		.addGroup(jPanel1Layout.createSequentialGroup()
 	        			.addGap(37)
@@ -249,10 +257,10 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
 	        		.addGroup(jPanel1Layout.createSequentialGroup()
 	        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+	        				.addComponent(panelImage6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 	        				.addGroup(jPanel1Layout.createSequentialGroup()
 	        					.addContainerGap()
-	        					.addComponent(panelImage1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-	        				.addComponent(panelImage6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	        					.addComponent(panelImage1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 	        			.addGap(24)
 	        			.addComponent(jLabel1)
 	        			.addGap(18)

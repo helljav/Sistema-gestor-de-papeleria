@@ -16,6 +16,11 @@ import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
+
+import mx.uam.ayd.sgp.negocio.ControlAutenticacionUsusario;
+import mx.uam.ayd.sgp.negocio.ControlVEmpleado;
+import mx.uam.ayd.sgp.persistencia.DAOUsuario;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
@@ -24,28 +29,19 @@ import java.awt.event.KeyEvent;
 public class VentanaPrincipalEmpleado extends JFrame {
 
 	private JPanel contentPane;
-
+    private ControlVEmpleado ctrl;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipalEmpleado frame = new VentanaPrincipalEmpleado();
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
+	
+	
+	
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPrincipalEmpleado() {
+	public VentanaPrincipalEmpleado(ControlVEmpleado ctrl) {
+		this.ctrl=ctrl;
 		setTitle("Sistema papeleria \"Renteria\".  Empleado");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -139,6 +135,16 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		 */
 		
 		JLabel lblCerrarSesion = new JLabel("Cerrar Sesi\u00F3n");
+		lblCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblCerrarSesion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				DAOUsuario dao = new DAOUsuario();
+				ControlAutenticacionUsusario ctrl = new ControlAutenticacionUsusario(dao);
+				ctrl.Inicia();
+				setVisible(false);
+			}
+		});
 		lblCerrarSesion.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Logout_37127.png"));
 		lblCerrarSesion.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblCerrarSesion.setVerticalAlignment(SwingConstants.BOTTOM);

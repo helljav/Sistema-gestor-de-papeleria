@@ -31,28 +31,18 @@ public class Aplicacion {
 	* Este metodo es el constructor
 	*
 	*/
-	public Aplicacion() {
-		
+	public Aplicacion() {		
 		daousuario = new DAOUsuario(); 
 	}
 	
 	/**
-	* Este metodo inicia la aplicaciÃ³n
+	* Este metodo inicia la aplicacion e inicia primero la autentificacion del usuario
+	* llamando a la ventana IniciarSesion por medio del ControlAutenticacionUsuario
 	*
 	*/
 	public void inicia() {
 		ControlAutenticacionUsusario iniciaAutentificacion = new ControlAutenticacionUsusario(daousuario);
-		iniciaAutentificacion.Inicia();	
-		/**VentanaIniciarSesion GUI = new VentanaIniciarSesion(this);
-		GUI.setVisible(true);;
-		GUI.setLocationRelativeTo(null);**/
+		iniciaAutentificacion.Inicia();
 		 
 	}
-	
-	public void validarUsuario(String usuario, String contraseña) {
-		ControlAutenticacionUsusario iniciaAutentificacion = new ControlAutenticacionUsusario(daousuario);
-		iniciaAutentificacion.Autentifica(usuario, contraseña);
-		
-	}
-
 }

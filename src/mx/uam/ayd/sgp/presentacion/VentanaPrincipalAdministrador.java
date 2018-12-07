@@ -7,8 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 import mx.uam.ayd.sgp.negocio.ControlAutenticacionUsusario;
 import mx.uam.ayd.sgp.negocio.ControlVAdministrador;
+import mx.uam.ayd.sgp.persistencia.DAOProducto;
+import mx.uam.ayd.sgp.persistencia.DAOUsuario;
 
 import java.awt.Toolkit;
 import javax.swing.JLabel;
@@ -22,14 +25,17 @@ import java.awt.Component;
 import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Cursor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaPrincipalAdministrador extends JFrame {
 
 	private JPanel contentPane;
-	private ControlVAdministrador control;
-
+	private ControlVAdministrador controlVAdmin;
+	
 	
 	public VentanaPrincipalAdministrador(ControlVAdministrador ctrl) {
+		controlVAdmin = ctrl;
 		setTitle("Sistema papeleria \"Renteria\".  Administrador");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,8 +43,19 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		JLabel lblElegirAlmacen = new JLabel("Elegir almacen");
+		/*
+		 * Configuracion de la etiqueta elegir almacen
+		 */
+		JLabel lblElegirAlmacen = new JLabel("Administrar almacen");
+		lblElegirAlmacen.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlVAdmin.DespliegaVSeleccion();
+				/**DAOProducto dao=new DAOProducto();
+				alma=new ControlAlmacen(dao);
+				alma.iniciaSeleccionDeAlmacen();**/
+			}
+		});
 		lblElegirAlmacen.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblElegirAlmacen.setVerticalAlignment(SwingConstants.TOP);
 		lblElegirAlmacen.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -99,6 +116,16 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		lblAdministrarUsuarios.setAlignmentY(1.0f);
 		
 		JLabel lblSalir = new JLabel("Salir");
+		lblSalir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				DAOUsuario dao = new DAOUsuario();
+				ControlAutenticacionUsusario ctrl = new ControlAutenticacionUsusario(dao);
+				ctrl.Inicia();
+				setVisible(false);			
+				
+			}
+		});
 		lblSalir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblSalir.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Logout_37127.png"));
 		lblSalir.setVerticalTextPosition(SwingConstants.BOTTOM);
