@@ -5,7 +5,14 @@ public class Producto {
 	private String nombreProd;
 	private double precio;
 	private String descripcion;
-	private int idProducto;
+	private double descuento;
+	
+	public Producto(String nombreProd,double precio, String descripcion,double descuento) {
+		this.nombreProd = nombreProd;
+		this.precio = precio;
+		this.descripcion = descripcion;
+		this.descuento = descuento;
+	}
 	
 	public String getDescripcion() {
 		return descripcion;
@@ -13,8 +20,8 @@ public class Producto {
 	public String getNombreProd() {
 		return nombreProd;
 	}
-	public int getIdProducto() {
-		return idProducto;
+	public double descuento() {
+		return descuento;
 	}
 	public double getPrecio() {
 		return precio;
@@ -22,8 +29,8 @@ public class Producto {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public void setIdProducto(int idProducto) {
-		this.idProducto = idProducto;
+	public void setDescuento(double descuento) {
+		this.descuento = descuento;
 	}public void setNombreProd(String nombreProd) {
 		this.nombreProd = nombreProd;
 	}public void setPrecio(double precio) {

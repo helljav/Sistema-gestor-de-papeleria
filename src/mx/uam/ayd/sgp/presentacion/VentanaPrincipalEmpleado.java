@@ -135,6 +135,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		 */
 		
 		JLabel lblCerrarSesion = new JLabel("Cerrar Sesi\u00F3n");
+		lblCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblCerrarSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
