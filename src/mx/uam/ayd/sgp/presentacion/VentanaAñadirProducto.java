@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import mx.uam.ayd.sgp.negocio.ControlAlmacen;
+
 import java.awt.Toolkit;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -13,118 +16,224 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.UIManager;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Cursor;
+import javax.swing.SwingConstants;
+import java.awt.Point;
 
 public class VentanaAñadirProducto extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldNombreProducto;
-	private JTextField textFieldDescripcion;
-	private JTextField textFieldPrecio;
-	private JTextField textField;
+	private JTextField txtNomProducto;
+	private JTextField txtDescripcion;
+	private JTextField txtPrecio;
+	private JTextField txtDescuento;
+	private ControlAlmacen ctrlAlmacen;
+	private JTextField txtCantidad;
+	private JTextField txtFecha;
 
-	/**
-	 * Launch the application.
-	 */
 	
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaAñadirProducto() {
+	public VentanaAñadirProducto(ControlAlmacen ctrl) {
+		ctrlAlmacen = ctrl;
+		System.out.println("VentanaAñadirProducto");
+		System.out.println(ctrlAlmacen.getTipoAlmacen());
 		setTitle("A\u00F1adir Producto");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 484, 374);
+		setBounds(100, 100, 562, 467);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Nombre del producto");
+		txtNomProducto = new JTextField();
+		txtNomProducto.setColumns(10);
 		
-		JLabel lblDescripcion = new JLabel("Descripcion");
+		txtDescripcion = new JTextField();
+		txtDescripcion.setColumns(10);
 		
-		JLabel lblPrecio = new JLabel("Precio");
+		txtPrecio = new JTextField();
+		txtPrecio.setColumns(10);
 		
-		textFieldNombreProducto = new JTextField();
-		textFieldNombreProducto.setColumns(10);
+		txtDescuento = new JTextField();
+		txtDescuento.setColumns(10);
+		/*
+		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON ACEPTAR 
+		 */
+		JButton btnAceptar = new JButton();
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 String nombre = txtNomProducto.getText();
+				 String descripcion = txtDescripcion.getText();
+				 double precio = Double.parseDouble(txtPrecio.getText());
+				 double descuento = Double.parseDouble(txtDescuento.getText());
+				 int cantidad = Integer.parseInt(txtCantidad.getText());
+				 String tipoAlmacen = ctrlAlmacen.getTipoAlmacen();
+				 String fecha = txtFecha.getText();
+				 ctrlAlmacen.agregarProducto(nombre, descripcion, precio, descuento, cantidad, tipoAlmacen, fecha);
+			}
+		});
+		btnAceptar.setLocation(new Point(28, 7));
+		btnAceptar.setSelected(true);
+		btnAceptar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAceptar.setHideActionText(true);
+		btnAceptar.setText("ACEPTAR");
+		btnAceptar.setForeground(Color.WHITE);
+		btnAceptar.setFont(new Font("Dialog", Font.BOLD, 14));
+		btnAceptar.setBorder(UIManager.getBorder("CheckBoxMenuItem.border"));
+		btnAceptar.setBackground(new Color(0, 171, 197));
 		
-		textFieldDescripcion = new JTextField();
-		textFieldDescripcion.setColumns(10);
+		JLabel lblAadirProductoAl = new JLabel();
+		lblAadirProductoAl.setText("A\u00F1adir producto al almacen");
+		lblAadirProductoAl.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAadirProductoAl.setForeground(new Color(153, 153, 153));
+		lblAadirProductoAl.setFont(new Font("Dialog", Font.BOLD, 24));
 		
-		textFieldPrecio = new JTextField();
-		textFieldPrecio.setColumns(10);
+		JLabel lblNombreDelProducto = new JLabel();
+		lblNombreDelProducto.setText("Nombre del producto:");
+		lblNombreDelProducto.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNombreDelProducto.setForeground(Color.BLACK);
+		lblNombreDelProducto.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		JButton btnAgregar = new JButton("Agregar");
+		JLabel lblDescripcion = new JLabel();
+		lblDescripcion.setHorizontalTextPosition(SwingConstants.LEFT);
+		lblDescripcion.setText("Descripci\u00F3n:");
+		lblDescripcion.setHorizontalAlignment(SwingConstants.LEFT);
+		lblDescripcion.setForeground(Color.BLACK);
+		lblDescripcion.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		JLabel lblPrecio = new JLabel();
+		lblPrecio.setText("Precio:");
+		lblPrecio.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPrecio.setForeground(Color.BLACK);
+		lblPrecio.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		JLabel lblAadirProductoAl = new JLabel("A\u00F1adir producto al almacen");
+		JLabel lblDescuento = new JLabel();
+		lblDescuento.setText("Descuento");
+		lblDescuento.setHorizontalAlignment(SwingConstants.LEFT);
+		lblDescuento.setForeground(Color.BLACK);
+		lblDescuento.setFont(new Font("Dialog", Font.BOLD, 12));
+		/*
+		 * Caracteristicas y configuracion del boton cancelar
+		 * 
+		 */
+		JButton buttonCancelar = new JButton();
+		buttonCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
+		buttonCancelar.setText("CANCELAR");
+		buttonCancelar.setSelected(true);
+		buttonCancelar.setLocation(new Point(28, 14));
+		buttonCancelar.setForeground(Color.WHITE);
+		buttonCancelar.setFont(new Font("Dialog", Font.BOLD, 14));
+		buttonCancelar.setBorder(UIManager.getBorder("EditorPane.border"));
+		buttonCancelar.setBackground(new Color(0, 153, 255));
 		
-		JLabel lblDescuento = new JLabel("Descuento");
+		JLabel lblCantidadProducto = new JLabel();
+		lblCantidadProducto.setText("Cantidad producto:");
+		lblCantidadProducto.setHorizontalAlignment(SwingConstants.LEFT);
+		lblCantidadProducto.setForeground(Color.BLACK);
+		lblCantidadProducto.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		txtCantidad = new JTextField();
+		txtCantidad.setColumns(10);
+		
+		JLabel lblFecha = new JLabel();
+		lblFecha.setText("Fecha de ingreso:");
+		lblFecha.setHorizontalAlignment(SwingConstants.LEFT);
+		lblFecha.setForeground(Color.BLACK);
+		lblFecha.setFont(new Font("Dialog", Font.BOLD, 12));
+		
+		txtFecha = new JTextField();
+		txtFecha.setColumns(10);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(19)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(lblDescripcion, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(textFieldDescripcion, GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(textFieldNombreProducto, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblPrecio, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblDescuento))
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(textField, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-										.addComponent(textFieldPrecio)))))
+							.addComponent(lblDescuento, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(txtDescuento, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(95)
-							.addComponent(btnAgregar)
-							.addGap(90)
-							.addComponent(btnCancelar)))
-					.addContainerGap(49, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNombreDelProducto, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblDescripcion, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblPrecio, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addComponent(txtDescripcion, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+								.addComponent(txtPrecio, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+								.addComponent(txtNomProducto, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))))
+					.addContainerGap())
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblCantidadProducto, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(txtCantidad, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+					.addContainerGap())
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(103)
+					.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+					.addComponent(buttonCancelar, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+					.addGap(60))
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(193)
-					.addComponent(lblAadirProductoAl)
-					.addContainerGap(219, Short.MAX_VALUE))
+					.addContainerGap(72, Short.MAX_VALUE)
+					.addComponent(lblAadirProductoAl, GroupLayout.PREFERRED_SIZE, 428, GroupLayout.PREFERRED_SIZE)
+					.addGap(36))
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblFecha, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+					.addComponent(txtFecha, GroupLayout.PREFERRED_SIZE, 369, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(24)
-					.addComponent(lblAadirProductoAl)
-					.addGap(27)
+					.addContainerGap()
+					.addComponent(lblAadirProductoAl, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+					.addGap(34)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textFieldNombreProducto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblDescripcion, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textFieldDescripcion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNombreDelProducto, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtNomProducto, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblPrecio, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textFieldPrecio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(29)
+						.addComponent(lblDescripcion, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtDescripcion, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
+					.addGap(26)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblDescuento)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+						.addComponent(lblPrecio, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtPrecio, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnAgregar)
-						.addComponent(btnCancelar))
-					.addGap(26))
+						.addComponent(lblDescuento, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtDescuento, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtCantidad, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblCantidadProducto, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+					.addGap(32)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblFecha, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtFecha, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+						.addComponent(buttonCancelar, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
 	}

@@ -20,7 +20,7 @@ public class Producto {
 	public String getNombreProd() {
 		return nombreProd;
 	}
-	public double descuento() {
+	public double getdescuento() {
 		return descuento;
 	}
 	public double getPrecio() {
