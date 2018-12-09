@@ -51,6 +51,7 @@ public class VentanaPrincipalAdministrador extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlVAdmin.DespliegaVSeleccion();
+				setExtendedState(ICONIFIED);
 				/**DAOProducto dao=new DAOProducto();
 				alma=new ControlAlmacen(dao);
 				alma.iniciaSeleccionDeAlmacen();**/

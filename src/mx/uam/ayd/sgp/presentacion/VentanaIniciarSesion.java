@@ -29,6 +29,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Cursor;
 import app.bolivia.swing.JCTextField;
+import java.awt.Dialog.ModalExclusionType;
 
 public class VentanaIniciarSesion extends javax.swing.JFrame {
 	private ControlAutenticacionUsusario control;
@@ -65,6 +66,8 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	 * Create the frame.
 	 */
 	public VentanaIniciarSesion(ControlAutenticacionUsusario ctrl) {
+		setUndecorated(true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		control = ctrl;
 		
 		  jPanel1 = new javax.swing.JPanel();
@@ -87,7 +90,6 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	        panelImage6 = new org.edisoncor.gui.panel.PanelImage();
 
 	        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-	        setUndecorated(true);
 
 	        jPanel1.setBackground(new java.awt.Color(231, 231, 231));
 

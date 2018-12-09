@@ -1,19 +1,19 @@
 package mx.uam.ayd.sgp.modelo;
 
-import java.util.Calendar;
+
 
 public class Almacen {
 	
 	private int cantidad;
 	private Producto producto;
-	private Calendar fechaIngreso;
+	private String fechaIngreso;
 	private String tipoAlmacen;
 	
-	public Almacen(Producto producto,int cantidad,Calendar fechaIngreso,String tipoAlmacen) {
-		this.setProducto(producto);
+	public Almacen(Producto producto,int cantidad,String fechaIngreso,String tipoAlmacen) {
+		this.producto= producto;
 		this.cantidad = cantidad;
-		this.setFechaIngreso(fechaIngreso);
-		this.setTipoAlmacen(tipoAlmacen);
+		this.fechaIngreso= fechaIngreso;
+		this.tipoAlmacen= tipoAlmacen;
 	}
 	
 	public int getCantidad() {
@@ -32,11 +32,11 @@ public class Almacen {
 		this.producto = producto;
 	}
 
-	public Calendar getFechaIngreso() {
+	public String getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-	public void setFechaIngreso(Calendar fechaIngreso) {
+	public void setFechaIngreso(String fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 
@@ -61,6 +61,10 @@ public class Almacen {
 	public String getDescripcionProducto() {
 		String DescripcionProducto=producto.getDescripcion();
 		return DescripcionProducto;
+	}
+	public double getDesceuntoProducto() {
+		double DescuentoProducto = producto.getdescuento();
+		return DescuentoProducto;
 	}
 	
 	
