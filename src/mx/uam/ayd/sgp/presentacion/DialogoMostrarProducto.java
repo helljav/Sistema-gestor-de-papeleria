@@ -4,15 +4,23 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Frame;
 import java.awt.Rectangle;
+import java.awt.ScrollPane;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import mx.uam.ayd.sgp.modelo.Almacen;
+import javax.swing.JScrollPane;
+import java.awt.Color;
+import java.awt.Toolkit;
+import javax.swing.JScrollBar;
+import java.awt.ComponentOrientation;
+import java.awt.Component;
 
 public class DialogoMostrarProducto extends JDialog {
 
@@ -21,12 +29,14 @@ public class DialogoMostrarProducto extends JDialog {
 	private JList jListProdutos = null;
 	private JButton jButtonAceptar = null;
 	private Almacen[] productos;
+	private JScrollPane scroll;
 
 	/**
 	 * @param owner
 	 */
 	public DialogoMostrarProducto(Frame owner, Almacen produc[]) {
 		super(owner, true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		initialize();
 		//crea una lista de  modelos dependiendo del arreglo pasado por el contructor
 		DefaultListModel model = new DefaultListModel();
@@ -43,9 +53,10 @@ public class DialogoMostrarProducto extends JDialog {
 	 * @return void
 	 */
 	private void initialize() {
-		this.setSize(406, 295);
+		this.setSize(666, 295);
 		this.setTitle("Mostrar productos");
 		this.setContentPane(getJContentPane());
+		this.setLocationRelativeTo(null);
 	}
 
 	/**
@@ -57,8 +68,11 @@ public class DialogoMostrarProducto extends JDialog {
 		if (jContentPane == null) {
 			jContentPane = new JPanel();
 			jContentPane.setLayout(null);
-			jContentPane.add(getjListProdutos(), null);
 			jContentPane.add(getJButtonAceptar(), null);
+			jListProdutos = new JList();
+			jListProdutos.setBounds(74, 22, 360, 187);
+			jContentPane.add(getjScrollPane());
+			
 		}
 		return jContentPane;
 	}
@@ -71,9 +85,23 @@ public class DialogoMostrarProducto extends JDialog {
 	private JList getjListProdutos() {
 		if (jListProdutos == null) {
 			jListProdutos = new JList();
-			jListProdutos.setBounds(new Rectangle(15, 15, 362, 190));
-		}
+			jListProdutos.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+			jListProdutos.setBounds(new Rectangle(0, 13, 650, 190));
+			
+		}	
+		
 		return jListProdutos;
+	}
+	
+	private JScrollPane getjScrollPane() {
+		if (scroll == null) {
+			scroll = new JScrollPane();
+			scroll.setBounds(new Rectangle(0, 13, 650, 190));
+			scroll.setViewportView(jListProdutos);
+			
+		}	
+		
+		return scroll;
 	}
 	/**
 	 * This method initializes jButtonAceptar
@@ -97,5 +125,4 @@ public class DialogoMostrarProducto extends JDialog {
 		
 		return (Almacen) jListProdutos.getSelectedValue();
 	}
-
 }

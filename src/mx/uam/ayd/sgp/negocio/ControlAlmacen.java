@@ -14,6 +14,7 @@ import mx.uam.ayd.sgp.presentacion.DialogoMostrarProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaAñadirProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaCRUDAlmacen;
 import mx.uam.ayd.sgp.presentacion.VentanaEliminarProducto;
+import mx.uam.ayd.sgp.presentacion.VentanaModificarProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaSeleccionAlmacen;
 
 public class ControlAlmacen {
@@ -22,6 +23,7 @@ public class ControlAlmacen {
 	private String tipoAlmacen;
 	private VentanaAñadirProducto GUIAgregarP;
 	private VentanaEliminarProducto GUIEliminarP;
+	private VentanaModificarProducto GUIModificarP;
 
 	public ControlAlmacen() {
 		dao = new DAOProducto();
@@ -46,10 +48,17 @@ public class ControlAlmacen {
 		GUIAgregarP.setLocationRelativeTo(null);
 
 	}
+
 	public void DespliegaVEliminarProducto() {
 		GUIEliminarP = new VentanaEliminarProducto(this);
 		GUIEliminarP.setVisible(true);
 		GUIEliminarP.setLocationRelativeTo(null);
+
+	}
+	public void DespliegaVModificarProducto() {
+		GUIModificarP = new VentanaModificarProducto(this);
+		GUIModificarP.setVisible(true);
+		GUIModificarP.setLocationRelativeTo(null);
 
 	}
 
@@ -57,7 +66,8 @@ public class ControlAlmacen {
 		return tipoAlmacen;
 	}
 
-	public void agregarProducto(String nombre, double precio, String descripcion, int cantidad, double descuento,String fecha, String tipoAlmacen) {
+	public void agregarProducto(String nombre, double precio, String descripcion, int cantidad, double descuento,
+			String fecha, String tipoAlmacen) {
 		try {
 			Producto P = new Producto(nombre, precio, descripcion, descuento);
 			Almacen A = new Almacen(P, cantidad, fecha, tipoAlmacen);
@@ -68,15 +78,52 @@ public class ControlAlmacen {
 		}
 
 	}
-	
+
 	public Almacen buscarProducto(String productoABuscar, String tipoAlmacen) {
-		//Se crea la lista de autores para poder mostrarle al usuario
+		// Se crea la lista de autores para poder mostrarle al usuario
 		Almacen arregloProdutos[] = dao.dameProductos(productoABuscar, tipoAlmacen); // Obtiene lista de autores
-		DialogoMostrarProducto dialogo = new DialogoMostrarProducto(new JFrame(), arregloProdutos); // Crea el dialogo con
-																									// la lista de
-																									// autores
-		dialogo.setVisible(true); // Muestra el dialogo
+		DialogoMostrarProducto dialogo = new DialogoMostrarProducto(new JFrame(), arregloProdutos); // Crea el dialogo con la lista de productos
+		if (arregloProdutos.length == 0) {
+			GUIEliminarP.alertaMensaje("No se encontro el producto en este almacen", "Error", 0);
+		} else {			
+			dialogo.setVisible(true); // Muestra el dialogo
+		}
 		return dialogo.getProductoSeleccionado(); // Regresa el autor seleccionado en el dialogo
+	}
+	
+	
+	public void eliminarProducto(Almacen producto) {
+		try {
+			if(dao.eliminarDeAlmacen(producto)) {
+				GUIEliminarP.alertaMensaje("El producto fue eliminado del almacen "+producto.getTipoAlmacen(),"Success exito" , 1);
+			}
+			else {
+				GUIEliminarP.alertaMensaje("El producto no se pudo eliminar del almacen "+producto.getTipoAlmacen(),"Error :(" , 0);
+				
+			}
+			
+		}catch(Exception e) {
+			GUIEliminarP.alertaMensaje("Ocurrio un error, llame al administrador ","Error" , 0);
+			
+		}
+		
+	}
+	
+	public void  modificarProducto(Almacen producto, Almacen productoAnteiror) {
+		try {
+			if(dao.modificarProducto(producto, productoAnteiror)) {
+				GUIEliminarP.alertaMensaje("El producto fue eliminado del almacen "+producto.getTipoAlmacen(),"Success exito" , 1);
+			}
+			else {
+				GUIEliminarP.alertaMensaje("El producto no se pudo eliminar del almacen "+producto.getTipoAlmacen(),"Error :(" , 0);
+				
+			}
+			
+			
+		}catch(Exception e) {
+			
+		}
+		
 	}
 
 }

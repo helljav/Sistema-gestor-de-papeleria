@@ -96,6 +96,12 @@ public class VentanaCRUDAlmacen extends JFrame {
 		 */
 		
 		JLabel lblModificarProducto = new JLabel("Modificar Producto");
+		lblModificarProducto.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ctrlAlmacen.DespliegaVModificarProducto();
+			}
+		});
 		lblModificarProducto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblModificarProducto.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblModificarProducto.setHorizontalTextPosition(SwingConstants.CENTER);
