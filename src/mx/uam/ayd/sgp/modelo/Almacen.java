@@ -15,6 +15,9 @@ public class Almacen {
 		this.fechaIngreso= fechaIngreso;
 		this.tipoAlmacen= tipoAlmacen;
 	}
+	public String toString() {
+  		return this.producto.getNombreProd()+", "+this.producto.getPrecio()+", "+this.producto.getDescripcion()+","+this.cantidad+","+this.producto.getdescuento()+","+this.fechaIngreso+","+this.tipoAlmacen;
+  	}
 	
 	public int getCantidad() {
 		return cantidad;

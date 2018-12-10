@@ -67,31 +67,77 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almacenGeneral.png"));
 		
+		
+		/*
+		 * CARACTERISTICAS Y COFIGURACIONES DEL ALMACEN DIA DE MERTOS
+		 */
 		JLabel lblNewLabel_1 = new JLabel("Almacen Dia de Muertos");
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ctrlalma.DespliegaVCRUD("Almacen dia de muertos");
+			}
+		});
 		lblNewLabel_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almDiaMuertos.png"));
 		
+		/*
+		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN DIA DE NAVIDAD
+		 */
 		JLabel lblNewLabel_2 = new JLabel("Almacen dia de Navidad");
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ctrlalma.DespliegaVCRUD("Almacen dia de navidad");
+			}
+		});
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almNavidad.png"));
-		
+		/*
+		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN AMOR Y AMISTAD
+		 */
 		JLabel lblNewLabel_3 = new JLabel("Almacen Amor y Amistad");
+		lblNewLabel_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ctrlalma.DespliegaVCRUD("Almacen dia amor y amistad");
+			}
+		});
 		lblNewLabel_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_3.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almAmorAmistad.png"));
 		lblNewLabel_3.setHorizontalTextPosition(SwingConstants.CENTER);
 		
+		/*
+		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN DIA DE LAS MADRES
+		 */
 		JLabel lblNewLabel_4 = new JLabel("Almacen dia de las Madres");
+		lblNewLabel_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ctrlalma.DespliegaVCRUD("Almacen dia de las madres");
+			}
+		});
 		lblNewLabel_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_4.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almDiaMom.png"));
 		lblNewLabel_4.setHorizontalTextPosition(SwingConstants.CENTER);
 		
+		/*
+		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN DIA DE INDEPENDENCIA
+		 */
+		
 		JLabel lblNewLabel_5 = new JLabel("Almacen dia de Independencia");
+		lblNewLabel_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ctrlalma.DespliegaVCRUD("Almacen dia de la independencia");
+			}
+		});
 		lblNewLabel_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_5.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_5.setHorizontalTextPosition(SwingConstants.CENTER);

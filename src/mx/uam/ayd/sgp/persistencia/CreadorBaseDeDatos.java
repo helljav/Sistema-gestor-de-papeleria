@@ -21,9 +21,10 @@ public class CreadorBaseDeDatos {
 			System.out.println("Tabla de Usuarios creada exitosamente");
 			statement.execute("insert into Usuarios values('" + "carlos" + "','" + "123"+ "','" + "ADMINISTRADOR" + "')");
 			statement.execute("insert into Usuarios values('" + "solrac" + "','" + "321"+ "','" + "EMPLEADO" + "')");
+			statement.execute("insert into Usuarios values('" + "" + "','" + ""+ "','" + "ADMINISTRADOR" + "')");
+		
 			
-			
-			statement.execute("create table Productos(nombre varchar(40), precio double precision,descripcion varchar(50),cantidad int, descuento double precision, fecha date, tipoAlmacen varchar(20))");
+			statement.execute("create table Productos(nombre varchar(40), precio double precision,descripcion varchar(50),cantidad int, descuento double precision, fecha varchar(12), tipoAlmacen varchar(40))");
 			System.out.println("locura creada");
 			statement.execute("insert into Productos values('" + "prit" + "'," + 23 + ",'" + "pega de locuraaaaaa" + "' ," + 20 + "," + 50 + "," +"'2018-12-07'" +",'" + "Almacen general" + "')");
 			
