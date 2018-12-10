@@ -13,6 +13,7 @@ import java.awt.Toolkit;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -35,6 +36,10 @@ public class VentanaAñadirProducto extends JFrame {
 	private ControlAlmacen ctrlAlmacen;
 	private JTextField txtCantidad;
 	private JTextField txtFecha;
+	
+	 public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
+		 JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
+	    }
 
 	
 
@@ -42,6 +47,7 @@ public class VentanaAñadirProducto extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAñadirProducto(ControlAlmacen ctrl) {
+		setUndecorated(true);
 		ctrlAlmacen = ctrl;
 		System.out.println("VentanaAñadirProducto");
 		System.out.println(ctrlAlmacen.getTipoAlmacen());
@@ -70,6 +76,7 @@ public class VentanaAñadirProducto extends JFrame {
 		JButton btnAceptar = new JButton();
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
 				 String nombre = txtNomProducto.getText();
 				 String descripcion = txtDescripcion.getText();
 				 double precio = Double.parseDouble(txtPrecio.getText());
@@ -77,7 +84,10 @@ public class VentanaAñadirProducto extends JFrame {
 				 int cantidad = Integer.parseInt(txtCantidad.getText());
 				 String tipoAlmacen = ctrlAlmacen.getTipoAlmacen();
 				 String fecha = txtFecha.getText();
-				 ctrlAlmacen.agregarProducto(nombre, descripcion, precio, descuento, cantidad, tipoAlmacen, fecha);
+				 ctrlAlmacen.agregarProducto(nombre, precio, descripcion, cantidad, descuento, fecha, tipoAlmacen);
+				}catch(Exception e2) {
+					alertaMensaje("Los valores que trata de ingresar son invalidos", "Error fatality", 0);
+				}
 			}
 		});
 		btnAceptar.setLocation(new Point(28, 7));
@@ -158,14 +168,14 @@ public class VentanaAñadirProducto extends JFrame {
 		txtFecha.setColumns(10);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblDescuento, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
-							.addComponent(txtDescuento, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
+							.addComponent(txtDescuento, GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblNombreDelProducto, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
@@ -173,31 +183,31 @@ public class VentanaAñadirProducto extends JFrame {
 								.addComponent(lblPrecio, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE))
 							.addGap(18)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(txtDescripcion, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
-								.addComponent(txtPrecio, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
-								.addComponent(txtNomProducto, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))))
+								.addComponent(txtDescripcion, GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+								.addComponent(txtPrecio, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+								.addComponent(txtNomProducto, GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE))))
 					.addContainerGap())
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblCantidadProducto, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(txtCantidad, GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+					.addComponent(txtCantidad, GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
 					.addContainerGap())
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(103)
 					.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
 					.addComponent(buttonCancelar, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
 					.addGap(60))
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(72, Short.MAX_VALUE)
+					.addContainerGap(88, Short.MAX_VALUE)
 					.addComponent(lblAadirProductoAl, GroupLayout.PREFERRED_SIZE, 428, GroupLayout.PREFERRED_SIZE)
 					.addGap(36))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblFecha, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-					.addComponent(txtFecha, GroupLayout.PREFERRED_SIZE, 369, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(txtFecha, GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
@@ -229,7 +239,7 @@ public class VentanaAñadirProducto extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblFecha, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtFecha, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
 						.addComponent(buttonCancelar, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
