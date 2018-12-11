@@ -118,8 +118,7 @@ public class VentanaModificarProducto extends JFrame {
 				String productoABuscar = txtProducto.getText();
 				
 				producto = controlAlmacen.buscarProducto(productoABuscar,controlAlmacen.getTipoAlmacen());
-				if (producto != null) {
-					
+				if (producto != null) {					
 					textField.setEnabled(true);
 					textField.setText(producto.getNombreProducto());
 						
@@ -137,9 +136,7 @@ public class VentanaModificarProducto extends JFrame {
 					textField_4.setText(Integer.toString(producto.getCantidadProducto()));				
 					
 					textField_5.setEnabled(true);
-					textField_5.setText(producto.getFechaIngreso());
-					
-								
+					textField_5.setText(producto.getFechaIngreso());								
 				}
 				
 			}
@@ -158,6 +155,7 @@ public class VentanaModificarProducto extends JFrame {
 		JButton btnModificar = new JButton();
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
 				 produtoAnterior = new Almacen(producto.getProducto(), producto.getCantidadProducto(), producto.getFechaIngreso(),producto.getTipoAlmacen());
 				 System.out.println("\n\n neta no mames carnal "+produtoAnterior.toString()+"\n\n");
 				 //nuevos datos cargados desde la caja de texto
@@ -177,6 +175,9 @@ public class VentanaModificarProducto extends JFrame {
 				 textField_3.setText("");
 				 textField_4.setText("");
 				 textField_5.setText("");
+				}catch(Exception e2) {
+					alertaMensaje("Error al intentar modificar el producto", "Error", 0);
+				}
 			}
 		});
 		btnModificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
