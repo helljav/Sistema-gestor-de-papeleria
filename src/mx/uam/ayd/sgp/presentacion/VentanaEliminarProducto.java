@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
+import java.awt.Cursor;
 
 
 public class VentanaEliminarProducto extends JFrame {
@@ -38,6 +39,7 @@ public class VentanaEliminarProducto extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaEliminarProducto(ControlAlmacen ctrl) {
+		setUndecorated(true);
 		controlAlmacen = ctrl;
 		
 		
@@ -47,8 +49,17 @@ public class VentanaEliminarProducto extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		/*
+		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON ELIMINAR
+		 */
 		
 		JButton btnEliminar = new JButton();
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controlAlmacen.eliminarProducto(producto);
+			}
+		});
+		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEliminar.setText("ELIMINAR");
 		btnEliminar.setSelected(true);
 		btnEliminar.setLocation(new Point(28, 7));
@@ -58,10 +69,11 @@ public class VentanaEliminarProducto extends JFrame {
 		btnEliminar.setBorder(UIManager.getBorder("CheckBoxMenuItem.border"));
 		btnEliminar.setBackground(new Color(0, 171, 197));
 		/*
-		 * CONFIGURACION Y CARACTERISTICAS DEL BOTON BUSCAR
+		 * CONFIGURACION Y CARACTERISTICAS DEL BOTON CANCELAR
 		 * 
 		 */
 		JButton btnCancelar = new JButton();
+		btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
@@ -84,6 +96,7 @@ public class VentanaEliminarProducto extends JFrame {
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON BUSCAR
 		 */
 		JButton btnBuscar = new JButton();
+		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String productoABuscar = textField.getText(); 
@@ -92,10 +105,7 @@ public class VentanaEliminarProducto extends JFrame {
 					lblMostrarP.setText(producto.toString()); // Muestra el nombre del autor actualmente
 																	// seleccionado				
 				}
-				else {
-					alertaMensaje("No se encontro el producto en este almacen", "Error: producto no encontrado", 0);
-					
-				}
+				
 				
 			}
 		});
@@ -109,35 +119,44 @@ public class VentanaEliminarProducto extends JFrame {
 		btnBuscar.setBackground(new Color(0, 171, 197));
 		
 	    lblMostrarP = new JTextPane();
+		
+		JLabel lblEliminarProductoDel = new JLabel("Eliminar producto de "+controlAlmacen.getTipoAlmacen());
+		lblEliminarProductoDel.setForeground(Color.GRAY);
+		lblEliminarProductoDel.setFont(new Font("Dialog", Font.BOLD, 24));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(26)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE))
-							.addGap(30)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnBuscar, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)))
+							.addContainerGap()
+							.addComponent(lblEliminarProductoDel, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(57)
-							.addComponent(lblMostrarP, GroupLayout.PREFERRED_SIZE, 418, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(20, Short.MAX_VALUE))
+							.addGap(45)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(btnBuscar, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+								.addComponent(lblMostrarP, GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+									.addGap(201)
+									.addComponent(btnCancelar, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))))
+					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(28)
+					.addGap(15)
+					.addComponent(lblEliminarProductoDel, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnBuscar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
-					.addGap(46)
+						.addComponent(btnBuscar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
 					.addComponent(lblMostrarP, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+					.addGap(39)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))

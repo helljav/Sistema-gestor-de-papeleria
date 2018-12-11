@@ -26,7 +26,7 @@ public class DAOProducto {
 			// Crea el statement
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 			// Recibe los resutados
-			ResultSet rs = statement.executeQuery("SELECT * FROM Productos WHERE nombre = '"+productoABuscar+"' AND tipoAlmacen ='"+ tipoAlmacen+"'");
+			ResultSet rs = statement.executeQuery("SELECT * FROM Productos WHERE nombre LIKE '%"+productoABuscar+"%' AND tipoAlmacen ='"+ tipoAlmacen+"'");
 			while (rs.next()) {
 				// Crea una nueva instancia del objeto
 				Producto p = new Producto(rs.getString("nombre"),rs.getDouble("precio"),rs.getString("descripcion"),rs.getDouble("descuento"));
@@ -43,18 +43,52 @@ public class DAOProducto {
 		}
 	}
 	
+	public boolean eliminarDeAlmacen(Almacen producto) {
+		int resultado = 0;
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+			// Recibe los resutados
+			resultado = statement.executeUpdate("DELETE FROM Productos WHERE nombre='" + producto.getNombreProducto()
+					+ "' AND tipoAlmacen='" + producto.getTipoAlmacen() + "'");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if (resultado == 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	
 	public boolean agregarAlAlmacen(Almacen A) {
 		try {
 			// Crea el statement para hacer la conexion a la base de datos
 			Statement statement2 = ManejadorBD.dameConnection().createStatement();
 			// Envia instruccion SQL, nota el DEFAULT es para insertar la llave autogenerada
-			statement2.execute("insert into Productos values('" + A.getNombreProducto() + "'," + A.getPrecioProducto() + ",'" + A.getDescripcionProducto() + "'," + A.getCantidad()+"," +A.getDesceuntoProducto()+ ",'"  +A.getFechaIngreso()+"','"+ A.getTipoAlmacen() +"')");
+			statement2.execute("insert into Productos values('" + A.getNombreProducto() + "'," + A.getPrecioProducto() + ",'" + A.getDescripcionProducto() + "'," + A.getCantidadProducto()+"," +A.getDesceuntoProducto()+ ",'"  +A.getFechaIngreso()+"','"+ A.getTipoAlmacen() +"')");
 			return true;
 		} catch (SQLException e) {
 			// Cacha excepcion
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	public boolean modificarProducto(Almacen A, Almacen ProductoAnteior) {
+		try {
+			// Crea el statement para hacer la conexion a la base de datos
+			Statement statement2 = ManejadorBD.dameConnection().createStatement();
+			// Envia instruccion SQL, nota el DEFAULT es para insertar la llave autogenerada
+			statement2.executeUpdate("UPDATE Productos SET nombre='" + A.getNombreProducto()+"', precio = "+A.getPrecioProducto()+", descripcion = '"+A.getDescripcionProducto()+"', cantidad = "+A.getCantidadProducto()+", descuento ="+A.getDesceuntoProducto()+", fecha ='"+A.getFechaIngreso()+"', tipoAlmacen ='"+A.getTipoAlmacen()+"'WHERE descripcion = '"+ProductoAnteior.getDescripcionProducto()+"'");//"precio ="+ProductoAnteior.getPrecioProducto()+" AND "+"descripcion ='"+ProductoAnteior.getDescripcionProducto()+"' AND "+"cantidad= "+ProductoAnteior.getCantidadProducto()+" AND "+"descuento ="+ProductoAnteior.getDesceuntoProducto()+" AND "+"fecha ='"+ProductoAnteior.getFechaIngreso()+"' AND "+"tipoAlmacen = '"+ProductoAnteior.getTipoAlmacen()+"'");                                                
+			return true;
+		} catch (SQLException e) {
+			// Cacha excepcion
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 
 }

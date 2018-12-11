@@ -31,9 +31,11 @@ public class Producto {
 	}
 	public void setDescuento(double descuento) {
 		this.descuento = descuento;
-	}public void setNombreProd(String nombreProd) {
+	}
+	public void setNombreProd(String nombreProd) {
 		this.nombreProd = nombreProd;
-	}public void setPrecio(double precio) {
+	}
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 	
