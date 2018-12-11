@@ -55,6 +55,7 @@ public class ControlAlmacen {
 		GUIEliminarP.setLocationRelativeTo(null);
 
 	}
+
 	public void DespliegaVModificarProducto() {
 		GUIModificarP = new VentanaModificarProducto(this);
 		GUIModificarP.setVisible(true);
@@ -73,6 +74,7 @@ public class ControlAlmacen {
 			Almacen A = new Almacen(P, cantidad, fecha, tipoAlmacen);
 			dao.agregarAlAlmacen(A);
 			GUIAgregarP.alertaMensaje("Producto agregado al almacen", "Producto agregado", 1);
+			GUIAgregarP.setVisible(false);
 		} catch (Exception e) {
 			GUIAgregarP.alertaMensaje("El producto no se pudo agregar al almacen", "Fatal error", 0);
 		}
@@ -82,48 +84,53 @@ public class ControlAlmacen {
 	public Almacen buscarProducto(String productoABuscar, String tipoAlmacen) {
 		// Se crea la lista de autores para poder mostrarle al usuario
 		Almacen arregloProdutos[] = dao.dameProductos(productoABuscar, tipoAlmacen); // Obtiene lista de autores
-		DialogoMostrarProducto dialogo = new DialogoMostrarProducto(new JFrame(), arregloProdutos); // Crea el dialogo con la lista de productos
+		DialogoMostrarProducto dialogo = new DialogoMostrarProducto(new JFrame(), arregloProdutos); // Crea el dialogo
+																									// con la lista de
+																									// productos
 		if (arregloProdutos.length == 0) {
 			GUIEliminarP.alertaMensaje("No se encontro el producto en este almacen", "Error", 0);
-		} else {			
+		} else {
 			dialogo.setVisible(true); // Muestra el dialogo
 		}
 		return dialogo.getProductoSeleccionado(); // Regresa el autor seleccionado en el dialogo
 	}
-	
-	
+
 	public void eliminarProducto(Almacen producto) {
 		try {
-			if(dao.eliminarDeAlmacen(producto)) {
-				GUIEliminarP.alertaMensaje("El producto fue eliminado del almacen "+producto.getTipoAlmacen(),"Success exito" , 1);
+			if (dao.eliminarDeAlmacen(producto)) {
+				GUIEliminarP.alertaMensaje("El producto fue eliminado del almacen " + producto.getTipoAlmacen(),
+						"Success exito", 1);
+				GUIEliminarP.setVisible(false);
+			} else {
+				GUIEliminarP.alertaMensaje("El producto no se pudo eliminar del almacen " + producto.getTipoAlmacen(),
+						"Error :(", 0);
+
 			}
-			else {
-				GUIEliminarP.alertaMensaje("El producto no se pudo eliminar del almacen "+producto.getTipoAlmacen(),"Error :(" , 0);
-				
-			}
-			
-		}catch(Exception e) {
-			GUIEliminarP.alertaMensaje("Ocurrio un error, llame al administrador ","Error" , 0);
-			
+
+		} catch (Exception e) {
+			GUIEliminarP.alertaMensaje("Ocurrio un error, llame al administrador ", "Error", 0);
+
 		}
-		
+
 	}
-	
-	public void  modificarProducto(Almacen producto, Almacen productoAnteiror) {
+
+	public void modificarProducto(Almacen producto, Almacen productoAnteiror) {
+		boolean bandera;
 		try {
-			if(dao.modificarProducto(producto, productoAnteiror)) {
-				GUIEliminarP.alertaMensaje("El producto fue eliminado del almacen "+producto.getTipoAlmacen(),"Success exito" , 1);
+			bandera = dao.modificarProducto(producto, productoAnteiror);
+			System.out.println("bandera de modificar producto : " + bandera);
+			if (bandera) {
+				GUIModificarP.alertaMensaje("El producto fue modificado de " + producto.getTipoAlmacen(),
+						"Success exito", 1);
+				GUIModificarP.setVisible(false);
+			} else {
+				GUIModificarP.alertaMensaje("El producto no se pudo modificar del almacen " + producto.getTipoAlmacen(),
+						"Error :(", 0);
 			}
-			else {
-				GUIEliminarP.alertaMensaje("El producto no se pudo eliminar del almacen "+producto.getTipoAlmacen(),"Error :(" , 0);
-				
-			}
-			
-			
-		}catch(Exception e) {
-			
+		} catch (Exception e) {
+			GUIModificarP.alertaMensaje("Ocurrio un error, llame al administrador ", "Error", 0);
 		}
-		
+
 	}
 
 }

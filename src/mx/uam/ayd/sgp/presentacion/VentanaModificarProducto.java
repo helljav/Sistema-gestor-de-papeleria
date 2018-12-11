@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextPane;
@@ -17,6 +18,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import app.bolivia.swing.JCTextField;
 import mx.uam.ayd.sgp.modelo.Almacen;
+import mx.uam.ayd.sgp.modelo.Producto;
 import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 import java.awt.Toolkit;
 import javax.swing.UIManager;
@@ -36,6 +38,7 @@ public class VentanaModificarProducto extends JFrame {
 	private JTextField textField_5;
 	private ControlAlmacen controlAlmacen;
 	private Almacen producto;
+	private Almacen produtoAnterior;
 	
 	
 
@@ -131,9 +134,7 @@ public class VentanaModificarProducto extends JFrame {
 									
 				
 					textField_4.setEnabled(true);
-					textField_4.setText(Integer.toString(producto.getCantidadProducto()));
-					
-					
+					textField_4.setText(Integer.toString(producto.getCantidadProducto()));				
 					
 					textField_5.setEnabled(true);
 					textField_5.setText(producto.getFechaIngreso());
@@ -157,9 +158,9 @@ public class VentanaModificarProducto extends JFrame {
 		JButton btnModificar = new JButton();
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 Almacen produtoAnterior = producto;
-				 
-				 System.out.println("viejo producto \n"+producto.toString());
+				 produtoAnterior = new Almacen(producto.getProducto(), producto.getCantidadProducto(), producto.getFechaIngreso(),producto.getTipoAlmacen());
+				 System.out.println("\n\n neta no mames carnal "+produtoAnterior.toString()+"\n\n");
+				 //nuevos datos cargados desde la caja de texto
 				 String nombre = textField.getText();
 				 String descripcion = textField_1.getText();
 				 double precio = Double.parseDouble(textField_2.getText());
@@ -167,19 +168,15 @@ public class VentanaModificarProducto extends JFrame {
 				 int cantidad = Integer.parseInt(textField_4.getText());
 				 String fecha = textField_5.getText();
 				 
-				 producto.setNombre(nombre);
-				 
-				 producto.setdescripcionProducto(descripcion);
-				 
-				 producto.setPrecioProducto(precio);
-				
-				 producto.setDescuento(descuento);
-				
-				 producto.setCantidadProducto(cantidad);
-				
-				 producto.setFechaIngreso(fecha);
-				 System.out.println("Nuevo producto \n"+producto.toString());
-				 controlAlmacen.modificarProducto(producto,produtoAnterior);				
+				 Producto nproducto = new Producto(nombre, precio, descripcion, descuento);   
+				 Almacen nuevoproducto = new Almacen(nproducto, cantidad, fecha, controlAlmacen.getTipoAlmacen());
+				 controlAlmacen.modificarProducto(nuevoproducto,produtoAnterior);
+				 textField.setText("");
+				 textField_1.setText("");
+				 textField_2.setText("");
+				 textField_3.setText("");
+				 textField_4.setText("");
+				 textField_5.setText("");
 			}
 		});
 		btnModificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -293,5 +290,8 @@ public class VentanaModificarProducto extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
+	public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
+		 JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
+	    }
 }
 

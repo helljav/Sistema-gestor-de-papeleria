@@ -77,11 +77,13 @@ public class DAOProducto {
 	}
 	
 	public boolean modificarProducto(Almacen A, Almacen ProductoAnteior) {
+		System.out.println("Nuevo producto en dao \n\n" +A.toString()+"\n\n");
+		System.out.println("viejo producto en dao \n\n"+ProductoAnteior.toString());
 		try {
 			// Crea el statement para hacer la conexion a la base de datos
 			Statement statement2 = ManejadorBD.dameConnection().createStatement();
 			// Envia instruccion SQL, nota el DEFAULT es para insertar la llave autogenerada
-			statement2.executeUpdate("UPDATE Productos SET nombre='" + A.getNombreProducto()+"', precio = "+A.getPrecioProducto()+", descripcion = '"+A.getDescripcionProducto()+"', cantidad = "+A.getCantidadProducto()+", descuento ="+A.getDesceuntoProducto()+", fecha ='"+A.getFechaIngreso()+"', tipoAlmacen ='"+A.getTipoAlmacen()+"'WHERE descripcion = '"+ProductoAnteior.getDescripcionProducto()+"'");//"precio ="+ProductoAnteior.getPrecioProducto()+" AND "+"descripcion ='"+ProductoAnteior.getDescripcionProducto()+"' AND "+"cantidad= "+ProductoAnteior.getCantidadProducto()+" AND "+"descuento ="+ProductoAnteior.getDesceuntoProducto()+" AND "+"fecha ='"+ProductoAnteior.getFechaIngreso()+"' AND "+"tipoAlmacen = '"+ProductoAnteior.getTipoAlmacen()+"'");                                                
+			statement2.executeUpdate("UPDATE Productos SET nombre='" + A.getNombreProducto()+"', precio = "+A.getPrecioProducto()+", descripcion = '"+A.getDescripcionProducto()+"', cantidad = "+A.getCantidadProducto()+", descuento ="+A.getDesceuntoProducto()+", fecha ='"+A.getFechaIngreso()+"', tipoAlmacen ='"+A.getTipoAlmacen()+"'WHERE nombre='"+ProductoAnteior.getNombreProducto()+"' AND  descripcion = '"+ProductoAnteior.getDescripcionProducto()+"'");//"precio ="+ProductoAnteior.getPrecioProducto()+" AND "+"descripcion ='"+ProductoAnteior.getDescripcionProducto()+"' AND "+"cantidad= "+ProductoAnteior.getCantidadProducto()+" AND "+"descuento ="+ProductoAnteior.getDesceuntoProducto()+" AND "+"fecha ='"+ProductoAnteior.getFechaIngreso()+"' AND "+"tipoAlmacen = '"+ProductoAnteior.getTipoAlmacen()+"'");                                                
 			return true;
 		} catch (SQLException e) {
 			// Cacha excepcion
