@@ -35,6 +35,7 @@ public class VentanaPrincipalAdministrador extends JFrame {
 	
 	
 	public VentanaPrincipalAdministrador(ControlVAdministrador ctrl) {
+		setUndecorated(true);
 		controlVAdmin = ctrl;
 		setTitle("Sistema papeleria \"Renteria\".  Administrador");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
@@ -139,22 +140,22 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		lblSalir.setAlignmentY(1.0f);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(210)
 					.addComponent(lblSalir, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
 					.addGap(208))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(lblConsultaVentas, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-						.addComponent(labelRealizarVenta, GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(labelRealizarVenta, GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+						.addComponent(lblConsultaVentas, GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
 					.addGap(175)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblAdministrarUsuarios, GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+						.addComponent(lblAdministrarUsuarios, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
 						.addComponent(lblRealizarPedido, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(220)
 					.addComponent(lblElegirAlmacen, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
 					.addGap(195))
@@ -165,18 +166,18 @@ public class VentanaPrincipalAdministrador extends JFrame {
 					.addGap(29)
 					.addComponent(lblElegirAlmacen, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
 					.addGap(12)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(39)
-							.addComponent(lblRealizarPedido)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblRealizarPedido)
+								.addComponent(labelRealizarVenta, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
 							.addGap(361))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(18)
-							.addComponent(labelRealizarVenta, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGap(146)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblConsultaVentas, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblAdministrarUsuarios, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+								.addComponent(lblAdministrarUsuarios, GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
 							.addGap(27)
 							.addComponent(lblSalir)
 							.addGap(40))))
