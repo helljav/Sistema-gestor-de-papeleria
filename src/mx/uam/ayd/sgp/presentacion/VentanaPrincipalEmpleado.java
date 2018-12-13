@@ -29,7 +29,7 @@ import java.awt.event.KeyEvent;
 public class VentanaPrincipalEmpleado extends JFrame {
 
 	private JPanel contentPane;
-    private ControlVEmpleado ctrl;
+    private ControlVEmpleado ctrlVE;
 	/**
 	 * Launch the application.
 	 */
@@ -41,7 +41,8 @@ public class VentanaPrincipalEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrincipalEmpleado(ControlVEmpleado ctrl) {
-		this.ctrl=ctrl;
+		setUndecorated(true);
+		this.ctrlVE=ctrl;
 		setTitle("Sistema papeleria \"Renteria\".  Empleado");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -89,6 +90,13 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		 */
 		
 		JLabel lblRealizarPedido = new JLabel("Realizar pedido");
+		lblRealizarPedido.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ctrlVE.iniciaVAdminPedido();
+				setExtendedState(ICONIFIED);
+			}
+		});
 		lblRealizarPedido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblRealizarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\pedido-online.png"));
 		lblRealizarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);

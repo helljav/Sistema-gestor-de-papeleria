@@ -70,8 +70,8 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		lblElegirAlmacen.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\icons8-producto-nuevo-64.png"));
 		
 		JLabel labelRealizarVenta = new JLabel("Realizar venta");
-		labelRealizarVenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		labelRealizarVenta.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\bienes.png"));
+		labelRealizarVenta.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		labelRealizarVenta.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\bienes Empleado.png"));
 		labelRealizarVenta.setVerticalTextPosition(SwingConstants.BOTTOM);
 		labelRealizarVenta.setVerticalAlignment(SwingConstants.BOTTOM);
 		labelRealizarVenta.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -82,8 +82,8 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		labelRealizarVenta.setAlignmentY(1.0f);
 		
 		JLabel lblRealizarPedido = new JLabel("Realizar pedido");
-		lblRealizarPedido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblRealizarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\pedido-online.png"));
+		lblRealizarPedido.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		lblRealizarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\pedido-online Empleado.png"));
 		lblRealizarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblRealizarPedido.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblRealizarPedido.setHorizontalTextPosition(SwingConstants.CENTER);

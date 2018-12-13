@@ -45,7 +45,7 @@ public class VentanaEliminarProducto extends JFrame {
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 562, 467);
+		setBounds(100, 100, 609, 467);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -122,28 +122,32 @@ public class VentanaEliminarProducto extends JFrame {
 		
 		JLabel lblEliminarProductoDel = new JLabel("Eliminar producto de "+controlAlmacen.getTipoAlmacen());
 		lblEliminarProductoDel.setForeground(Color.GRAY);
-		lblEliminarProductoDel.setFont(new Font("Dialog", Font.BOLD, 24));
+		lblEliminarProductoDel.setFont(new Font("Dialog", Font.BOLD, 20));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_contentPane.createSequentialGroup()
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(lblEliminarProductoDel, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
-						.addGroup(gl_contentPane.createSequentialGroup()
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 							.addGap(45)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(btnBuscar, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
-								.addComponent(lblMostrarP, GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+									.addComponent(btnBuscar, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-									.addGap(201)
-									.addComponent(btnCancelar, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))))
+									.addPreferredGap(ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+									.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
+									.addGap(43)))))
 					.addContainerGap())
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(23)
+					.addComponent(lblMostrarP, GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+					.addGap(32))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -154,12 +158,12 @@ public class VentanaEliminarProducto extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnBuscar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
 					.addComponent(lblMostrarP, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
-					.addGap(39)
+					.addGap(36)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 					.addGap(26))
 		);
 		contentPane.setLayout(gl_contentPane);

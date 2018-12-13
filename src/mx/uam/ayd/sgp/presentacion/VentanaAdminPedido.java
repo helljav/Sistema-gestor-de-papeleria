@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import mx.uam.ayd.sgp.negocio.ControlVEmpleado;
+
 import java.awt.Toolkit;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -18,15 +21,20 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import java.awt.Font;
 import java.awt.Point;
+import java.awt.Cursor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaAdminPedido extends JFrame {
 
 	private JPanel contentPane;
+	private ControlVEmpleado controlVE;
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaAdminPedido() {
+	public VentanaAdminPedido(ControlVEmpleado ctrl) {
+		controlVE = ctrl;
 		setUndecorated(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,8 +44,16 @@ public class VentanaAdminPedido extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
-		
+		/*
+		 * Configuracion del boton cancelar
+		 */
 		JButton button = new JButton();
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.setText("CANCELAR");
 		button.setSelected(true);
 		button.setLocation(new Point(28, 14));
@@ -82,27 +98,19 @@ public class VentanaAdminPedido extends JFrame {
 		lblCancelarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblCancelarPedido.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCancelarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Eliminar pedido.png"));
-		
-		JLabel lblModificarPedido = new JLabel("Modificar pedido");
-		lblModificarPedido.setHorizontalAlignment(SwingConstants.CENTER);
-		lblModificarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblModificarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblModificarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Modificar pedido.png"));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(35)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(lblCancelarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-							.addGap(146)
-							.addComponent(lblModificarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(lblRegistarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(lblLiquidarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap())
+					.addComponent(lblRegistarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+					.addGap(130)
+					.addComponent(lblLiquidarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+					.addGap(26))
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addContainerGap(160, Short.MAX_VALUE)
+					.addComponent(lblCancelarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+					.addGap(142))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -111,11 +119,9 @@ public class VentanaAdminPedido extends JFrame {
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblRegistarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblLiquidarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
-					.addGap(45)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblCancelarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblModificarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
+					.addGap(32)
+					.addComponent(lblCancelarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
+					.addGap(24))
 		);
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);

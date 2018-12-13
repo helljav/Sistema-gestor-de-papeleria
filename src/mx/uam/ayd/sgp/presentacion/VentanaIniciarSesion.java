@@ -38,7 +38,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	private JTextField textField_1;
 	
 	
-	  // Variables declaration - do not modify//GEN-BEGIN:variables
+	// Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private app.bolivia.swing.JCTextField txtusuario;
     private JCTextField txtContraseña;
@@ -58,6 +58,9 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
     public void alertaMensaje() {
     	JOptionPane.showMessageDialog(null,"Usuario no identificado");
     }
+	public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
+		 JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
+	    }
 	
 
 
@@ -70,7 +73,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		control = ctrl;
 		
-		  jPanel1 = new javax.swing.JPanel();
+		    jPanel1 = new javax.swing.JPanel();
 	        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
 	        panelImage2 = new org.edisoncor.gui.panel.PanelImage();
 	        panelImage3 = new org.edisoncor.gui.panel.PanelImage();
@@ -218,6 +221,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	        JButton btnSalir = new JButton();
 	        btnSalir.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent arg0) {
+	        		alertaMensaje("El sistema se cerrara", "Adios", 1);
 	        		System.exit(0);
 	        	}
 	        });
