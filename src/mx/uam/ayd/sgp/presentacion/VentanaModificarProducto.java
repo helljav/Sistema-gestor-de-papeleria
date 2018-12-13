@@ -57,7 +57,7 @@ public class VentanaModificarProducto extends JFrame {
 		
 		JLabel lblModificarProducto = new JLabel("Modificar producto de "+controlAlmacen.getTipoAlmacen());
 		lblModificarProducto.setForeground(Color.GRAY);
-		lblModificarProducto.setFont(new Font("Dialog", Font.BOLD, 24));
+		lblModificarProducto.setFont(new Font("Dialog", Font.BOLD, 19));
 		
 		JLabel lblProducto = new JLabel("Producto:");
 		lblProducto.setFont(new Font("Dialog", Font.BOLD, 12));
@@ -157,7 +157,7 @@ public class VentanaModificarProducto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 				 produtoAnterior = new Almacen(producto.getProducto(), producto.getCantidadProducto(), producto.getFechaIngreso(),producto.getTipoAlmacen());
-				 System.out.println("\n\n neta no mames carnal "+produtoAnterior.toString()+"\n\n");
+				 System.out.println("\n\n neta no carnal "+produtoAnterior.toString()+"\n\n");
 				 //nuevos datos cargados desde la caja de texto
 				 String nombre = textField.getText();
 				 String descripcion = textField_1.getText();
@@ -212,17 +212,12 @@ public class VentanaModificarProducto extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(40)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(buttonBuscar, GroupLayout.PREFERRED_SIZE, 156, GroupLayout.PREFERRED_SIZE)
-									.addGap(197))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(lblModificarProducto, GroupLayout.PREFERRED_SIZE, 519, GroupLayout.PREFERRED_SIZE)
-									.addContainerGap())))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(buttonBuscar, GroupLayout.PREFERRED_SIZE, 156, GroupLayout.PREFERRED_SIZE)
+							.addGap(197))
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(btnModificar, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
@@ -247,6 +242,10 @@ public class VentanaModificarProducto extends JFrame {
 										.addComponent(textField_4, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
 										.addComponent(textField_5, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))))
 							.addGap(51))))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblModificarProducto, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
