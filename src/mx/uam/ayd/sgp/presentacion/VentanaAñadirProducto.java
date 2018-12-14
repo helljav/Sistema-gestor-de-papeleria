@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import app.bolivia.swing.JCTextField;
 import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 
 import java.awt.Toolkit;
@@ -15,7 +16,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTextField;
+
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.UIManager;
@@ -29,13 +30,19 @@ import java.awt.Point;
 public class VentanaAñadirProducto extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtNomProducto;
-	private JTextField txtDescripcion;
-	private JTextField txtPrecio;
-	private JTextField txtDescuento;
+//	private JTextField txtNomProducto;
+//	private JTextField txtDescripcion;
+//	private JTextField txtPrecio;
+//	private JTextField txtDescuento;
 	private ControlAlmacen ctrlAlmacen;
-	private JTextField txtCantidad;
-	private JTextField txtFecha;
+//	private JTextField txtCantidad;
+//	private JTextField txtFecha;
+	private JCTextField txtNomProducto;
+	private JCTextField txtDescripcion;
+	private JCTextField txtPrecio;
+	private JCTextField txtDescuento;
+	private JCTextField txtCantidad;
+	private JCTextField txtFecha;
 	
 	 public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
 		 JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
@@ -59,16 +66,24 @@ public class VentanaAñadirProducto extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		txtNomProducto = new JTextField();
+		txtNomProducto = new JCTextField();
+		txtNomProducto.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtNomProducto.setPlaceholder("Ingrese el nombre");
 		txtNomProducto.setColumns(10);
 		
-		txtDescripcion = new JTextField();
+		txtDescripcion = new JCTextField();
+		txtDescripcion.setPlaceholder("Ingrese descripcion");
+		txtDescripcion.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtDescripcion.setColumns(10);
 		
-		txtPrecio = new JTextField();
+		txtPrecio = new JCTextField();
+		txtPrecio.setPlaceholder("$");
+		txtPrecio.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtPrecio.setColumns(10);
 		
-		txtDescuento = new JTextField();
+		txtDescuento = new JCTextField();
+		txtDescuento.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtDescuento.setPlaceholder("% de descuento");
 		txtDescuento.setColumns(10);
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON ACEPTAR 
@@ -77,12 +92,12 @@ public class VentanaAñadirProducto extends JFrame {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-				 String nombre = txtNomProducto.getText();
-				 String descripcion = txtDescripcion.getText();
+				 String nombre = txtNomProducto.getText().toUpperCase();
+				 String descripcion = txtDescripcion.getText().toUpperCase();
 				 double precio = Double.parseDouble(txtPrecio.getText());
 				 double descuento = Double.parseDouble(txtDescuento.getText());
 				 int cantidad = Integer.parseInt(txtCantidad.getText());
-				 String tipoAlmacen = ctrlAlmacen.getTipoAlmacen();
+				 String tipoAlmacen = ctrlAlmacen.getTipoAlmacen().toUpperCase();
 				 String fecha = txtFecha.getText();
 				 ctrlAlmacen.agregarProducto(nombre, precio, descripcion, cantidad, descuento, fecha, tipoAlmacen);
 				}catch(Exception e2) {
@@ -155,7 +170,9 @@ public class VentanaAñadirProducto extends JFrame {
 		lblCantidadProducto.setForeground(Color.BLACK);
 		lblCantidadProducto.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		txtCantidad = new JTextField();
+		txtCantidad = new JCTextField();
+		txtCantidad.setPlaceholder("Numero de piezas");
+		txtCantidad.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtCantidad.setColumns(10);
 		
 		JLabel lblFecha = new JLabel();
@@ -164,7 +181,9 @@ public class VentanaAñadirProducto extends JFrame {
 		lblFecha.setForeground(Color.BLACK);
 		lblFecha.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		txtFecha = new JTextField();
+		txtFecha = new JCTextField();
+		txtFecha.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtFecha.setPlaceholder("\"2018/01/01\"");
 		txtFecha.setColumns(10);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(

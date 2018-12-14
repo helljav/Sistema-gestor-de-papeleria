@@ -99,8 +99,8 @@ public class VentanaEliminarProducto extends JFrame {
 		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String productoABuscar = textField.getText(); 
-				producto = controlAlmacen.buscarProducto(productoABuscar,controlAlmacen.getTipoAlmacen());
+				String productoABuscar = textField.getText().toUpperCase(); 
+				producto = controlAlmacen.buscarProducto(productoABuscar,controlAlmacen.getTipoAlmacen().toUpperCase());
 				if (producto != null) {
 					lblMostrarP.setText(producto.toString()); // Muestra el nombre del autor actualmente
 																	// seleccionado				

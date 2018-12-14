@@ -115,9 +115,10 @@ public class VentanaModificarProducto extends JFrame {
 		buttonBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String productoABuscar = txtProducto.getText();
+				//Se obtine del cuadro de texto el libro a buscar
+				String productoABuscar = txtProducto.getText().toUpperCase();
 				
-				producto = controlAlmacen.buscarProducto(productoABuscar,controlAlmacen.getTipoAlmacen());
+				producto = controlAlmacen.buscarProducto(productoABuscar,controlAlmacen.getTipoAlmacen().toUpperCase());
 				if (producto != null) {					
 					textField.setEnabled(true);
 					textField.setText(producto.getNombreProducto());
@@ -166,8 +167,8 @@ public class VentanaModificarProducto extends JFrame {
 				 int cantidad = Integer.parseInt(textField_4.getText());
 				 String fecha = textField_5.getText();
 				 
-				 Producto nproducto = new Producto(nombre, precio, descripcion, descuento);   
-				 Almacen nuevoproducto = new Almacen(nproducto, cantidad, fecha, controlAlmacen.getTipoAlmacen());
+				 Producto nproducto = new Producto(nombre.toUpperCase(), precio, descripcion.toUpperCase(), descuento);   
+				 Almacen nuevoproducto = new Almacen(nproducto, cantidad, fecha, controlAlmacen.getTipoAlmacen().toUpperCase());
 				 controlAlmacen.modificarProducto(nuevoproducto,produtoAnterior);
 				 textField.setText("");
 				 textField_1.setText("");
