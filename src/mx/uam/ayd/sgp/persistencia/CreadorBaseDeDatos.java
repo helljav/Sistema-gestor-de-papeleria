@@ -17,7 +17,7 @@ public class CreadorBaseDeDatos {
 			Connection connection = ManejadorBD.dameConnection();
 
 			Statement statement = connection.createStatement();
-			statement.execute("create table Usuarios(usuario varchar(40), contraseña varchar(40),tipoCuenta varchar(20),nombre varchar(40),apellidos varchar(100),telefono (40))"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
+			statement.execute("create table Usuarios(idempleado PRIMARY KEY,usuario varchar(40), contraseña varchar(40),tipoCuenta varchar(20),nombre varchar(40),apellidos varchar(100),telefono (40))");
 			System.out.println("Tabla de Usuarios creada exitosamente");
 			statement.execute("insert into Usuarios values('" + "admin" + "','" + "123"+ "','" + "ADMINISTRADOR" + "')");
 			statement.execute("insert into Usuarios values('" + "empleado" + "','" + "321"+ "','" + "EMPLEADO" + "')");
