@@ -12,6 +12,8 @@ import javax.swing.JTable;
 import javax.swing.JTree;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.awt.Toolkit;
+
 import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JMenuBar;
@@ -46,6 +48,7 @@ public class ventanaLiquidarPedido extends JFrame {
 	 */
 	public ventanaLiquidarPedido() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
 		setBounds(100, 100, 800, 371);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

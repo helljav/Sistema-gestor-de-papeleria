@@ -36,7 +36,7 @@ public class VentanaAdminPedido extends JFrame {
 	public VentanaAdminPedido(ControlVEmpleado ctrl) {
 		controlVE = ctrl;
 		setUndecorated(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 512, 338);
 		contentPane = new JPanel();
@@ -85,19 +85,19 @@ public class VentanaAdminPedido extends JFrame {
 		lblRegistarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblRegistarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblRegistarPedido.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRegistarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Registrar pedido.png"));
+		lblRegistarPedido.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\Registrar pedido.png"));
 		
 		JLabel lblLiquidarPedido = new JLabel("Liquidar pedido");
 		lblLiquidarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblLiquidarPedido.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLiquidarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblLiquidarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Liquidar pedido.png"));
+		lblLiquidarPedido.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\Liquidar pedido.png"));
 		
 		JLabel lblCancelarPedido = new JLabel("Cancelar pedido");
 		lblCancelarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblCancelarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblCancelarPedido.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCancelarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Eliminar pedido.png"));
+		lblCancelarPedido.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\Eliminar pedido.png"));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)

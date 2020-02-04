@@ -47,7 +47,7 @@ public class VentanaModificarProducto extends JFrame {
 	 */
 	public VentanaModificarProducto(ControlAlmacen ctrl) {
 		setUndecorated(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
 		controlAlmacen = ctrl;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 562, 467);
