@@ -30,6 +30,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 
 	private JPanel contentPane;
     private ControlVEmpleado ctrlVE;
+   
 	/**
 	 * Launch the application.
 	 */
@@ -44,7 +45,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		setUndecorated(true);
 		this.ctrlVE=ctrl;
 		setTitle("Sistema papeleria \"Renteria\".  Empleado");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 622, 700);
 		contentPane = new JPanel();
@@ -60,7 +61,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		lblElegirAlmacen.setFont(new Font("Consolas", Font.PLAIN, 16));
 		lblElegirAlmacen.setForeground(Color.BLACK);
 		lblElegirAlmacen.setBackground(Color.BLUE);
-		lblElegirAlmacen.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\icons8-producto-nuevo-64 empleado.png"));
+		lblElegirAlmacen.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\icons8-producto-nuevo-64 empleado.png"));
 		
 		/*
 		 * 		Eventos y configuraciones para el label Realizae venta
@@ -71,11 +72,12 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		labelRealizarVenta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				ctrlVE.iniciaVenta();
+				setExtendedState(ICONIFIED);
 				System.out.println("Realizar venta");
 			}
 		});
-		labelRealizarVenta.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\bienes.png"));
+		labelRealizarVenta.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\bienes.png"));
 		labelRealizarVenta.setVerticalTextPosition(SwingConstants.BOTTOM);
 		labelRealizarVenta.setVerticalAlignment(SwingConstants.BOTTOM);
 		labelRealizarVenta.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -98,7 +100,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 			}
 		});
 		lblRealizarPedido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblRealizarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\pedido-online.png"));
+		lblRealizarPedido.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\pedido-online.png"));
 		lblRealizarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblRealizarPedido.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblRealizarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -113,7 +115,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		 */
 		
 		JLabel lblConsultaVentas = new JLabel("Consulta ventas");
-		lblConsultaVentas.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Query_icon-icons.com_53746 - empleado.png"));
+		lblConsultaVentas.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\Query_icon-icons.com_53746 - empleado.png"));
 		lblConsultaVentas.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblConsultaVentas.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblConsultaVentas.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -128,7 +130,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		 */
 		
 		JLabel lblAdministrarUsuarios = new JLabel("Administrar Usuarios");
-		lblAdministrarUsuarios.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\usuario - empleado.png"));
+		lblAdministrarUsuarios.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\usuario - empleado.png"));
 		lblAdministrarUsuarios.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblAdministrarUsuarios.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblAdministrarUsuarios.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -153,7 +155,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 				setVisible(false);
 			}
 		});
-		lblCerrarSesion.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Logout_37127.png"));
+		lblCerrarSesion.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\Logout_37127.png"));
 		lblCerrarSesion.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblCerrarSesion.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblCerrarSesion.setHorizontalTextPosition(SwingConstants.CENTER);

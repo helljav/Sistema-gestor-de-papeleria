@@ -43,7 +43,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		setUndecorated(true);
 		
 		setTitle("Seleccionar Almacen");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
 		ctrlalma=alma1;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 458, 479);
@@ -65,7 +65,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almacenGeneral.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\almacenGeneral.png"));
 		
 		
 		/*
@@ -81,7 +81,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_1.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almDiaMuertos.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\almDiaMuertos.png"));
 		
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN DIA DE NAVIDAD
@@ -96,7 +96,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almNavidad.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\almNavidad.png"));
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN AMOR Y AMISTAD
 		 */
@@ -109,7 +109,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		});
 		lblNewLabel_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_3.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almAmorAmistad.png"));
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\almAmorAmistad.png"));
 		lblNewLabel_3.setHorizontalTextPosition(SwingConstants.CENTER);
 		
 		/*
@@ -124,7 +124,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		});
 		lblNewLabel_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_4.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almDiaMom.png"));
+		lblNewLabel_4.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\almDiaMom.png"));
 		lblNewLabel_4.setHorizontalTextPosition(SwingConstants.CENTER);
 		
 		/*
@@ -141,7 +141,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_5.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_5.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almIndep.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\almIndep.png"));
 		
 		JButton buttonCancelar = new JButton();
 		buttonCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
