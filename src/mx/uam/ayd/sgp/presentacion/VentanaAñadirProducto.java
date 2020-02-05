@@ -27,7 +27,7 @@ import java.awt.Cursor;
 import javax.swing.SwingConstants;
 import java.awt.Point;
 
-public class VentanaAñadirProducto extends JFrame {
+public class VentanaAÃ±adirProducto extends JFrame {
 
 	private JPanel contentPane;
 //	private JTextField txtNomProducto;
@@ -53,10 +53,10 @@ public class VentanaAñadirProducto extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaAñadirProducto(ControlAlmacen ctrl) {
+	public VentanaAÃ±adirProducto(ControlAlmacen ctrl) {
 		setUndecorated(true);
 		ctrlAlmacen = ctrl;
-		System.out.println("VentanaAñadirProducto");
+		System.out.println("VentanaAï¿½adirProducto");
 		System.out.println(ctrlAlmacen.getTipoAlmacen());
 		setTitle("A\u00F1adir Producto");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));

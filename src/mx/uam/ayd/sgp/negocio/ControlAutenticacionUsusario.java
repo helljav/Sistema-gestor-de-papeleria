@@ -26,11 +26,11 @@ public class ControlAutenticacionUsusario {
 	/**
 	 * Este metodo es utilizado por la ventana al momento de que el cliente  da clic en LOGIN
 	 * @param usuario: Ususario que proporciona el cliente desde la ventana
-	 * @param contraseña:Contraseña que porporciona el cliente desde la ventana 
+	 * @param contraseï¿½a:Contraseï¿½a que porporciona el cliente desde la ventana 
 	 */
-	public void Autentifica(String usuario, String contraseña) {		
+	public void Autentifica(String usuario, String contraseÃ±a) {		
 		try {
-			Usuario bandera = UserDAO.Autentifica(usuario, contraseña);
+			Usuario bandera = UserDAO.Autentifica(usuario, contraseÃ±a);
 			System.out.println(bandera);
 			System.out.println(bandera.getTipoCuenta());
 			if (bandera.getTipoCuenta().equals("ADMINISTRADOR")) {

@@ -11,7 +11,7 @@ import mx.uam.ayd.sgp.modelo.Almacen;
 import mx.uam.ayd.sgp.modelo.Producto;
 import mx.uam.ayd.sgp.persistencia.DAOProducto;
 import mx.uam.ayd.sgp.presentacion.DialogoMostrarProducto;
-import mx.uam.ayd.sgp.presentacion.VentanaAñadirProducto;
+import mx.uam.ayd.sgp.presentacion.VentanaAÃ±adirProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaCRUDAlmacen;
 import mx.uam.ayd.sgp.presentacion.VentanaEliminarProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaModificarProducto;
@@ -21,7 +21,7 @@ public class ControlAlmacen {
 
 	private DAOProducto dao;
 	private String tipoAlmacen;
-	private VentanaAñadirProducto GUIAgregarP;
+	private VentanaAÃ±adirProducto GUIAgregarP;
 	private VentanaEliminarProducto GUIEliminarP;
 	private VentanaModificarProducto GUIModificarP;
 
@@ -42,8 +42,8 @@ public class ControlAlmacen {
 		GUI.setLocationRelativeTo(null);
 	}
 
-	public void DespliegaVAñadirAlamcen() {
-		GUIAgregarP = new VentanaAñadirProducto(this);
+	public void DespliegaVAÃ±adirAlamcen() {
+		GUIAgregarP = new VentanaAÃ±adirProducto(this);
 		GUIAgregarP.setVisible(true);
 		GUIAgregarP.setLocationRelativeTo(null);
 

@@ -11,13 +11,13 @@ import mx.uam.ayd.sgp.modelo.Usuario;
 public class DAOUsuario {
 	
 	/**
-	 * Accede a la base de datos para identificar al usuario y la contraseña
+	 * Accede a la base de datos para identificar al usuario y la contraseï¿½a
 	 * @param usuario
-	 * @param contraseña
+	 * @param contraseï¿½a
 	 * @return
 	 */
 	
-	public Usuario Autentifica(String usuario, String contraseña) {
+	public Usuario Autentifica(String usuario, String contraseÃ±a) {
 		System.out.println("holi");
 		
 		Usuario user = null;
@@ -27,11 +27,11 @@ public class DAOUsuario {
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 			// Recibe los resutados
 			ResultSet rs = statement.executeQuery(
-					"SELECT * FROM Usuarios WHERE usuario='" + usuario + "'	AND contraseña='" + contraseña + "'");
+					"SELECT * FROM Usuarios WHERE usuario='" + usuario + "'	AND contraseÃ±a='" + contraseÃ±a + "'");
 			if (rs.next()) {
 				
 				// Crea una nueva instancia del objeto
-				user = new Usuario(rs.getString("usuario"), rs.getString("contraseña"), rs.getString("tipoCuenta"));
+				user = new Usuario(rs.getString("usuario"), rs.getString("contraseÃ±a"), rs.getString("tipoCuenta"));
 			}
 		} catch (SQLException e) {
 			

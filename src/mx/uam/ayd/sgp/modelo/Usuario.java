@@ -2,7 +2,7 @@ package mx.uam.ayd.sgp.modelo;
 
 public class Usuario {
 	private String usuario;
-	private String contraseña;
+	private String contraseÃ±a;
 	private String tipoCuenta;
 	private String nombre;
 	private String apellidos;
@@ -10,8 +10,8 @@ public class Usuario {
 	private int idEmpleado;
 	
 	
-	public Usuario(String usuario, String contraseña, String tipoCuenta, String nombre, String apellidos, String telefono, int idEmpleado){
-		this.contraseña = contraseña;
+	public Usuario(String usuario, String contraseÃ±a, String tipoCuenta, String nombre, String apellidos, String telefono, int idEmpleado){
+		this.contraseÃ±a = contraseÃ±a;
 		this.usuario = usuario;
 		this.tipoCuenta = tipoCuenta;
 		this.nombre=nombre;
@@ -26,8 +26,8 @@ public class Usuario {
 	public String getNombre() {
 		return this.nombre + this.apellidos;
 	}
-	public String getContraseña(){
-		return contraseña;
+	public String getContraseÃ±a(){
+		return contraseÃ±a;
 	}
 	public String getTipoCuenta() {
 		return tipoCuenta;

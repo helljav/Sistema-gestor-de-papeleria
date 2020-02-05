@@ -17,10 +17,10 @@ public class CreadorBaseDeDatos {
 			Connection connection = ManejadorBD.dameConnection();
 
 			Statement statement = connection.createStatement();
-			statement.execute("create table Usuarios(idempleado PRIMARY KEY,usuario varchar(40), contraseña varchar(40),tipoCuenta varchar(20),nombre varchar(40),apellidos varchar(100),telefono (40))");
+			statement.execute("create table Usuarios(idempleado INT PRIMARY KEY,usuario varchar(40), contraseÃ±a varchar(40),tipoCuenta varchar(20),nombre varchar(40),apellidos varchar(100),telefono varchar(40))");// , CONSTRAINT primary_key PRIMARY KEY (autorId)
 			System.out.println("Tabla de Usuarios creada exitosamente");
-			statement.execute("insert into Usuarios values('" + "admin" + "','" + "123"+ "','" + "ADMINISTRADOR" + "')");
-			statement.execute("insert into Usuarios values('" + "empleado" + "','" + "321"+ "','" + "EMPLEADO" + "')");
+			statement.execute("insert into Usuarios values('" +1245+"','"+ "admin" + "','" + "123"+ "','" + "ADMINISTRADOR" +"','"+"Hernan"+"','"+"Dominguez"+"','"+"5959571482"+ "')");
+			statement.execute("insert into Usuarios values('"+1996+"','" + "empleado" + "','" + "321"+ "','" + "EMPLEADO" +"','"+"eduardo"+"','"+"oseguera"+"','"+"5568971845"+ "')");
 			
 			
 			statement.execute("create table Productos(nombre varchar(40), precio double precision,descripcion varchar(50),cantidad int, descuento double precision, fecha varchar(12), tipoAlmacen varchar(40))");

@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-2020-01-30 18:56:44.176 GMT:
- Booting Derby version The Apache Software Foundation - Apache Derby - 10.1.2.1 - (330608): instance c013800d-016f-f7d0-0a5e-000005eb1860
-on database directory C:\Users\Alumnos\git\Sistema-gestor-de-papeleria\BaseDeDatos 
+2020-02-05 19:22:38.829 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.1.2.1 - (330608): instance c013800d-0170-16cd-e869-000001d0c1a0
+on database directory /home/hernan/git/Sistema-gestor-de-papeleria/BaseDeDatos 
 
 Database Class Loader started - derby.database.classpath=''
