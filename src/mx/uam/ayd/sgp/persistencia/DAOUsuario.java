@@ -17,7 +17,7 @@ public class DAOUsuario {
 	 * @return
 	 */
 	
-	public Usuario Autentifica(String usuario, String contraseÃ±a) {
+	public Usuario Autentifica(String usuario, String contraseña) {
 		System.out.println("holi");
 		
 		Usuario user = null;
@@ -27,11 +27,11 @@ public class DAOUsuario {
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 			// Recibe los resutados
 			ResultSet rs = statement.executeQuery(
-					"SELECT * FROM Usuarios WHERE usuario='" + usuario + "'	AND contraseÃ±a='" + contraseÃ±a + "'");
+					"SELECT * FROM Usuarios WHERE usuario='" + usuario + "'	AND contraseña='" + contraseña + "'");
 			if (rs.next()) {
 				
 				// Crea una nueva instancia del objeto
-				user = new Usuario(rs.getString("usuario"), rs.getString("contraseÃ±a"), rs.getString("tipoCuenta")
+				user = new Usuario(rs.getString("usuario"), rs.getString("contraseña"), rs.getString("tipoCuenta")
 						,rs.getString("nombre"),rs.getString("apellidos"),rs.getString("telefono"),
 						Integer.valueOf(rs.getString("idempleado")));
 			}
@@ -47,7 +47,7 @@ public class DAOUsuario {
 			
 			String idempleado=user.getIdEmpleado();
 			String usuario=user.getUsuario();
-			String pass=user.getContraseÃ±a();
+			String pass=user.getContraseña();
 			String cargo=user.getTipoCuenta();
 			String nombre=user.getNombre();
 			String apellidos=user.getApellidos();
