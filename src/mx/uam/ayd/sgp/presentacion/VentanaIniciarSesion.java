@@ -41,7 +41,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	// Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private app.bolivia.swing.JCTextField txtusuario;
-    private JCTextField txtContraseña;
+    private JCTextField txtContraseÃ±a;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
@@ -85,8 +85,8 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	        jButton1.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent arg0) {
 	        		String usuarioventana = txtusuario.getText();
-	        		String contraseñaventana = txtContraseña.getText();					
-					control.Autentifica(usuarioventana, contraseñaventana);
+	        		String contraseÃ±aventana = txtContraseÃ±a.getText();					
+					control.Autentifica(usuarioventana, contraseÃ±aventana);
 					        		
 	        	}
 	        });
@@ -169,10 +169,10 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	            .addGap(0, 32, Short.MAX_VALUE)
 	        );
 	        
-	        txtContraseña = new JCTextField();
-	        txtContraseña.setPlaceholder("Contrase\u00F1a");
-	        txtContraseña.setFont(new Font("Dialog", Font.BOLD, 18));
-	        txtContraseña.setBorder(null);
+	        txtContraseÃ±a = new JCTextField();
+	        txtContraseÃ±a.setPlaceholder("Contrase\u00F1a");
+	        txtContraseÃ±a.setFont(new Font("Dialog", Font.BOLD, 18));
+	        txtContraseÃ±a.setBorder(null);
 
 	        javax.swing.GroupLayout panelImage4Layout = new javax.swing.GroupLayout(panelImage4);
 	        panelImage4Layout.setHorizontalGroup(
@@ -181,7 +181,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	        			.addContainerGap()
 	        			.addComponent(panelImage5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 	        			.addPreferredGap(ComponentPlacement.RELATED)
-	        			.addComponent(txtContraseña, GroupLayout.PREFERRED_SIZE, 251, GroupLayout.PREFERRED_SIZE)
+	        			.addComponent(txtContraseÃ±a, GroupLayout.PREFERRED_SIZE, 251, GroupLayout.PREFERRED_SIZE)
 	        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 	        );
 	        panelImage4Layout.setVerticalGroup(
@@ -189,7 +189,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	        		.addGroup(panelImage4Layout.createSequentialGroup()
 	        			.addContainerGap()
 	        			.addGroup(panelImage4Layout.createParallelGroup(Alignment.LEADING)
-	        				.addComponent(txtContraseña, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+	        				.addComponent(txtContraseÃ±a, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 	        				.addComponent(panelImage5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 	        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 	        );

@@ -31,7 +31,9 @@ public class DAOUsuario {
 			if (rs.next()) {
 				
 				// Crea una nueva instancia del objeto
-				user = new Usuario(rs.getString("usuario"), rs.getString("contraseña"), rs.getString("tipoCuenta"));
+				user = new Usuario(rs.getString("usuario"), rs.getString("contraseña"), rs.getString("tipoCuenta")
+						,rs.getString("nombre"),rs.getString("apellidos"),rs.getString("telefono"),
+						Integer.valueOf(rs.getString("idempleado")));
 			}
 		} catch (SQLException e) {
 			
@@ -39,4 +41,28 @@ public class DAOUsuario {
 		}
 		return user;
 	}
+	public boolean agregaUsuario(Usuario user) {
+		try {
+			Statement statement=ManejadorBD.dameConnection().createStatement();
+			
+			String idempleado=user.getIdEmpleado();
+			String usuario=user.getUsuario();
+			String pass=user.getContraseña();
+			String cargo=user.getTipoCuenta();
+			String nombre=user.getNombre();
+			String apellidos=user.getApellidos();
+			String telefono=user.getTelefono();
+			
+			statement.execute("insert into Usuarios values('" +idempleado+"','"+usuario + "','" +pass+ "','" +cargo +"','"+nombre+"','"+apellidos+"','"+telefono+ "')");
+			return true;
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+		
+		return false;
+	}
+	
+	
 }

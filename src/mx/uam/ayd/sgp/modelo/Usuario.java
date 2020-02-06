@@ -23,14 +23,28 @@ public class Usuario {
 	public String getUsuario(){
 		return usuario;
 	}
-	public String getNombre() {
-		return this.nombre + this.apellidos;
-	}
 	public String getContraseña(){
 		return contraseña;
 	}
 	public String getTipoCuenta() {
 		return tipoCuenta;
+	}
+	public String getNombre() {
+		return this.nombre;
+	}
+	public String getApellidos() {
+		return this.apellidos;
+	}
+	public String getTelefono() {
+		return this.telefono;
+	}
+	public String getIdEmpleado() {
+		return Integer.toString(this.idEmpleado);
+	}
+	
+	
+	public String getNombreC() {
+		return this.nombre + this.apellidos;
 	}
 	
 	

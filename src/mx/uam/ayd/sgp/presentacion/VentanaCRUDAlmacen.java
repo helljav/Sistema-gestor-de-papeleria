@@ -74,7 +74,7 @@ public class VentanaCRUDAlmacen extends JFrame {
 			}
 		});
 		/*
-		 * CARACTERISTICAS Y CONFIGURACIONES PARA AÑADIR PRODUCTO
+		 * CARACTERISTICAS Y CONFIGURACIONES PARA Aï¿½ADIR PRODUCTO
 		 */
 		JLabel lblAadirProducto = new JLabel("A\u00F1adir Producto");
 		lblAadirProducto.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -85,7 +85,7 @@ public class VentanaCRUDAlmacen extends JFrame {
 		lblAadirProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ctrlAlmacen.DespliegaVAñadirAlamcen();
+				ctrlAlmacen.DespliegaVAÃ±adirAlamcen();
 				//ctrl1.DespliegaVCRUD();
 			}
 		});
