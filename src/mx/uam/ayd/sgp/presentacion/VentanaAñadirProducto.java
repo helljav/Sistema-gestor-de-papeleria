@@ -27,7 +27,7 @@ import java.awt.Cursor;
 import javax.swing.SwingConstants;
 import java.awt.Point;
 
-public class VentanaAÃ±adirProducto extends JFrame {
+public class VentanaAñadirProducto extends JFrame {
 
 	private JPanel contentPane;
 //	private JTextField txtNomProducto;
@@ -53,7 +53,7 @@ public class VentanaAÃ±adirProducto extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaAÃ±adirProducto(ControlAlmacen ctrl) {
+	public VentanaAñadirProducto(ControlAlmacen ctrl) {
 		setUndecorated(true);
 		ctrlAlmacen = ctrl;
 		System.out.println("VentanaAï¿½adirProducto");

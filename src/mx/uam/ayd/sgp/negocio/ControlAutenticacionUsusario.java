@@ -28,9 +28,9 @@ public class ControlAutenticacionUsusario {
 	 * @param usuario: Ususario que proporciona el cliente desde la ventana
 	 * @param contraseï¿½a:Contraseï¿½a que porporciona el cliente desde la ventana 
 	 */
-	public void Autentifica(String usuario, String contraseÃ±a) {		
+	public void Autentifica(String usuario, String contraseña) {		
 		try {
-			Usuario bandera = UserDAO.Autentifica(usuario, contraseÃ±a);
+			Usuario bandera = UserDAO.Autentifica(usuario, contraseña);
 			System.out.println(bandera);
 			System.out.println(bandera.getTipoCuenta());
 			if (bandera.getTipoCuenta().equals("ADMINISTRADOR")) {

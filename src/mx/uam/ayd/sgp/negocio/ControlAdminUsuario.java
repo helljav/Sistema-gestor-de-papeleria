@@ -17,7 +17,7 @@ public class ControlAdminUsuario {
 	  * Metodo que inicia la ventana de registro del usuario
 	  * **/
 	public void inicia() {
-		adduser=new VentanaAddUser();
+		adduser=new VentanaAddUser(this);
 		adduser.setVisible(true);
 		adduser.setLocationRelativeTo(null);
 	}

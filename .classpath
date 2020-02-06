@@ -8,7 +8,7 @@
 	<classpathentry kind="lib" path="lib/edisoncorSX.jar"/>
 	<classpathentry kind="lib" path="lib/JPlaceHolder.jar"/>
 	<classpathentry kind="lib" path="lib/JPlaceHolderPassw.jar"/>
-	<classpathentry kind="lib" path="/home/hernan/git/Sistema-gestor-de-papeleria/lib/log4j-1.2.13.jar"/>
-	<classpathentry kind="lib" path="/home/hernan/git/Sistema-gestor-de-papeleria/lib/derby.jar"/>
+	<classpathentry kind="lib" path="lib/derby.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

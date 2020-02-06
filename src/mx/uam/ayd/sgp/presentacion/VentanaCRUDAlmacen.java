@@ -85,7 +85,7 @@ public class VentanaCRUDAlmacen extends JFrame {
 		lblAadirProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ctrlAlmacen.DespliegaVAÃ±adirAlamcen();
+				ctrlAlmacen.DespliegaVAñadirAlamcen();
 				//ctrl1.DespliegaVCRUD();
 			}
 		});

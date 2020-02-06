@@ -27,7 +27,7 @@ public class VentanaAddUser extends JFrame {
 	private JTextField textField_6;
 	private ControlAdminUsuario adminuser;
 	
-	public static void main(String[] args) {
+	/**public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -38,13 +38,13 @@ public class VentanaAddUser extends JFrame {
 				}
 			}
 		});
-	}
+	}***/
 
 	
-	public VentanaAddUser() {
+	public VentanaAddUser(ControlAdminUsuario ctrl) {
 		
-		//adminuser=ctrl;
-		adminuser=new ControlAdminUsuario();
+		adminuser=ctrl;
+		//adminuser=new ControlAdminUsuario();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 649, 496);
 		contentPane = new JPanel();
