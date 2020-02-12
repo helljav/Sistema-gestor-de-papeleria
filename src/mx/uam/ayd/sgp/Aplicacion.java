@@ -12,7 +12,7 @@ import mx.uam.ayd.sgp.presentacion.VentanaIniciarSesion;
 *				 Carrillo Pacheco Francisco Javier																				  *
 *				 Raya Chula Ricardo
 *				Maribel Contreras Vidal
-*				
+*				/hola
 *							    																								  *
 *																																  *
 *																																  *	
