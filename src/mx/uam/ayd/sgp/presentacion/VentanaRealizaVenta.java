@@ -27,6 +27,8 @@ import java.awt.Toolkit;
 import javax.swing.UIManager;
 import java.awt.Point;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 import javax.swing.ImageIcon;
@@ -35,6 +37,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JList;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
 
 public class VentanaRealizaVenta extends JFrame {
 
@@ -42,12 +46,19 @@ public class VentanaRealizaVenta extends JFrame {
 	private ControlRealizaVenta controlventa;
 	private ControlAlmacen controlAlmacen;
 	private Almacen producto;
-	private Almacen produtoAnterior;
-	private JTable tablePedidosPorMesa;
+	int contador=0;;
+	//private Almacen produtoAnterior;
+	JTable tablaVenta;
 	/**
 	 * Create the frame.
 	 */
+	public static String fecha() {
+		Date fecha= new Date();
+		SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MM/YYY");
+		return formatofecha.format(fecha);
+	}
 	public VentanaRealizaVenta(ControlRealizaVenta ctrl) {
+
 		setUndecorated(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
 		controlventa = ctrl;
@@ -58,29 +69,8 @@ public class VentanaRealizaVenta extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblDescuento = new JLabel("Venta");
-		lblDescuento.setBounds(15, 16, 33, 16);
-		lblDescuento.setFont(new Font("Dialog", Font.BOLD, 12));
-		/*
-		 * CARACTERISTICAS Y CONFIGURAIONES DEL BOTON QUITAR PRODUCTOS
-		 */
-		JButton buttonQuitaProductos = new JButton();
-		buttonQuitaProductos.setSize(320, 33);
-		buttonQuitaProductos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		buttonQuitaProductos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-						
-	
-				
-			}
-		});
-		buttonQuitaProductos.setText("QUITAR PRODUCTOS");
-		buttonQuitaProductos.setSelected(true);
-		buttonQuitaProductos.setLocation(new Point(15, 198));
-		buttonQuitaProductos.setHideActionText(true);
-		buttonQuitaProductos.setForeground(Color.WHITE);
-		buttonQuitaProductos.setFont(new Font("Dialog", Font.BOLD, 14));
-		buttonQuitaProductos.setBorder(UIManager.getBorder("CheckBoxMenuItem.border"));
-		buttonQuitaProductos.setBackground(new Color(0, 171, 197));
+		lblDescuento.setBounds(15, 16, 95, 26);
+		lblDescuento.setFont(new Font("Dialog", Font.BOLD, 15));
 		/*
 		 * CONFIGURACION Y CARACTERISTICAS DEL BOTON AGREGAR PRODUCTOS
 		 */
@@ -88,6 +78,10 @@ public class VentanaRealizaVenta extends JFrame {
 		btnAgregaProductos.setSize(320, 33);
 		btnAgregaProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				controlventa.iniciaVAPV();
+			
+			//controlAlmacen.iniciaVAPV();
+				
 
 			
 			}
@@ -95,7 +89,7 @@ public class VentanaRealizaVenta extends JFrame {
 		btnAgregaProductos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAgregaProductos.setText("AGREGAR PRODUCTOS");
 		btnAgregaProductos.setSelected(true);
-		btnAgregaProductos.setLocation(new Point(15, 242));
+		btnAgregaProductos.setLocation(new Point(15, 198));
 		btnAgregaProductos.setHideActionText(true);
 		btnAgregaProductos.setForeground(Color.WHITE);
 		btnAgregaProductos.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -108,13 +102,43 @@ public class VentanaRealizaVenta extends JFrame {
 		btnCerrarVenta.setSize(320, 33);
 		btnCerrarVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//aqui debe de ir la fecha
+				String fecha1=fecha();
+				System.out.println("fecha es "+ fecha1);
+				
+				///////////////////////////////////////////////////
+				double precioTotal=0;
+				String usuario = "Empleado";
+				//String fecha = "2020/02/05";
+				String nombre;
+				double precio;
+				double descuento;
+				int cantidad;
+				System.out.println("TOTAL FILAS: "+contador);
+				DefaultTableModel modelo = (DefaultTableModel) tablaVenta.getModel();
+				for(int i=0;i<contador;i++) {
+					nombre= (String)modelo.getValueAt(i, 0);
+					precio= (double)modelo.getValueAt(i, 1);
+					cantidad= (int)modelo.getValueAt(i, 2);
+					descuento= (double)modelo.getValueAt(i, 3);
+					//System.out.println("Elemento liquidado: "+nombre);
+					//System.out.println("precio : "+precio);
+					//System.out.println("descuento aplicado: "+descuento);
+					//System.out.println("cantidad vendida: "+cantidad);
+					precioTotal=precioTotal+precio;
+				}
+				//System.out.println("FOLIO"+nFolio);
+				controlventa.agregarProductoVenta(/*nFolio, */fecha1, usuario, precioTotal);
+				//nFolio++;
+				////////////////////////////////////////////////////
+
 				
 			}
 		});
 		btnCerrarVenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCerrarVenta.setText("LIQUIDAR VENTA");
 		btnCerrarVenta.setSelected(true);
-		btnCerrarVenta.setLocation(new Point(15, 296));
+		btnCerrarVenta.setLocation(new Point(15, 264));
 		btnCerrarVenta.setHideActionText(true);
 		btnCerrarVenta.setForeground(Color.WHITE);
 		btnCerrarVenta.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -127,12 +151,18 @@ public class VentanaRealizaVenta extends JFrame {
 		btnCancelarVenta.setSize(320, 33);
 		btnCancelarVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				for(int i=0;i<4;i++) {
+				tablaVenta.setValueAt("",i , 0);
+				tablaVenta.setValueAt("",i , 1);
+				tablaVenta.setValueAt("",i , 2);
+				tablaVenta.setValueAt(null,i ,3);
+				
+				}
 			}
 		});
 		btnCancelarVenta.setText("CANCELAR VENTA");
 		btnCancelarVenta.setSelected(true);
-		btnCancelarVenta.setLocation(new Point(15, 340));
+		btnCancelarVenta.setLocation(new Point(15, 327));
 		btnCancelarVenta.setHideActionText(true);
 		btnCancelarVenta.setForeground(Color.WHITE);
 		btnCancelarVenta.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -142,7 +172,12 @@ public class VentanaRealizaVenta extends JFrame {
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON REGRESAR
 		 */
 		JButton btnRegresar = new JButton();
-		btnRegresar.setBounds(363, 423, 189, 33);
+		btnRegresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+			}
+		});
+		btnRegresar.setBounds(363, 412, 189, 33);
 		btnRegresar.setText("REGRESAR");
 		btnRegresar.setSelected(true);
 		btnRegresar.setHideActionText(true);
@@ -158,11 +193,11 @@ public class VentanaRealizaVenta extends JFrame {
 		
 		JScrollPane scrollPaneRealizados = new JScrollPane();
 		scrollPaneRealizados.setToolTipText("");
-		scrollPaneRealizados.setBounds(15, 63, 507, 124);
+		scrollPaneRealizados.setBounds(15, 53, 507, 124);
 		getContentPane().add(scrollPaneRealizados);
 		
-		tablePedidosPorMesa = new JTable();
-		tablePedidosPorMesa.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Folio", "Fecha", "Empleado","Importe" }) {
+		tablaVenta = new JTable();
+		tablaVenta.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "NOMBRE DEL PRODUCTO", "PRECIO UNITARIO", "CANTIDAD","TOTAL" }) {
 			
 			/**
 			 * 
@@ -186,61 +221,27 @@ public class VentanaRealizaVenta extends JFrame {
 			}		
 			
 		});
+		JLabel lblfecha = new JLabel("dd/MM/AA");
+		lblfecha.setBounds(436, 11, 86, 14);
+		contentPane.add(lblfecha);
+		lblfecha.setText(fecha());
 		
-		scrollPaneRealizados.setViewportView(tablePedidosPorMesa);
+		scrollPaneRealizados.setViewportView(tablaVenta);
 		contentPane.add(scrollPaneRealizados);
 		contentPane.add(lblDescuento);
-		contentPane.add(buttonQuitaProductos);
 		contentPane.add(btnAgregaProductos);
 		contentPane.add(btnCancelarVenta);
 		contentPane.add(label);
 		contentPane.add(btnCerrarVenta);
 		contentPane.add(btnRegresar);
+		
+		
 	}
+
+	
 	public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
 		 JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
 	    }
-	/*private void seleccionaMesa(int noMesa){
-		System.out.println(noMesa);
-		pedido = controlVent.ped(noMesa); 
-		pedidosTerminados = controlVent.PedidosFinalizados();
-		try{
-
-			for (int i = 0; i < tablePedidosPorMesa.getRowCount(); i++) {
-				tablePedidosPorMesa.setValueAt("", i, 0);
-				tablePedidosPorMesa.setValueAt("", i, 1);
-				tablePedidosPorMesa.setValueAt(null, i, 2);
-						
-			}
-			for (int i = 0; i < pedido.size(); i++) {
-				tablePedidosPorMesa.setValueAt(pedido.get(i).getPlatillo().getNombrePlatillo(), i, 0);
-				tablePedidosPorMesa.setValueAt(pedido.get(i).getCantidadPlatillo(), i, 1);
-				tablePedidosPorMesa.setValueAt(pedido.get(i).getPlatillo().getPrecio(), i, 2);
-				
-			}
-		}catch (Exception e){
-			if(pedido.isEmpty()){
-				tablePedidosPorMesa.setValueAt("Aun no hay pedidos en esta mesa", 0, 0);
-			}
-
-			
-		}
-		try{	
-			for (int i = 0; i < pedidosTerminados.length; i++) {
-				tablePedidosTerminados.setValueAt(pedidosTerminados[i].getNoMesa(), i , 0);
-				tablePedidosTerminados.setValueAt(pedidosTerminados[i].getPlatillo().getNombrePlatillo(), i, 1);
-				tablePedidosTerminados.setValueAt(pedidosTerminados[i].getCantidadPlatillo(), i, 2);
-				tablePedidosTerminados.setValueAt(pedidosTerminados[i].getPlatillo().getPrecio(), i, 3);
-			}
-			}catch (Exception e){
-
-
-		}
-	}*/
-	
-	
-	
-	
 }
 
 

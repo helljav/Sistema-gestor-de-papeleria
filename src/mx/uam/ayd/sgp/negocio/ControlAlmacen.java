@@ -11,6 +11,7 @@ import mx.uam.ayd.sgp.modelo.Almacen;
 import mx.uam.ayd.sgp.modelo.Producto;
 import mx.uam.ayd.sgp.persistencia.DAOProducto;
 import mx.uam.ayd.sgp.presentacion.DialogoMostrarProducto;
+import mx.uam.ayd.sgp.presentacion.VentanaAgregarProductoVenta;
 import mx.uam.ayd.sgp.presentacion.VentanaAñadirProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaCRUDAlmacen;
 import mx.uam.ayd.sgp.presentacion.VentanaEliminarProducto;
@@ -24,6 +25,7 @@ public class ControlAlmacen {
 	private VentanaAñadirProducto GUIAgregarP;
 	private VentanaEliminarProducto GUIEliminarP;
 	private VentanaModificarProducto GUIModificarP;
+	private VentanaAgregarProductoVenta ventanaAgregarProductoVenta;
 
 	public ControlAlmacen() {
 		dao = new DAOProducto();
@@ -66,6 +68,7 @@ public class ControlAlmacen {
 	public String getTipoAlmacen() {
 		return tipoAlmacen;
 	}
+	
 
 	public void agregarProducto(String nombre, double precio, String descripcion, int cantidad, double descuento,
 			String fecha, String tipoAlmacen) {
@@ -78,14 +81,15 @@ public class ControlAlmacen {
 		} catch (Exception e) {
 			GUIAgregarP.alertaMensaje("El producto no se pudo agregar al almacen", "Fatal error", 0);
 		}
-
 	}
+	
+	
 
 	public Almacen buscarProducto(String productoABuscar, String tipoAlmacen) {
 		// Se crea la lista de autores para poder mostrarle al usuario
 		Almacen arregloProdutos[] = dao.dameProductos(productoABuscar, tipoAlmacen); // Obtiene lista de autores
 		DialogoMostrarProducto dialogo = new DialogoMostrarProducto(new JFrame(), arregloProdutos); // Crea el dialogo
-																									// con la lista de
+																							// con la lista de
 																									// productos
 		if (arregloProdutos.length == 0) {
 			GUIEliminarP.alertaMensaje("No se encontro el producto en este almacen", "Error", 0);
@@ -94,6 +98,27 @@ public class ControlAlmacen {
 		}
 		return dialogo.getProductoSeleccionado(); // Regresa el autor seleccionado en el dialogo
 	}
+	////////////////////////////////////////////////////////
+	
+	
+	public Almacen buscarProductoVenta(String productoABuscar) {
+		//System.out.println("cabeza hueca");
+		// Se crea la lista de autores para poder mostrarle al usuario
+		Almacen arregloProdutos[] = dao.dameProduc(productoABuscar); // Obtiene lista de autores
+		DialogoMostrarProducto dialogo = new DialogoMostrarProducto(new JFrame(), arregloProdutos); // Crea el dialogo
+																								// con la lista de
+																									// productos
+		if (arregloProdutos.length == 0) {
+			ventanaAgregarProductoVenta= new VentanaAgregarProductoVenta();
+			ventanaAgregarProductoVenta.alertaMensaje("No se encontro el producto en este almacen", "Error", 0);
+		} else {
+			dialogo.setVisible(true); // Muestra el dialogo
+		}
+		return dialogo.getProductoSeleccionado(); // Regresa el autor seleccionado en el dialogo
+	}
+	
+	
+	///////////////////////////////////////////////////////
 
 	public void eliminarProducto(Almacen producto) {
 		try {

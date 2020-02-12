@@ -5,23 +5,25 @@ public class Venta {
 	private int numFolio;
 	private String fechaVenta;
 	private String empleado;
-	private int importe;
+	private Double importe;
 	//private Usuario usuario
 	
-	public Venta(/*Usuario usuario, */int numFolio, String fechaVenta, String empleado, int importe) {
-		//this.usuario=usuario;
-		this.numFolio=numFolio;
+	public Venta(/*Usuario usuario, */ String fechaVenta, String empleado, double importe) {
+
 		this.fechaVenta=fechaVenta;
 		this.empleado=empleado;
 		this.importe=importe;
 	}
-	
+	public Venta() {
+		
+	}
 	public String toString() {
   		return "numFolio: " +this.numFolio+"\n\n "
   				+"Importe de Venta: "+this.importe+"\n\n"
   				+"Quien lo atendio: "+this.empleado/*usuario.getNombre()*/+"\n\n"
   				+"Fecha de Venta: "+this.fechaVenta+"\n\n";
   	}
+
 	
 	public int getNumFolio(){
 		return numFolio;
@@ -49,11 +51,11 @@ public class Venta {
 		this.empleado=empleado;
 	}
 	
-	public int getImporte() {
+	public double getImporte() {
 		return importe;
 	}
 	
-	public void setImporte(int importe) {
+	public void setImporte(double importe) {
 		this.importe=importe;
 	}
 	

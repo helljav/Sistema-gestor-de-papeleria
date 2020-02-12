@@ -9,9 +9,11 @@ import javax.swing.border.EmptyBorder;
 
 import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 import mx.uam.ayd.sgp.negocio.ControlAutenticacionUsusario;
+import mx.uam.ayd.sgp.negocio.ControlConsultaVentas;
 import mx.uam.ayd.sgp.negocio.ControlVAdministrador;
 import mx.uam.ayd.sgp.persistencia.DAOProducto;
 import mx.uam.ayd.sgp.persistencia.DAOUsuario;
+import mx.uam.ayd.sgp.persistencia.DAOVenta;
 
 import java.awt.Toolkit;
 import javax.swing.JLabel;
@@ -32,6 +34,7 @@ public class VentanaPrincipalAdministrador extends JFrame {
 
 	private JPanel contentPane;
 	private ControlVAdministrador controlVAdmin;
+	private ControlConsultaVentas controlconsultaventas;
 	
 	
 	public VentanaPrincipalAdministrador(ControlVAdministrador ctrl) {
@@ -94,6 +97,17 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		lblRealizarPedido.setAlignmentY(1.0f);
 		
 		JLabel lblConsultaVentas = new JLabel("Consulta ventas");
+		lblConsultaVentas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				controlconsultaventas= new ControlConsultaVentas();
+				controlconsultaventas.iniciaConsultarVentas();
+				controlconsultaventas.recuperaVentas();
+				//controlconsultaventa
+				
+			}
+		});
 		lblConsultaVentas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblConsultaVentas.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\Query_icon-icons.com_53746.png"));
 		lblConsultaVentas.setVerticalTextPosition(SwingConstants.BOTTOM);

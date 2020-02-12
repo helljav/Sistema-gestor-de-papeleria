@@ -42,6 +42,37 @@ public class DAOProducto {
 			return null;
 		}
 	}
+	////////////////////////////////////////////////////
+	
+	
+public Almacen [] dameProduc(String productoABuscar ) {
+
+		
+		ArrayList<Almacen> productosTemp = new ArrayList<Almacen>();
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+			// Recibe los resutados
+			ResultSet rs = statement.executeQuery("SELECT * FROM Productos WHERE nombre LIKE '%"+productoABuscar +"'");
+			System.out.println("entre dame producto  dao");
+			while (rs.next()) {
+				// Crea una nueva instancia del objeto
+				Producto p = new Producto(rs.getString("nombre"),rs.getDouble("precio"),rs.getString("descripcion"),rs.getDouble("descuento"));
+				Almacen producto = new Almacen(p, rs.getInt("cantidad"), rs.getString("fecha"),rs.getString("tipoAlmacen"));
+				productosTemp.add(producto);
+			}
+			Almacen productosTempArreglo[] = new Almacen[productosTemp.size()];
+			productosTemp.toArray(productosTempArreglo);
+			return productosTempArreglo;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
+	///////////////////////////////////////////////////
 	
 	public boolean eliminarDeAlmacen(Almacen producto) {
 		int resultado = 0;

@@ -6,9 +6,11 @@ import mx.uam.ayd.sgp.presentacion.VentanaPrincipalEmpleado;
 public class ControlVEmpleado {
 	private VentanaPrincipalEmpleado GUI;
 	private VentanaAdminPedido GUIVPedido;
-	private ControlRealizaVenta ctrlVenta;
+	ControlRealizaVenta ctrlVenta;
+	ControlAlmacen ctrlAlmacen;
 	
 	ControlVEmpleado() {
+		ctrlAlmacen= new ControlAlmacen();
 		ctrlVenta=new ControlRealizaVenta();
 	}
 
