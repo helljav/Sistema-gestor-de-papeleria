@@ -11,6 +11,8 @@ import mx.uam.ayd.sgp.presentacion.VentanaIniciarSesion;
 *				 Iturbe Pineda Nancy Monserrat																					  *	
 *				 Carrillo Pacheco Francisco Javier																				  *
 *				 Raya Chula Ricardo
+*				Maribel Contreras Vidal
+*				
 *							    																								  *
 *																																  *
 *																																  *	
