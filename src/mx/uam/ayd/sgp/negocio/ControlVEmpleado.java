@@ -6,10 +6,8 @@ import mx.uam.ayd.sgp.presentacion.VentanaPrincipalEmpleado;
 public class ControlVEmpleado {
 	private VentanaPrincipalEmpleado GUI;
 	private VentanaAdminPedido GUIVPedido;
-	private ControlRealizaVenta ctrlVenta;
-	
+
 	ControlVEmpleado() {
-		ctrlVenta=new ControlRealizaVenta();
 	}
 
 	public void inicia() {
@@ -24,8 +22,4 @@ public class ControlVEmpleado {
 		GUIVPedido.setLocationRelativeTo(null);
 		
 	}
-	public void iniciaVenta() {
-		ctrlVenta.iniciarealizarventa();
-	}
-	
 }

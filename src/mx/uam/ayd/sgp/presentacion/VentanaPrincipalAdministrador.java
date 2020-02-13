@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import mx.uam.ayd.sgp.negocio.ControlAdminUsuario;
 import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 import mx.uam.ayd.sgp.negocio.ControlAutenticacionUsusario;
 import mx.uam.ayd.sgp.negocio.ControlVAdministrador;
@@ -32,13 +33,14 @@ public class VentanaPrincipalAdministrador extends JFrame {
 
 	private JPanel contentPane;
 	private ControlVAdministrador controlVAdmin;
+	private ControlAdminUsuario ControlAdminUser;
 	
 	
 	public VentanaPrincipalAdministrador(ControlVAdministrador ctrl) {
 		setUndecorated(true);
 		controlVAdmin = ctrl;
 		setTitle("Sistema papeleria \"Renteria\".  Administrador");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 622, 700);
 		contentPane = new JPanel();
@@ -67,11 +69,11 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		lblElegirAlmacen.setFont(new Font("Consolas", Font.PLAIN, 16));
 		lblElegirAlmacen.setForeground(Color.BLACK);
 		lblElegirAlmacen.setBackground(Color.BLUE);
-		lblElegirAlmacen.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\icons8-producto-nuevo-64.png"));
+		lblElegirAlmacen.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\icons8-producto-nuevo-64.png"));
 		
 		JLabel labelRealizarVenta = new JLabel("Realizar venta");
 		labelRealizarVenta.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		labelRealizarVenta.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\bienes Empleado.png"));
+		labelRealizarVenta.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\bienes Empleado.png"));
 		labelRealizarVenta.setVerticalTextPosition(SwingConstants.BOTTOM);
 		labelRealizarVenta.setVerticalAlignment(SwingConstants.BOTTOM);
 		labelRealizarVenta.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -83,7 +85,7 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		
 		JLabel lblRealizarPedido = new JLabel("Realizar pedido");
 		lblRealizarPedido.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		lblRealizarPedido.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\pedido-online Empleado.png"));
+		lblRealizarPedido.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\pedido-online Empleado.png"));
 		lblRealizarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblRealizarPedido.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblRealizarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -95,7 +97,7 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		
 		JLabel lblConsultaVentas = new JLabel("Consulta ventas");
 		lblConsultaVentas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblConsultaVentas.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\Query_icon-icons.com_53746.png"));
+		lblConsultaVentas.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Query_icon-icons.com_53746.png"));
 		lblConsultaVentas.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblConsultaVentas.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblConsultaVentas.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -107,7 +109,7 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		
 		JLabel lblAdministrarUsuarios = new JLabel("Administrar Usuarios");
 		lblAdministrarUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblAdministrarUsuarios.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\usuario.png"));
+		lblAdministrarUsuarios.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\usuario.png"));
 		lblAdministrarUsuarios.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblAdministrarUsuarios.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblAdministrarUsuarios.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -116,6 +118,22 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		lblAdministrarUsuarios.setFont(new Font("Consolas", Font.PLAIN, 16));
 		lblAdministrarUsuarios.setBackground(Color.BLUE);
 		lblAdministrarUsuarios.setAlignmentY(1.0f);
+		lblAdministrarUsuarios.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				DAOUsuario dao = new DAOUsuario();
+				ControlAdminUsuario ctrl = new ControlAdminUsuario(dao);
+				ctrl.ventanaCRUDAdminUsuarios();
+				setVisible(false);				
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
 		
 		JLabel lblSalir = new JLabel("Salir");
 		lblSalir.addMouseListener(new MouseAdapter() {
@@ -129,7 +147,7 @@ public class VentanaPrincipalAdministrador extends JFrame {
 			}
 		});
 		lblSalir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblSalir.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\Logout_37127.png"));
+		lblSalir.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Logout_37127.png"));
 		lblSalir.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblSalir.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblSalir.setHorizontalTextPosition(SwingConstants.CENTER);

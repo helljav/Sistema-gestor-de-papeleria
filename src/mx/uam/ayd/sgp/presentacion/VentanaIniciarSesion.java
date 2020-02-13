@@ -70,7 +70,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 	 */
 	public VentanaIniciarSesion(ControlAutenticacionUsusario ctrl) {
 		setUndecorated(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		control = ctrl;
 		
 		    jPanel1 = new javax.swing.JPanel();
@@ -96,7 +96,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 
 	        jPanel1.setBackground(new java.awt.Color(231, 231, 231));
 
-	        panelImage1.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\img1.png")); // NOI18N
+	        panelImage1.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\img1.png")); // NOI18N
 
 	        javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
 	        panelImage1.setLayout(panelImage1Layout);
@@ -111,7 +111,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 
 	        //panelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/campos.png"))); // NOI18N
 
-	        panelImage3.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\icono1.png")); // NOI18N
+	        panelImage3.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\icono1.png")); // NOI18N
 
 	        javax.swing.GroupLayout panelImage3Layout = new javax.swing.GroupLayout(panelImage3);
 	        panelImage3.setLayout(panelImage3Layout);
@@ -156,7 +156,7 @@ public class VentanaIniciarSesion extends javax.swing.JFrame {
 
 	        //panelImage4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/campos.png"))); // NOI18N
 
-	        panelImage5.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\password1.png")); // NOI18N
+	        panelImage5.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\password1.png")); // NOI18N
 
 	        javax.swing.GroupLayout panelImage5Layout = new javax.swing.GroupLayout(panelImage5);
 	        panelImage5.setLayout(panelImage5Layout);
