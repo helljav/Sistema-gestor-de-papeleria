@@ -46,7 +46,7 @@ public class VentanaCRUDAlmacen extends JFrame {
 		ctrlAlmacen=ctrl1;
 		
 		setUndecorated(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 512, 338);
 		contentPane = new JPanel();
@@ -65,7 +65,7 @@ public class VentanaCRUDAlmacen extends JFrame {
 		lblEliminarProducto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEliminarProducto.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblEliminarProducto.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblEliminarProducto.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\eliminarproducto.png"));
+		lblEliminarProducto.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\eliminarproducto.png"));
 		lblEliminarProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -80,7 +80,7 @@ public class VentanaCRUDAlmacen extends JFrame {
 		lblAadirProducto.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblAadirProducto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAadirProducto.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblAadirProducto.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\a\u00F1adirproducto.png"));
+		lblAadirProducto.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\a\u00F1adirproducto.png"));
 		lblAadirProducto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblAadirProducto.addMouseListener(new MouseAdapter() {
 			@Override
@@ -106,7 +106,7 @@ public class VentanaCRUDAlmacen extends JFrame {
 		lblModificarProducto.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblModificarProducto.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblModificarProducto.setHorizontalAlignment(SwingConstants.CENTER);
-		lblModificarProducto.setIcon(new ImageIcon("C:\\recursosSTARSHOP\\img\\modificarproducto.png"));
+		lblModificarProducto.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\modificarproducto.png"));
 		
 		JLabel label = new JLabel("");
 		

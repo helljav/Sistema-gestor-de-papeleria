@@ -59,7 +59,7 @@ public class VentanaAñadirProducto extends JFrame {
 		System.out.println("VentanaAñadirProducto");
 		System.out.println(ctrlAlmacen.getTipoAlmacen());
 		setTitle("A\u00F1adir Producto");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\recursosSTARSHOP\\img\\logo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 562, 467);
 		contentPane = new JPanel();
