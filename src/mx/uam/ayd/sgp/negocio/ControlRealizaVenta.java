@@ -37,7 +37,7 @@ ControlAlmacen controlAlmacen;
 		ventanarealizarventa.setVisible(true);
 		ventanarealizarventa.setLocationRelativeTo(null);
 	}
-	public void agregarProductoVenta(/*int numFolio, */String fechaVenta, String empleado, double importe ) {
+	public void agregarProductoVenta(String fechaVenta, String empleado, double importe ) {
 		try {
 			System.out.println("ENTRE A CONTROL");
 			Venta V = new Venta(fechaVenta, empleado, importe);
@@ -53,13 +53,10 @@ ControlAlmacen controlAlmacen;
 	public void agregarProductoAviso(Almacen producto) {
 		try {
 			System.out.println(producto.getNombreProducto()+" "+producto.getFechaIngreso());
-			//Producto P = new Producto(nombre, precio, descripcion, descuento);
-			//Almacen A = new Almacen(P, cantidad, fecha, tipoAlmacen);
-			//dao.agregarAlAlmacen(A);
-			ventanaAgregarProductoVenta.alertaMensaje1("Producto agregado a la venta", "Producto agregado", 1);
+			ventanaAgregarProductoVenta.alertaMensaje("Producto agregado a la venta", "Producto agregado", 1);
 			ventanaAgregarProductoVenta.setVisible(false);
 		} catch (Exception e) {
-			ventanaAgregarProductoVenta.alertaMensaje1("El producto no se pudo agregar a la venta", "Fatal error", 0);
+			ventanaAgregarProductoVenta.alertaMensaje("El producto no se pudo agregar a la venta", "Fatal error", 0);
 		}
 
 	}

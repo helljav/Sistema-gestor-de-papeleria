@@ -37,13 +37,12 @@ public class VentanaConsultaVentas extends JFrame {
 	private ControlAlmacen controlAlmacen;
 	private Almacen producto;
 	int contador=0;;
-	//private Almacen produtoAnterior;
 	JTable tablaVenta;
 	private JTextField textFieldVentaTotal;
 	/**
-	 * Create the frame.
+	 * Constructor que genera los aditamentos a la Ventana Consultar Ventas
+	 * @param controlconsultarventas Se pasa para utilizar el metodo que permite consultar las ventas
 	 */
-	
 	public VentanaConsultaVentas(ControlConsultaVentas controlconsultarventas) {
 
 		setUndecorated(true);
@@ -88,10 +87,7 @@ public class VentanaConsultaVentas extends JFrame {
 		
 		tablaVenta = new JTable();
 		tablaVenta.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "NUMERO DE FOLIO", "FECHA", "EMPLEADO","IMPORTE TOTAL" }) {
-			
-			/**
-			 * 
-			 */
+
 			private static final long serialVersionUID = 1L;
 			Class<?>[] columnTypes = new Class[] { Integer.class, String.class, String.class, Double.class};
 			
@@ -104,7 +100,9 @@ public class VentanaConsultaVentas extends JFrame {
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
-			
+			/**
+			 * Genera las filas de la tabla
+			 */
 			public int getRowCount() {
 				// TODO Auto-generated method stub
 				return 20;
@@ -129,8 +127,11 @@ public class VentanaConsultaVentas extends JFrame {
 		contentPane.add(textFieldVentaTotal);
 		textFieldVentaTotal.setColumns(10);
 	}
+	/**
+	 * LLena la tabla que se encuentra en Consultar Ventas con datos de la tabla venta ya almacenados
+	 * @param arreglo de ventas que se encuentran almacenanos. 
+	 */
 	public void llenarT(ArrayList<Venta> venta) {
-		//boolean Total
 		for (int i=0;i<tablaVenta.getRowCount();i++) {
 		tablaVenta.setValueAt(venta.get(i).getNumFolio(), i,0 );
 		tablaVenta.setValueAt(venta.get(i).getFechaVenta(), i,1 );
@@ -139,15 +140,19 @@ public class VentanaConsultaVentas extends JFrame {
 		}
 
 	}
+	/**
+	 * Mensaje de alerta
+	 * 
+	 * @param mensajeVentana
+	 *            Mensaje que se desplegará en la ventana
+	 * @param tituloventana
+	 *            Titulo de la ventana emergente
+	 * @param numero
+	 *            Consiste en el valor que puedes asignar: 1 si es exito 0 si es
+	 *            error para ubicar el tipo de imagen que va a mostrar la ventana.
+	 */
 	public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
 		 JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
 	    }
 
-//	vRv.tablaVenta.setValueAt(producto.getNombreProducto(),vRv.contador , 0);
-//	vRv.tablaVenta.setValueAt(producto.getPrecioProducto(), vRv.contador, 1);
-//	vRv.tablaVenta.setValueAt(producto.getCantidadProducto(),vRv.contador, 2);
-//	vRv.tablaVenta.setValueAt(producto.getCantidadProducto()*producto.getPrecioProducto(),vRv.contador, 3);	
-//	vRv.contador++;
-	
-	
 }

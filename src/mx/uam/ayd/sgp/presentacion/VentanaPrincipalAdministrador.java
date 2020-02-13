@@ -104,7 +104,7 @@ public class VentanaPrincipalAdministrador extends JFrame {
 				controlconsultaventas= new ControlConsultaVentas();
 				controlconsultaventas.iniciaConsultarVentas();
 				controlconsultaventas.recuperaVentas();
-				//controlconsultaventa
+			
 				
 			}
 		});
