@@ -16,7 +16,7 @@ import mx.uam.ayd.sgp.presentacion.VentanaIniciarSesion;
 *				  Oseguera Sanchez Eduardo																					      *	
 *				  Raya Chula Ricardo
 *					Hol																				              *
-*				 
+*				 kjkjkjk
 *					Hello
 *				 
 *				 
