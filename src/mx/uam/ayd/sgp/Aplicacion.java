@@ -15,7 +15,7 @@ import mx.uam.ayd.sgp.presentacion.VentanaIniciarSesion;
 *				  Morales Ocaranza Carlos Jesus																					  *	
 *				  Oseguera Sanchez Eduardo																					      *	
 *				  Raya Chula Ricardo
-*					Holi profe																				              *
+*					Hol																				              *
 *				 
 *				 
 *				 
