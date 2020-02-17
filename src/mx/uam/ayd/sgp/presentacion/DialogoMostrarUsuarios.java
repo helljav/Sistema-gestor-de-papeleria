@@ -38,15 +38,17 @@ public class DialogoMostrarUsuarios extends JDialog {
 	 */
 	public DialogoMostrarUsuarios(Frame owner, Usuario users[]) {
 		super(owner, true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
+		String path = new java.io.File("").getAbsolutePath();
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		initialize();
-		//crea una lista de  modelos dependiendo del arreglo pasado por el contructor
+		// crea una lista de modelos dependiendo del arreglo pasado por el contructor
 		DefaultListModel model = new DefaultListModel();
 		for (Usuario a : users) {
 			model.addElement(a);
 		}
 		jListProdutos.setModel(model);
-		
+
 	}
 
 	/**
@@ -74,7 +76,7 @@ public class DialogoMostrarUsuarios extends JDialog {
 			jListProdutos = new JList();
 			jListProdutos.setBounds(74, 22, 360, 187);
 			jContentPane.add(getjScrollPane());
-			
+
 		}
 		return jContentPane;
 	}
@@ -89,22 +91,23 @@ public class DialogoMostrarUsuarios extends JDialog {
 			jListProdutos = new JList();
 			jListProdutos.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 			jListProdutos.setBounds(new Rectangle(0, 13, 650, 190));
-			
-		}	
-		
+
+		}
+
 		return jListProdutos;
 	}
-	
+
 	private JScrollPane getjScrollPane() {
 		if (scroll == null) {
 			scroll = new JScrollPane();
 			scroll.setBounds(new Rectangle(0, 13, 650, 190));
 			scroll.setViewportView(jListProdutos);
-			
-		}	
-		
+
+		}
+
 		return scroll;
 	}
+
 	/**
 	 * This method initializes jButtonAceptar
 	 *
@@ -123,8 +126,9 @@ public class DialogoMostrarUsuarios extends JDialog {
 		}
 		return jButtonAceptar;
 	}
+
 	public Usuario getUsuarioSeleccionado() {
-		
+
 		return (Usuario) jListProdutos.getSelectedValue();
 	}
 }

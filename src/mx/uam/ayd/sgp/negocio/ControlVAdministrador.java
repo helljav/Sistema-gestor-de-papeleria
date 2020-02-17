@@ -6,25 +6,29 @@ import mx.uam.ayd.sgp.presentacion.VentanaIniciarSesion;
 import mx.uam.ayd.sgp.presentacion.VentanaPrincipalAdministrador;
 
 public class ControlVAdministrador {
-	
-	ControlAlmacen ctrlAlmacen;
-	DAOProducto dao;
-	
-	ControlVAdministrador(){
-		ctrlAlmacen=new ControlAlmacen();
+
+	private ControlAlmacen ctrlAlmacen;
+	private ControlAdminUsuario ctrlUsuarios;
+	private DAOProducto dao;
+
+	ControlVAdministrador() {
+		ctrlAlmacen = new ControlAlmacen();
+		ctrlUsuarios = new ControlAdminUsuario();
 	}
-	
+
 	public void inicia() {
 		VentanaPrincipalAdministrador GUI = new VentanaPrincipalAdministrador(this);
 		GUI.setVisible(true);
 		GUI.setLocationRelativeTo(null);
 	}
-	
-	public void DespliegaVSeleccion() {		
+
+	public void DespliegaVSeleccion() {
 		ctrlAlmacen.iniciaSeleccionDeAlmacen();
 	}
-	
-	
-	
-	
+
+	public void DespliegaVCRUDAdminUsuario() {
+		ctrlUsuarios.ventanaCRUDAdminUsuarios();
+
+	}
+
 }

@@ -31,26 +31,28 @@ public class VentanaSeleccionAlmacen extends JFrame {
 
 	private JPanel contentPane;
 	private ControlAlmacen ctrlalma;
+
 	/**
 	 * Launch the application.
 	 */
-	
 
 	/**
 	 * Create the frame.
 	 */
 	public VentanaSeleccionAlmacen(ControlAlmacen alma1) {
 		setUndecorated(true);
-		
+		String path = new java.io.File("").getAbsolutePath();
+		// setIconImage(Toolkit.getDefaultToolkit().getImage(path+"\\src\\mx\\uam\\ayd\\sgp\\presentacion\\logo.png"));
 		setTitle("Seleccionar Almacen");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
-		ctrlalma=alma1;
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
+		ctrlalma = alma1;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 458, 479);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
+
 		/*
 		 * Caracteristicas y configuraciones de almacen general
 		 */
@@ -65,9 +67,8 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almacenGeneral.png"));
-		
-		
+		lblNewLabel.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almacenGeneral.png"));
+
 		/*
 		 * CARACTERISTICAS Y COFIGURACIONES DEL ALMACEN DIA DE MERTOS
 		 */
@@ -81,8 +82,8 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_1.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almDiaMuertos.png"));
-		
+		lblNewLabel_1.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almDiaMuertos.png"));
+
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN DIA DE NAVIDAD
 		 */
@@ -96,7 +97,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almNavidad.png"));
+		lblNewLabel_2.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almNavidad.png"));
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN AMOR Y AMISTAD
 		 */
@@ -109,9 +110,9 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		});
 		lblNewLabel_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_3.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almAmorAmistad.png"));
+		lblNewLabel_3.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almAmorAmistad.png"));
 		lblNewLabel_3.setHorizontalTextPosition(SwingConstants.CENTER);
-		
+
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN DIA DE LAS MADRES
 		 */
@@ -124,13 +125,13 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		});
 		lblNewLabel_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_4.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almDiaMom.png"));
+		lblNewLabel_4.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almDiaMom.png"));
 		lblNewLabel_4.setHorizontalTextPosition(SwingConstants.CENTER);
-		
+
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL ALMCEN DIA DE INDEPENDENCIA
 		 */
-		
+
 		JLabel lblNewLabel_5 = new JLabel("Almacen dia de Independencia");
 		lblNewLabel_5.addMouseListener(new MouseAdapter() {
 			@Override
@@ -141,8 +142,8 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		lblNewLabel_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_5.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_5.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almIndep.png"));
-		
+		lblNewLabel_5.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\almIndep.png"));
+
 		JButton buttonCancelar = new JButton();
 		buttonCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonCancelar.addActionListener(new ActionListener() {
@@ -162,47 +163,39 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		buttonCancelar.setBorder(UIManager.getBorder("EditorPane.border"));
 		buttonCancelar.setBackground(new Color(0, 153, 255));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(78)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
+				.createSequentialGroup().addGap(78)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 						.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 						.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
 						.addComponent(lblNewLabel_4, GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addPreferredGap(ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_5))
-					.addGap(26))
+				.addGap(26))
 				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addContainerGap(298, Short.MAX_VALUE)
-					.addComponent(buttonCancelar, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(24)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addContainerGap(298, Short.MAX_VALUE)
+						.addComponent(buttonCancelar, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap()));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
+				.createSequentialGroup().addGap(24)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(lblNewLabel_2)
-							.addGap(31)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+								.addGap(18).addComponent(lblNewLabel_2).addGap(31)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 104,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 97,
+												GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(lblNewLabel_3)
-							.addGap(133)))
-					.addGap(47)
-					.addComponent(buttonCancelar, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
+								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 120,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(18).addComponent(lblNewLabel_3).addGap(133)))
+				.addGap(47).addComponent(buttonCancelar, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+				.addContainerGap()));
 		contentPane.setLayout(gl_contentPane);
 	}
 }

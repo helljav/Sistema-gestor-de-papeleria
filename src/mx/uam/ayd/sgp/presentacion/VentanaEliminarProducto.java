@@ -27,7 +27,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import java.awt.Cursor;
 
-
 public class VentanaEliminarProducto extends JFrame {
 
 	private JPanel contentPane;
@@ -35,15 +34,17 @@ public class VentanaEliminarProducto extends JFrame {
 	private ControlAlmacen controlAlmacen;
 	private JTextPane lblMostrarP;
 	private JCTextField textField;
+
 	/**
 	 * Create the frame.
 	 */
 	public VentanaEliminarProducto(ControlAlmacen ctrl) {
 		setUndecorated(true);
 		controlAlmacen = ctrl;
-		
-		
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
+
+		String path = new java.io.File("").getAbsolutePath();
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 609, 467);
 		contentPane = new JPanel();
@@ -52,7 +53,7 @@ public class VentanaEliminarProducto extends JFrame {
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON ELIMINAR
 		 */
-		
+
 		JButton btnEliminar = new JButton();
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -77,7 +78,7 @@ public class VentanaEliminarProducto extends JFrame {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
-				
+
 			}
 		});
 		btnCancelar.setText("CANCELAR");
@@ -87,7 +88,7 @@ public class VentanaEliminarProducto extends JFrame {
 		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnCancelar.setBorder(UIManager.getBorder("EditorPane.border"));
 		btnCancelar.setBackground(new Color(0, 153, 255));
-		
+
 		textField = new JCTextField();
 		textField.setPlaceholder("Ingrese nombre del producto");
 		textField.setFont(new Font("Dialog", Font.BOLD, 18));
@@ -99,14 +100,14 @@ public class VentanaEliminarProducto extends JFrame {
 		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String productoABuscar = textField.getText().toUpperCase(); 
-				producto = controlAlmacen.buscarProducto(productoABuscar,controlAlmacen.getTipoAlmacen().toUpperCase());
+				String productoABuscar = textField.getText().toUpperCase();
+				producto = controlAlmacen.buscarProducto(productoABuscar,
+						controlAlmacen.getTipoAlmacen().toUpperCase());
 				if (producto != null) {
 					lblMostrarP.setText(producto.toString()); // Muestra el nombre del autor actualmente
-																	// seleccionado				
+																// seleccionado
 				}
-				
-				
+
 			}
 		});
 		btnBuscar.setText("BUSCAR");
@@ -117,58 +118,54 @@ public class VentanaEliminarProducto extends JFrame {
 		btnBuscar.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnBuscar.setBorder(UIManager.getBorder("CheckBoxMenuItem.border"));
 		btnBuscar.setBackground(new Color(0, 171, 197));
-		
-	    lblMostrarP = new JTextPane();
-		
-		JLabel lblEliminarProductoDel = new JLabel("Eliminar producto de "+controlAlmacen.getTipoAlmacen());
+
+		lblMostrarP = new JTextPane();
+
+		JLabel lblEliminarProductoDel = new JLabel("Eliminar producto de " + controlAlmacen.getTipoAlmacen());
 		lblEliminarProductoDel.setForeground(Color.GRAY);
 		lblEliminarProductoDel.setFont(new Font("Dialog", Font.BOLD, 20));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblEliminarProductoDel, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addGap(45)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(btnBuscar, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
-									.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
-									.addGap(43)))))
-					.addContainerGap())
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addGap(23)
-					.addComponent(lblMostrarP, GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
-					.addGap(32))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(15)
-					.addComponent(lblEliminarProductoDel, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(gl_contentPane
+				.createSequentialGroup()
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING,
+								gl_contentPane.createSequentialGroup().addContainerGap().addComponent(
+										lblEliminarProductoDel, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup().addGap(45)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(textField, GroupLayout.PREFERRED_SIZE, 331,
+														GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnBuscar,
+														GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 140,
+														GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+												.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 117,
+														GroupLayout.PREFERRED_SIZE)
+												.addGap(43)))))
+				.addContainerGap())
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup().addGap(23)
+						.addComponent(lblMostrarP, GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE).addGap(32)));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(gl_contentPane
+				.createSequentialGroup().addGap(15)
+				.addComponent(lblEliminarProductoDel, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+				.addGap(18)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnBuscar, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-					.addComponent(lblMostrarP, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
-					.addGap(36)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+				.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+				.addComponent(lblMostrarP, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE).addGap(36)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
-					.addGap(26))
-		);
+				.addGap(26)));
 		contentPane.setLayout(gl_contentPane);
 	}
+
 	public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
-		 JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
-	    }
+		JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
+	}
 }

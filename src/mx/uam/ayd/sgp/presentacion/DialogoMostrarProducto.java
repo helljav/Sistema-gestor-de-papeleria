@@ -36,15 +36,17 @@ public class DialogoMostrarProducto extends JDialog {
 	 */
 	public DialogoMostrarProducto(Frame owner, Almacen produc[]) {
 		super(owner, true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\HP\\Desktop\\Eclipse\\Sistema Gestor de Papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\\u00EDndice.jpg"));
+		String path = new java.io.File("").getAbsolutePath();
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		initialize();
-		//crea una lista de  modelos dependiendo del arreglo pasado por el contructor
+		// crea una lista de modelos dependiendo del arreglo pasado por el contructor
 		DefaultListModel model = new DefaultListModel();
 		for (Almacen a : produc) {
 			model.addElement(a);
 		}
 		jListProdutos.setModel(model);
-		
+
 	}
 
 	/**
@@ -72,7 +74,7 @@ public class DialogoMostrarProducto extends JDialog {
 			jListProdutos = new JList();
 			jListProdutos.setBounds(74, 22, 360, 187);
 			jContentPane.add(getjScrollPane());
-			
+
 		}
 		return jContentPane;
 	}
@@ -87,22 +89,23 @@ public class DialogoMostrarProducto extends JDialog {
 			jListProdutos = new JList();
 			jListProdutos.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 			jListProdutos.setBounds(new Rectangle(0, 13, 650, 190));
-			
-		}	
-		
+
+		}
+
 		return jListProdutos;
 	}
-	
+
 	private JScrollPane getjScrollPane() {
 		if (scroll == null) {
 			scroll = new JScrollPane();
 			scroll.setBounds(new Rectangle(0, 13, 650, 190));
 			scroll.setViewportView(jListProdutos);
-			
-		}	
-		
+
+		}
+
 		return scroll;
 	}
+
 	/**
 	 * This method initializes jButtonAceptar
 	 *
@@ -121,8 +124,9 @@ public class DialogoMostrarProducto extends JDialog {
 		}
 		return jButtonAceptar;
 	}
+
 	public Almacen getProductoSeleccionado() {
-		
+
 		return (Almacen) jListProdutos.getSelectedValue();
 	}
 }
