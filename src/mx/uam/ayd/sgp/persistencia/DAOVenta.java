@@ -47,14 +47,14 @@ public class DAOVenta {
 	 * 
 	 * @return regresa en una lista las ventas totales
 	 */
-	public ArrayList<Venta> recuperaTodos() {
+	public ArrayList<Venta> recuperaTodos(String fecha) {
 		ArrayList<Venta> ventas = new ArrayList<Venta>();
 
 		try {
-
+			System.out.println(fecha);
 			Statement statement2 = ManejadorBD.dameConnection().createStatement();
 			// Recibe los resutados
-			ResultSet rs = statement2.executeQuery("SELECT * FROM Venta");
+			ResultSet rs = statement2.executeQuery("SELECT * FROM Venta WHERE fechaventa LIKE'" + fecha + "'");
 
 			while (rs.next()) {
 				Venta venta = new Venta();

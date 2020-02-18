@@ -29,6 +29,10 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class VentanaPrincipalAdministrador extends JFrame {
 
@@ -105,10 +109,19 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		lblConsultaVentas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-
+				
+				/**Calendar c1 = Calendar.getInstance();
+				Calendar c2 = new GregorianCalendar();
+				
+				String dia = Integer.toString(c1.get(Calendar.DATE));
+				String mes = Integer.toString(c1.get(Calendar.MONTH));
+				String annio = Integer.toString(c1.get(Calendar.YEAR));
+				String fecha = Integer.toString(c2.get(Calendar.DATE))+"/"+Integer.toString(c2.get(Calendar.MONTH))+"/"+Integer.toString(c2.get(Calendar.YEAR));**/
+				String fecha = fecha();
+				
 				controlconsultaventas = new ControlConsultaVentas();
 				controlconsultaventas.iniciaConsultarVentas();
-				controlconsultaventas.recuperaVentas();
+				controlconsultaventas.recuperaVentas(fecha);
 
 			}
 		});
@@ -204,4 +217,11 @@ public class VentanaPrincipalAdministrador extends JFrame {
 										.addGap(27).addComponent(lblSalir).addGap(40)))));
 		contentPane.setLayout(gl_contentPane);
 	}
+	
+	public static String fecha() {
+		Date fecha = new Date();
+		SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MM/YYY");
+		return formatofecha.format(fecha);
+	}
+	
 }
