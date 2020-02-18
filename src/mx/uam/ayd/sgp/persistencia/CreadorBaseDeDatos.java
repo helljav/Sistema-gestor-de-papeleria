@@ -44,6 +44,17 @@ public class CreadorBaseDeDatos {
 	        "fechaventa varchar(20),"+
 	        "empleado varchar(40),"+
 	        "importe double )");
+	        
+	        
+	        statement.execute("CREATE TABLE Pedido("+
+	        "numPedido INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"+
+	        //"nombreProducto varchar(40),"+
+	        "fechaPedido varchar(20),"+
+	        "nombreCliente varchar(20),"+
+	        "apellidoCliente varchar(40),"+
+	        "importe double )");
+	        
+	        
 	        // statement.execute("INSERT INTO Venta VALUES (DEFAULT,"+"2010/01/14"+","+"maribel Contreras"+"+)",Statement.RETURN_GENERATED_KEYS);
 	        statement.execute("INSERT INTO Venta VALUES (DEFAULT,'"+"15/02/2020"+"','"+"Empleado"+"',"+150.5+")",Statement.RETURN_GENERATED_KEYS);
 	        statement.execute("INSERT INTO Venta VALUES (DEFAULT,'"+"15/02/2020"+"','"+"Empleado"+"',"+266.89+")",Statement.RETURN_GENERATED_KEYS);
