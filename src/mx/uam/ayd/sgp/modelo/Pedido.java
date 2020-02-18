@@ -8,7 +8,8 @@ public class Pedido {
 	//private String producto;
 	private String nombreCliente;
 	private String apellidoCliente;
-	private double importe;
+	private double importeTotal;
+	private double importeDejado;
 	
 	public Pedido() {
 		
@@ -30,8 +31,12 @@ public class Pedido {
 		return apellidoCliente;
 	}
 	
-	public double getImporte() {
-		return importe;
+	public double getImporteTotal() {
+		return importeTotal;
+	}
+	
+	public double getImporteDejado() {
+		return importeDejado;
 	}
 	
 	public void setNumPedido(int numPedido) {
@@ -50,7 +55,11 @@ public class Pedido {
 		this.apellidoCliente=apellidoCliente;
 	}
 	
-	public void setImporte(double importe) {
-		this.importe=importe;
+	public void setImporteTotal(double importeTotal) {
+		this.importeTotal=importeTotal;
+	}
+	
+	public void setImporteDejado(double importeDejado) {
+		this.importeDejado=importeDejado;
 	}
 }

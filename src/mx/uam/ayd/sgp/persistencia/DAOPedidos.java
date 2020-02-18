@@ -27,7 +27,7 @@ public class DAOPedidos {
 			// Envia instruccion SQL, nota el DEFAULT es para insertar la llave autogenerada
 			
 			statement2.execute("insert into Venta values(DEFAULT ,'" + P.getFechaPedido() + "','" + P.getNombreCliente()
-					+ "','" + P.getApellidoCliente() + "'," + P.getImporte() + ")", Statement.RETURN_GENERATED_KEYS);
+					+ "','" + P.getApellidoCliente() + "'," + P.getImporteDejado() + ","+P.getImporteTotal()+")", Statement.RETURN_GENERATED_KEYS);
 			
 			ResultSet rs = statement2.getGeneratedKeys();
 			if (rs != null && rs.next()) {

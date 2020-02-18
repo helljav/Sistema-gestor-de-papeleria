@@ -52,7 +52,8 @@ public class CreadorBaseDeDatos {
 	        "fechaPedido varchar(20),"+
 	        "nombreCliente varchar(20),"+
 	        "apellidoCliente varchar(40),"+
-	        "importe double )");
+	        "importeDejado double"+
+	        "importeTotal double )");
 	        
 	        
 	        // statement.execute("INSERT INTO Venta VALUES (DEFAULT,"+"2010/01/14"+","+"maribel Contreras"+"+)",Statement.RETURN_GENERATED_KEYS);
@@ -60,7 +61,6 @@ public class CreadorBaseDeDatos {
 	        statement.execute("INSERT INTO Venta VALUES (DEFAULT,'"+"15/02/2020"+"','"+"Empleado"+"',"+266.89+")",Statement.RETURN_GENERATED_KEYS);
 	        ////////////////////////////////////////////////////////////////////////////////////////////
 	
-			
 			
 			ManejadorBD.termina();
 		}
