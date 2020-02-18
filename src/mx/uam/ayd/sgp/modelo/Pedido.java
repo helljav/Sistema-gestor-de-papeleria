@@ -4,17 +4,27 @@ public class Pedido {
 
 	private int numPedido;
 	private String fechaPedido;
-	//private String empleado;
+	private String empleado;
 	//private String producto;
 	private String nombreCliente;
 	private String apellidoCliente;
 	private double importeTotal;
 	private double importeDejado;
+
 	
-	public Pedido() {
+	public Pedido(String fechaPedido, String nombreCliente, String apellidoCliente, double importeTotal,
+			double importeDejado,String empleado) {
 		
+		this.fechaPedido = fechaPedido;
+		this.nombreCliente = nombreCliente;
+		this.apellidoCliente = apellidoCliente;
+		this.importeTotal = importeTotal;
+		this.importeDejado = importeDejado;
+		this.empleado = empleado;
 	}
-	
+
+
+
 	public int getNumPedido() {
 		return numPedido;
 	}
@@ -61,5 +71,17 @@ public class Pedido {
 	
 	public void setImporteDejado(double importeDejado) {
 		this.importeDejado=importeDejado;
+	}
+
+
+
+	public String getEmpleado() {
+		return empleado;
+	}
+
+
+
+	public void setEmpleado(String empleado) {
+		this.empleado = empleado;
 	}
 }

@@ -1,19 +1,23 @@
 package mx.uam.ayd.sgp.negocio;
 
+import mx.uam.ayd.sgp.modelo.Pedido;
+import mx.uam.ayd.sgp.persistencia.DAOPedidos;
 import mx.uam.ayd.sgp.persistencia.DAOProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaAdminPedido;
+import mx.uam.ayd.sgp.presentacion.VentanaAgregarProductoVenta;
 import mx.uam.ayd.sgp.presentacion.VentanaCRUDAlmacen;
 import mx.uam.ayd.sgp.presentacion.VentanaModificarProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaRealizaPedido;
 
 public class ControlVentaPedido {
-	//private DAOPedido dao;
+	private DAOPedidos dao;
 	private VentanaRealizaPedido GUIRP;
-	//private VentanaAgregarProductoVenta GUIAPV;
+	private ControlRealizaVenta crtlRV;
 	private VentanaAdminPedido GUIVPedido;
+	private Pedido ped;
 	
 	public ControlVentaPedido() {
-//		dao = new DAOPedido();
+		dao = new DAOPedidos();
 	}
 
 
@@ -32,9 +36,15 @@ public class ControlVentaPedido {
 	}
 	
 	public void iniciaVentanaAgregarProducto() {
-//		GUIVAPV = new VentanaAgregarProductoVenta(this);
-//		GUIVAPV.setVisible(true);
-//		GUIVAPV.setLocationRelativeTo(null);
+		crtlRV = new ControlRealizaVenta();
+		crtlRV.iniciaVAPV();
+		
+	}
+	
+	public boolean realizaPedido(String fecha, String nombre, String apellido, double importeDejado, double importeTotal, String empleado ) {
+		ped = new Pedido(fecha,nombre,apellido,importeTotal,importeDejado, empleado);
+		dao.almacenaPedido(ped);
+		return true;
 		
 	}
 

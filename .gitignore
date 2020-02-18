@@ -3,3 +3,10 @@
 BaseDeDatos/
 *.dat
 BaseDeDatos/seg0/c230.dat
+derby.log
+BaseDeDatos/seg0/c230.dat
+*.dat
+*.ctrl
+*.dat
+*.ctrl
+*.lck

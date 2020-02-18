@@ -82,7 +82,7 @@ public class VentanaRealizaPedido extends JFrame {
 		btnAgregaProductos.setSize(189, 33);
 		btnAgregaProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// controlventa.iniciaVentanaAgregarProducto();
+				controlventa.iniciaVentanaAgregarProducto();
 			}
 		});
 		btnAgregaProductos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -104,20 +104,29 @@ public class VentanaRealizaPedido extends JFrame {
 				// Fecha
 				String fecha1 = fecha();
 				double precioTotal = 0;
-				String usuario = "Empleado";
-				String nombre;
+				String empleado = "Empleado";
+				String nombreProducto;
+				String nombreCliente;
+				String apellidoCliente;
 				double precio;
 				double descuento;
 				int cantidad;
+				double importeDejado;
+				double importeTotal;
+				
+				nombreCliente=textFieldNombre.getText();
+				apellidoCliente=textFieldApellido.getText();
+				importeDejado=Double.parseDouble(textFieldAcuentaVenta.getText());
+				//importeTotal=Double.parseDouble(textFieldTotalVenta.getText());
 				DefaultTableModel modelo = (DefaultTableModel) tablaVenta.getModel();
 				for (int i = 0; i < contador; i++) {
-					nombre = (String) modelo.getValueAt(i, 0);
+					nombreProducto = (String) modelo.getValueAt(i, 0);
 					precio = (double) modelo.getValueAt(i, 1);
 					cantidad = (int) modelo.getValueAt(i, 2);
 					descuento = (double) modelo.getValueAt(i, 3);
 					precioTotal = precioTotal + precio;
 				}
-				// controlventa.agregarProductoVenta(fecha1, usuario, precioTotal);
+					controlventa.realizaPedido(fecha1, nombreCliente, apellidoCliente, importeDejado, precioTotal, empleado);
 			}
 		});
 		btnLiquidarVenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
