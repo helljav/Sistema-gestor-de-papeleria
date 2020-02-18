@@ -1,2 +1,5 @@
 *.log
+*.dat
 BaseDeDatos/
+*.dat
+BaseDeDatos/seg0/c230.dat

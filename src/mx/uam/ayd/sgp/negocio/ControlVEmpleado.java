@@ -7,9 +7,11 @@ public class ControlVEmpleado {
 	private VentanaPrincipalEmpleado GUI;
 	private VentanaAdminPedido GUIVPedido;
 	private ControlRealizaVenta ctrlVenta;
+	private ControlVentaPedido ctrlPedido;
 
 	ControlVEmpleado() {
 		ctrlVenta = new ControlRealizaVenta();
+		ctrlPedido = new ControlVentaPedido();
 	}
 
 	public void inicia() {
@@ -18,11 +20,8 @@ public class ControlVEmpleado {
 		GUI.setLocationRelativeTo(null);
 	}
 
-	public void iniciaVAdminPedido() {
-		GUIVPedido = new VentanaAdminPedido(this);
-		GUIVPedido.setVisible(true);
-		GUIVPedido.setLocationRelativeTo(null);
-
+	public void DespliegaVCRUDPedido() {
+		ctrlPedido.DespliegaVCRUD();
 	}
 
 	public void iniciaVenta() {
