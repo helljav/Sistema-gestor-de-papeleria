@@ -36,7 +36,7 @@ public class VentanaRealizaPedido extends JFrame {
 	private ControlAlmacen controlAlmacen;
 	private Almacen producto;
 	int contador = 0;;
-	JTable tablaVenta;
+	JTable tablaPedido;
 	private JTextField textFieldTotalVenta;
 	private JTextField textFieldAcuentaVenta;
 	private JTextField textFieldRestanteVenta;
@@ -118,7 +118,7 @@ public class VentanaRealizaPedido extends JFrame {
 				apellidoCliente=textFieldApellido.getText();
 				importeDejado=Double.parseDouble(textFieldAcuentaVenta.getText());
 				//importeTotal=Double.parseDouble(textFieldTotalVenta.getText());
-				DefaultTableModel modelo = (DefaultTableModel) tablaVenta.getModel();
+				DefaultTableModel modelo = (DefaultTableModel) tablaPedido.getModel();
 				for (int i = 0; i < contador; i++) {
 					nombreProducto = (String) modelo.getValueAt(i, 0);
 					precio = (double) modelo.getValueAt(i, 1);
@@ -146,10 +146,10 @@ public class VentanaRealizaPedido extends JFrame {
 		btnCancelarVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < 4; i++) {
-					tablaVenta.setValueAt("", i, 0);
-					tablaVenta.setValueAt("", i, 1);
-					tablaVenta.setValueAt("", i, 2);
-					tablaVenta.setValueAt(null, i, 3);
+					tablaPedido.setValueAt("", i, 0);
+					tablaPedido.setValueAt("", i, 1);
+					tablaPedido.setValueAt("", i, 2);
+					tablaPedido.setValueAt(null, i, 3);
 
 				}
 			}
@@ -190,8 +190,8 @@ public class VentanaRealizaPedido extends JFrame {
 		scrollPaneRealizados.setBounds(15, 139, 546, 124);
 		getContentPane().add(scrollPaneRealizados);
 
-		tablaVenta = new JTable();
-		tablaVenta.setModel(new DefaultTableModel(new Object[][] {},
+		tablaPedido = new JTable();
+		tablaPedido.setModel(new DefaultTableModel(new Object[][] {},
 				new String[] { "NOMBRE DEL PRODUCTO", "PRECIO UNITARIO", "CANTIDAD", "TOTAL" }) {
 
 			private static final long serialVersionUID = 1L;
@@ -221,7 +221,7 @@ public class VentanaRealizaPedido extends JFrame {
 		contentPane.add(lblfecha);
 		lblfecha.setText(fecha());
 
-		scrollPaneRealizados.setViewportView(tablaVenta);
+		scrollPaneRealizados.setViewportView(tablaPedido);
 		contentPane.add(scrollPaneRealizados);
 		contentPane.add(lblDescuento);
 		contentPane.add(btnAgregaProductos);
@@ -296,7 +296,9 @@ public class VentanaRealizaPedido extends JFrame {
 		contentPane.add(lblNewLabel_1);
 
 	}
-
+	public VentanaRealizaPedido() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * Mensaje de alerta
 	 * 

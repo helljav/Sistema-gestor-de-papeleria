@@ -4,6 +4,7 @@ import mx.uam.ayd.sgp.modelo.Pedido;
 import mx.uam.ayd.sgp.persistencia.DAOPedidos;
 import mx.uam.ayd.sgp.persistencia.DAOProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaAdminPedido;
+import mx.uam.ayd.sgp.presentacion.VentanaAgregarProductoPedido;
 import mx.uam.ayd.sgp.presentacion.VentanaAgregarProductoVenta;
 import mx.uam.ayd.sgp.presentacion.VentanaCRUDAlmacen;
 import mx.uam.ayd.sgp.presentacion.VentanaModificarProducto;
@@ -14,7 +15,9 @@ public class ControlVentaPedido {
 	private VentanaRealizaPedido GUIRP;
 	private ControlRealizaVenta crtlRV;
 	private VentanaAdminPedido GUIVPedido;
+	private VentanaAgregarProductoPedido GUIVAPP;
 	private Pedido ped;
+	ControlAlmacen controlAlmacen;
 	
 	public ControlVentaPedido() {
 		dao = new DAOPedidos();
@@ -36,8 +39,12 @@ public class ControlVentaPedido {
 	}
 	
 	public void iniciaVentanaAgregarProducto() {
-		crtlRV = new ControlRealizaVenta();
-		crtlRV.iniciaVAPV();
+//		crtlRV = new ControlRealizaVenta();
+//		crtlRV.iniciaVAPV();
+		controlAlmacen = new ControlAlmacen();
+		GUIVAPP = new VentanaAgregarProductoPedido(controlAlmacen, this, GUIRP);
+		GUIVAPP.setVisible(true);
+		GUIVAPP.setLocationRelativeTo(null);
 		
 	}
 	
