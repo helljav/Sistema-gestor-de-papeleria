@@ -35,10 +35,10 @@ public class ControlConsultaVentas {
 	 * 
 	 * @return regresa la lista de todas las ventas
 	 */
-	public ArrayList<Venta> recuperaVentas() {
+	public ArrayList<Venta> recuperaVentas(String fecha) {
 		try {
 			ArrayList<Venta> lista = new ArrayList();
-			lista = (ArrayList<Venta>) daoV.recuperaTodos();
+			lista = (ArrayList<Venta>) daoV.recuperaTodos(fecha);
 			ventanaconsultarventas.llenarT(lista);
 
 			return lista;
