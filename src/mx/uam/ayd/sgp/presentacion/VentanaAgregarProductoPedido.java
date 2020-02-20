@@ -200,6 +200,7 @@ public void alertaMensaje(String mensajeVentana, String tituloventana, int numer
  *            es el producto a mostrar en la tabla
  */
 public void llenaTPedido(Almacen producto) {
+	double money=0;
 	cantidadProductos = Integer.parseInt(textFieldCantidad.getText());
 	vRv.tablaPedido.setValueAt(producto.getNombreProducto(), vRv.contador, 0);
 	vRv.tablaPedido.setValueAt(producto.getPrecioProducto(), vRv.contador, 1);
@@ -210,7 +211,18 @@ public void llenaTPedido(Almacen producto) {
 	String totalMostrar = String.valueOf(totalVenta);
 	vRv.textFieldTotalVenta.setText(totalMostrar);
 	vRv.contador++;
-
+	
+	int cont = vRv.getContadorProductos();
+	cont++;
+	vRv.setContadorProductos(cont);
+	for (int i = 0; i < cont; i++) {
+		money = money + Double.parseDouble(vRv.tablaPedido.getValueAt(i, 3).toString());
+		
+	}
+	
+	
+	totalMostrar = String.valueOf(money);
+	vRv.textFieldTotalVenta.setText(totalMostrar);
 }
 
 

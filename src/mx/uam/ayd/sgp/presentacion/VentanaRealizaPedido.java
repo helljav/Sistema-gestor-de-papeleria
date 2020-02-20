@@ -43,6 +43,7 @@ public class VentanaRealizaPedido extends JFrame {
 	private JTextField textFieldNombre;
 	private JTextField textFieldApellido;
 	private ControlAutenticacionUsusario ctrlau;
+	private int contadorProductos = 0;
 
 	/**
 	 * Metodo que obtiene la fecha del sistema
@@ -84,6 +85,8 @@ public class VentanaRealizaPedido extends JFrame {
 		btnAgregaProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlventa.iniciaVentanaAgregarProducto();
+				
+				
 			}
 		});
 		btnAgregaProductos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -338,5 +341,13 @@ public class VentanaRealizaPedido extends JFrame {
 	 */
 	public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
 		JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
+	}
+
+	public int getContadorProductos() {
+		return contadorProductos;
+	}
+
+	public void setContadorProductos(int contadorProductos) {
+		this.contadorProductos = contadorProductos;
 	}
 }
