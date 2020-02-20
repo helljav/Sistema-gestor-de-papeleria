@@ -72,7 +72,7 @@ public class VentanaSeleccionAlmacen extends JFrame {
 		/*
 		 * CARACTERISTICAS Y COFIGURACIONES DEL ALMACEN DIA DE MERTOS
 		 */
-		JLabel lblNewLabel_1 = new JLabel("Almacen Dia de Muertos");
+		JLabel lblNewLabel_1 = new JLabel("Almacen Dia de Muertos2222");
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

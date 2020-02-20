@@ -48,7 +48,7 @@ public class Aplicacion {
 	public Aplicacion() {
 		daousuario = new DAOUsuario();
 	}
-
+//hola que tsl
 	/**
 	 * Este metodo inicia la aplicacion e inicia primero la autentificacion del
 	 * usuario llamando a la ventana IniciarSesion por medio del

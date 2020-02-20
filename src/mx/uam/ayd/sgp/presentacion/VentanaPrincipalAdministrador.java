@@ -55,11 +55,11 @@ public class VentanaPrincipalAdministrador extends JFrame {
 		/*
 		 * Configuracion de la etiqueta elegir almacen
 		 */
-		JLabel lblElegirAlmacen = new JLabel("Administrar almacen");
+		JLabel lblElegirAlmacen = new JLabel("Menu Provedor-Almacen");
 		lblElegirAlmacen.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlVAdmin.DespliegaVSeleccion();
+				controlVAdmin.DespliegaVCRUDProveedoresAlmacen();
 				setExtendedState(ICONIFIED);
 				/**
 				 * DAOProducto dao=new DAOProducto(); alma=new ControlAlmacen(dao);

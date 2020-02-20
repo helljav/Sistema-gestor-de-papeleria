@@ -60,6 +60,10 @@ public class CreadorBaseDeDatos {
 	        statement.execute("INSERT INTO Venta VALUES (DEFAULT,'"+"15/02/2020"+"','"+"Empleado"+"',"+266.89+")",Statement.RETURN_GENERATED_KEYS);
 	        ////////////////////////////////////////////////////////////////////////////////////////////
 	
+	        statement.execute("CREATE TABLE proveedores(idproveedor INT PRIMARY KEY  not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),nombre varchar(40),apellidos varchar(40),telefono varchar(15),email varchar(100),descripcion varchar(500))");
+	        System.out.println("Tabla de proveedores creada");
+	        statement.execute("insert into proveedores values(DEFAULT,'"+"Hernan"+"','"+"Dominguez"+"','"+"5959571482"+"','"+"system_soad@hotmail.com"+"','"+"proveedor de libretas"+"')",statement.RETURN_GENERATED_KEYS);
+			System.out.print("Datos insertados dentro de la tabla proveedores");
 			
 			ManejadorBD.termina();
 		}
