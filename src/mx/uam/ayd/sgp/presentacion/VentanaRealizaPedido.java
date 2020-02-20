@@ -130,12 +130,13 @@ public class VentanaRealizaPedido extends JFrame {
 						precio = (double) modelo.getValueAt(i, 1);
 						cantidad = (int) modelo.getValueAt(i, 2);
 						descuento = (double) modelo.getValueAt(i, 3);
+						precio=precio*cantidad;
 						precioTotal = precioTotal + precio;
-
+						
 					}
-					String PT = String.valueOf(precioTotal);
+					//String PT = String.valueOf(precioTotal);
 
-					textFieldTotalVenta.setText(PT);
+					//textFieldTotalVenta.setText(PT);
 
 					System.out.println(fecha1);
 					System.out.println(nombreCliente);
@@ -143,8 +144,12 @@ public class VentanaRealizaPedido extends JFrame {
 					System.out.println(importeDejado);
 					System.out.println(precioTotal);
 					System.out.println(empleado);
-
-					controlventa.realizaPedido(fecha1, nombreCliente, apellidoCliente, importeDejado, precioTotal);
+					
+					if(importeDejado>=(precioTotal*0.1)) {
+						controlventa.realizaPedido(fecha1, nombreCliente, apellidoCliente, importeDejado, precioTotal);
+					}else {
+						alertaMensaje("Anticipo menor del 10%", "Alerta", 1);
+					}
 				}
 			}
 		});
