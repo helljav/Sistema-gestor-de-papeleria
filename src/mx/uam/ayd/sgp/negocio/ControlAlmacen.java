@@ -11,10 +11,12 @@ import mx.uam.ayd.sgp.modelo.Almacen;
 import mx.uam.ayd.sgp.modelo.Producto;
 import mx.uam.ayd.sgp.persistencia.DAOProducto;
 import mx.uam.ayd.sgp.presentacion.DialogoMostrarProducto;
+import mx.uam.ayd.sgp.presentacion.MenuProvedor_Almacen;
 import mx.uam.ayd.sgp.presentacion.VentanaAgregarProductoVenta;
 import mx.uam.ayd.sgp.presentacion.VentanaAñadirProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaCRUDAlmacen;
 import mx.uam.ayd.sgp.presentacion.VentanaEliminarProducto;
+import mx.uam.ayd.sgp.presentacion.VentanaMenuProveedores;
 import mx.uam.ayd.sgp.presentacion.VentanaModificarProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaSeleccionAlmacen;
 
@@ -25,6 +27,7 @@ public class ControlAlmacen {
 	private VentanaAñadirProducto GUIAgregarP;
 	private VentanaEliminarProducto GUIEliminarP;
 	private VentanaModificarProducto GUIModificarP;
+	private VentanaMenuProveedores GUIMenuP;
 	private VentanaAgregarProductoVenta ventanaAgregarProductoVenta;
 
 	public ControlAlmacen() {
@@ -43,7 +46,11 @@ public class ControlAlmacen {
 		GUI.setVisible(true);
 		GUI.setLocationRelativeTo(null);
 	}
-
+	public void DespliegaVCRUDProveedores() {
+		GUIMenuP = new VentanaMenuProveedores(this);
+		GUIMenuP.setVisible(true);
+		GUIMenuP.setLocationRelativeTo(null);
+	}
 	public void DespliegaVAñadirAlamcen() {
 		GUIAgregarP = new VentanaAñadirProducto(this);
 		GUIAgregarP.setVisible(true);
