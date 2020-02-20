@@ -39,8 +39,9 @@ public class ControlAutenticacionUsusario {
 	public void Autentifica(String usuario, String contraseña) {
 		try {
 			Usuario bandera = UserDAO.Autentifica(usuario, contraseña);
-			System.out.println(bandera);
-			System.out.println(bandera.getTipoCuenta());
+//			System.out.println(bandera);
+//			System.out.println(bandera.getTipoCuenta());
+			
 			if (bandera.getTipoCuenta().equals("ADMINISTRADOR")) {
 				ControlVAdministrador ctrl = new ControlVAdministrador();
 				ctrl.inicia();
@@ -48,7 +49,10 @@ public class ControlAutenticacionUsusario {
 
 			} else if (bandera.getTipoCuenta().equals("EMPLEADO")) {
 				ControlVEmpleado ctrl = new ControlVEmpleado();
+				//////
+				ctrl.empleadoautentificado(bandera.getNombre());
 				ctrl.inicia();
+				
 				GUI.setVisible(false);
 			}
 		} catch (Exception e) {

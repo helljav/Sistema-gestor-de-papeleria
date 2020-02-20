@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import mx.uam.ayd.sgp.negocio.ControlVEmpleado;
+import mx.uam.ayd.sgp.negocio.ControlVentaPedido;
 
 import java.awt.Toolkit;
 import javax.swing.GroupLayout;
@@ -24,16 +25,20 @@ import java.awt.Point;
 import java.awt.Cursor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaAdminPedido extends JFrame {
 
 	private JPanel contentPane;
-	private ControlVEmpleado controlVE;
+	private ControlVentaPedido controlVE;
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaAdminPedido(ControlVEmpleado ctrl) {
+	public VentanaAdminPedido(ControlVentaPedido ctrl) {
 		controlVE = ctrl;
 		setUndecorated(true);
 		String path = new java.io.File("").getAbsolutePath();
@@ -78,6 +83,14 @@ public class VentanaAdminPedido extends JFrame {
 						.addContainerGap(17, Short.MAX_VALUE)));
 
 		JLabel lblRegistarPedido = new JLabel("Registrar pedido");
+		lblRegistarPedido.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				controlVE.IniciaVentanaPedido();
+			}
+		});
+		lblRegistarPedido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		lblRegistarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblRegistarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblRegistarPedido.setHorizontalAlignment(SwingConstants.CENTER);

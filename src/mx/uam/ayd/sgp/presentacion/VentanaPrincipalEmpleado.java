@@ -95,7 +95,7 @@ public class VentanaPrincipalEmpleado extends JFrame {
 		lblRealizarPedido.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ctrlVE.iniciaVAdminPedido();
+				ctrlVE.DespliegaVCRUDPedido();
 				setExtendedState(ICONIFIED);
 			}
 		});

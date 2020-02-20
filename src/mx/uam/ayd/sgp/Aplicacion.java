@@ -6,7 +6,7 @@ import mx.uam.ayd.sgp.persistencia.DAOUsuario;
 import mx.uam.ayd.sgp.presentacion.VentanaIniciarSesion;
 
 /**********************************************************************************************************************************
-*	Proyecto de Analisis y Diseño de Sstemas (Sistema gestor de papeleria)                                           
+*	Proyecto de Analisis y Diseï¿½o de Sstemas (Sistema gestor de papeleria)                                           
 *	Proyecto de Ingenieria de Software (StarShop)													                              *
 *	Integrantes:  Carrillo Pacheco Francisco Javier 
 *				  Contreras Vidal Maribel
@@ -15,8 +15,9 @@ import mx.uam.ayd.sgp.presentacion.VentanaIniciarSesion;
 *				  Morales Ocaranza Carlos Jesus																					  *	
 *				  Oseguera Sanchez Eduardo																					      *	
 *				  Raya Chula Ricardo
-*					Holi profe																				              *
-*				 
+*					Hol																				              *
+*				 kjkjkjk
+*					Hello
 *				 
 *				 
 *							    																								  *

@@ -19,7 +19,7 @@ public class CreadorBaseDeDatos {
 			 * CREA TABLA USUARIOS
 			 */
 			Statement statement = connection.createStatement();
-			statement.execute("create table Usuarios(idempleado varchar(20) PRIMARY KEY,usuario varchar(40), contraseña varchar(40),tipoCuenta varchar(20),nombre varchar(40),apellidos varchar(100),telefono varchar(40))");// , CONSTRAINT primary_key PRIMARY KEY (autorId)
+			statement.execute("create table Usuarios(idempleado varchar(20) PRIMARY KEY,usuario varchar(40), contraseï¿½a varchar(40),tipoCuenta varchar(20),nombre varchar(40),apellidos varchar(100),telefono varchar(40))");// , CONSTRAINT primary_key PRIMARY KEY (autorId)
 			System.out.println("Tabla de Usuarios creada exitosamente");
 			statement.execute("insert into Usuarios values('" +"1245"+"','"+ "admin" + "','" + "123"+ "','" + "ADMINISTRADOR" +"','"+"Hernan"+"','"+"Dominguez"+"','"+"5959571482"+ "')");
 			statement.execute("insert into Usuarios values('"+"1996"+"','" + "empleado" + "','" + "321"+ "','" + "EMPLEADO" +"','"+"eduardo"+"','"+"oseguera"+"','"+"5568971845"+ "')");
@@ -44,6 +44,17 @@ public class CreadorBaseDeDatos {
 	        "fechaventa varchar(20),"+
 	        "empleado varchar(40),"+
 	        "importe double )");
+	        
+	        
+	        statement.execute("CREATE TABLE Pedido("+
+	        "numPedido INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"+
+	        "fechaPedido varchar(20),"+
+	        "nombreCliente varchar(20),"+
+	        "apellidoCliente varchar(40),"+
+	        "importeDejado double,"+
+	        "importeTotal double )");
+	        
+	        
 	        // statement.execute("INSERT INTO Venta VALUES (DEFAULT,"+"2010/01/14"+","+"maribel Contreras"+"+)",Statement.RETURN_GENERATED_KEYS);
 	        statement.execute("INSERT INTO Venta VALUES (DEFAULT,'"+"15/02/2020"+"','"+"Empleado"+"',"+150.5+")",Statement.RETURN_GENERATED_KEYS);
 	        statement.execute("INSERT INTO Venta VALUES (DEFAULT,'"+"15/02/2020"+"','"+"Empleado"+"',"+266.89+")",Statement.RETURN_GENERATED_KEYS);
@@ -53,6 +64,7 @@ public class CreadorBaseDeDatos {
 	        System.out.println("Tabla de proveedores creada");
 	        statement.execute("insert into proveedores values(DEFAULT,'"+"Hernan"+"','"+"Dominguez"+"','"+"5959571482"+"','"+"system_soad@hotmail.com"+"','"+"proveedor de libretas"+"')",statement.RETURN_GENERATED_KEYS);
 			System.out.print("Datos insertados dentro de la tabla proveedores");
+			
 			ManejadorBD.termina();
 		}
 		catch(Exception ex)
