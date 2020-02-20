@@ -1,13 +1,13 @@
 package mx.uam.ayd.sgp.negocio;
 import mx.uam.ayd.sgp.modelo.Proveedor;
 import mx.uam.ayd.sgp.persistencia.DAOProveedores;
-import mx.uam.ayd.sgp.presentacion.VentanaAñadirProveedor;
+import mx.uam.ayd.sgp.presentacion.VentanaAÃ±adirProveedor;
 
 public class ControlProveedores {
 	private DAOProveedores dao;
-	//private static VentanaEliminarProveedor deleteP;
-	//private VentanaEliminarProveedor GUIEliProv;
-	private VentanaAñadirProveedor GUIAddProv;
+	private static VentanaEliminarProveedor deleteP;
+	private VentanaEliminarProveedor GUIEliProv;
+	private VentanaAÃ±adirProveedor GUIAddProv;
 	
 	
 	public ControlProveedores() {}
@@ -16,18 +16,18 @@ public class ControlProveedores {
 		dao = new DAOProveedores();
 		
 	}
-	public void MuestraVentanaAñadirProveedor() {
-		GUIAddProv = new VentanaAñadirProveedor(this);
+	public void MuestraVentanaAÃ±adirProveedor() {
+		GUIAddProv = new VentanaAÃ±adirProveedor(this);
 		GUIAddProv.setUndecorated(true);
 		GUIAddProv.setVisible(true);
 		GUIAddProv.setLocationRelativeTo(null);
 		
 	}
-/*	
+	
 	/**
 	 * Crea la ventana que se encarga de realizar la operacion de eliminar proveedor
 	 * ***/
-/*	public void eliminaProveedor(){
+	public void eliminaProveedor(){
 		deleteP= new VentanaEliminarProveedor(this);
 		deleteP.setUndecorated(false);
 		deleteP.setVisible(true);
@@ -39,14 +39,14 @@ public class ControlProveedores {
 	 * @return true si elimina el usuario exitosamente
 	 * @return false si no se pudo eliminar
 	 * ***/
-/*	public boolean deleteProvider(String nombre){
+	public boolean deleteProvider(String nombre){
 		daop=new DAOProveedor();
 		if(daop.EliminaUsuario(nombre)){
 			return true;
 		}
 		return false;
 	}
-	*/
+	
 	public boolean addProv(String Nombre_Empresa,String CorreoElectronico,String NumeroTelefonico, String Descirpcion) {
 		dao=new DAOProveedores();
 		Proveedor Provadd=new Proveedor(Nombre_Empresa,CorreoElectronico,NumeroTelefonico,Descirpcion);
