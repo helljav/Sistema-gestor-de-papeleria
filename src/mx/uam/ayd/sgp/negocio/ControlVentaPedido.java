@@ -18,6 +18,7 @@ public class ControlVentaPedido {
 	private VentanaAgregarProductoPedido GUIVAPP;
 	private Pedido ped;
 	ControlAlmacen controlAlmacen;
+	private String Nombre;
 	
 	public ControlVentaPedido() {
 		dao = new DAOPedidos();
@@ -48,8 +49,17 @@ public class ControlVentaPedido {
 		
 	}
 	
-	public boolean realizaPedido(String fecha, String nombre, String apellido, double importeDejado, double importeTotal, String empleado ) {
-		ped = new Pedido(fecha,nombre,apellido,importeTotal,importeDejado, empleado);
+	  public void empleadoaut(String Nombre){
+		 this.Nombre=Nombre;
+	 }
+	  public String getempleadoaut(){
+		  return Nombre;
+		 }
+	 
+	
+	public boolean realizaPedido(String fecha, String nombre, String apellido, double importeDejado, double importeTotal) {
+		
+		ped = new Pedido(fecha,nombre,apellido,importeTotal,importeDejado, Nombre);
 		dao.almacenaPedido(ped);
 		return true;
 		

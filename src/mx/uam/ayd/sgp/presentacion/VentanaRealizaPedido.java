@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 import mx.uam.ayd.sgp.modelo.Almacen;
 import mx.uam.ayd.sgp.negocio.ControlAlmacen;
+import mx.uam.ayd.sgp.negocio.ControlAutenticacionUsusario;
 import mx.uam.ayd.sgp.negocio.ControlRealizaVenta;
 import mx.uam.ayd.sgp.negocio.ControlVentaPedido;
 import javax.swing.JTextPane;
@@ -33,15 +34,15 @@ public class VentanaRealizaPedido extends JFrame {
 
 	private JPanel contentPane;
 	private ControlVentaPedido controlventa;
-	private ControlAlmacen controlAlmacen;
 	private Almacen producto;
 	int contador = 0;;
 	JTable tablaPedido;
-	private JTextField textFieldTotalVenta;
+	JTextField textFieldTotalVenta;
 	private JTextField textFieldAcuentaVenta;
 	private JTextField textFieldRestanteVenta;
 	private JTextField textFieldNombre;
 	private JTextField textFieldApellido;
+	private ControlAutenticacionUsusario ctrlau;
 
 	/**
 	 * Metodo que obtiene la fecha del sistema
@@ -101,32 +102,50 @@ public class VentanaRealizaPedido extends JFrame {
 		btnLiquidarVenta.setSize(189, 33);
 		btnLiquidarVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// Fecha
-				String fecha1 = fecha();
-				double precioTotal = 0;
-				String empleado = "Empleado";
-				String nombreProducto;
-				String nombreCliente;
-				String apellidoCliente;
-				double precio;
-				double descuento;
-				int cantidad;
-				double importeDejado;
-				double importeTotal;
-				
-				nombreCliente=textFieldNombre.getText();
-				apellidoCliente=textFieldApellido.getText();
-				importeDejado=Double.parseDouble(textFieldAcuentaVenta.getText());
-				//importeTotal=Double.parseDouble(textFieldTotalVenta.getText());
-				DefaultTableModel modelo = (DefaultTableModel) tablaPedido.getModel();
-				for (int i = 0; i < contador; i++) {
-					nombreProducto = (String) modelo.getValueAt(i, 0);
-					precio = (double) modelo.getValueAt(i, 1);
-					cantidad = (int) modelo.getValueAt(i, 2);
-					descuento = (double) modelo.getValueAt(i, 3);
-					precioTotal = precioTotal + precio;
+				if (textFieldNombre.getText().length() == 0 || textFieldApellido.getText().length() == 0
+						|| textFieldAcuentaVenta.getText().length() == 0)
+					alertaMensaje("Llena los campos", "Alerta", 1);
+
+				else {
+					String fecha1 = fecha();
+					double precioTotal = 0;
+
+					String empleado = ctrl.getempleadoaut();
+					;
+					String nombreProducto;
+					String nombreCliente;
+					String apellidoCliente;
+					double precio;
+					double descuento;
+					int cantidad;
+					double importeDejado;
+					double importeTotal;
+					nombreCliente = textFieldNombre.getText();
+					apellidoCliente = textFieldApellido.getText();
+					importeDejado = Double.parseDouble(textFieldAcuentaVenta.getText());
+					// importeTotal=Double.parseDouble(textFieldTotalVenta.getText());
+					DefaultTableModel modelo = (DefaultTableModel) tablaPedido.getModel();
+					for (int i = 0; i < contador; i++) {
+						nombreProducto = (String) modelo.getValueAt(i, 0);
+						precio = (double) modelo.getValueAt(i, 1);
+						cantidad = (int) modelo.getValueAt(i, 2);
+						descuento = (double) modelo.getValueAt(i, 3);
+						precioTotal = precioTotal + precio;
+
+					}
+					String PT = String.valueOf(precioTotal);
+
+					textFieldTotalVenta.setText(PT);
+
+					System.out.println(fecha1);
+					System.out.println(nombreCliente);
+					System.out.println(apellidoCliente);
+					System.out.println(importeDejado);
+					System.out.println(precioTotal);
+					System.out.println(empleado);
+
+					controlventa.realizaPedido(fecha1, nombreCliente, apellidoCliente, importeDejado, precioTotal);
 				}
-					controlventa.realizaPedido(fecha1, nombreCliente, apellidoCliente, importeDejado, precioTotal, empleado);
 			}
 		});
 		btnLiquidarVenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -217,7 +236,8 @@ public class VentanaRealizaPedido extends JFrame {
 
 		});
 		JLabel lblfecha = new JLabel("dd/MM/AA");
-		lblfecha.setBounds(380, 24, 86, 14);
+		lblfecha.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblfecha.setBounds(407, 28, 86, 14);
 		contentPane.add(lblfecha);
 		lblfecha.setText(fecha());
 
@@ -230,75 +250,81 @@ public class VentanaRealizaPedido extends JFrame {
 		contentPane.add(btnLiquidarVenta);
 		contentPane.add(btnRegresar);
 
-		JLabel lblNewLabel = new JLabel("No. Pedido");
-		lblNewLabel.setBounds(15, 53, 60, 14);
-		contentPane.add(lblNewLabel);
-
-		JLabel lblNewLabelNoPedido = new JLabel("New label");
-		lblNewLabelNoPedido.setBounds(85, 53, 46, 14);
-		contentPane.add(lblNewLabelNoPedido);
-
 		JLabel lblDatosDelCliente = new JLabel("Datos del Cliente");
-		lblDatosDelCliente.setBounds(15, 73, 95, 14);
+		lblDatosDelCliente.setFont(new Font("Dialog", Font.BOLD, 11));
+		lblDatosDelCliente.setBounds(15, 72, 95, 14);
 		contentPane.add(lblDatosDelCliente);
 
 		JLabel lblNombre = new JLabel("Nombre: ");
-		lblNombre.setBounds(15, 114, 46, 14);
+		lblNombre.setFont(new Font("Dialog", Font.BOLD, 11));
+		lblNombre.setBounds(15, 97, 50, 20);
 		contentPane.add(lblNombre);
 
 		JLabel lblNewLabelApellido = new JLabel("Apellido");
-		lblNewLabelApellido.setBounds(310, 114, 60, 14);
+		lblNewLabelApellido.setFont(new Font("Dialog", Font.BOLD, 11));
+		lblNewLabelApellido.setBounds(293, 96, 50, 20);
 		contentPane.add(lblNewLabelApellido);
 
 		JLabel lblNewLabelTotaLVenta = new JLabel("Total");
+		lblNewLabelTotaLVenta.setFont(new Font("Dialog", Font.BOLD, 11));
 		lblNewLabelTotaLVenta.setBounds(380, 285, 46, 14);
 		contentPane.add(lblNewLabelTotaLVenta);
 
 		JLabel lblNewLabelAcuentaVenta = new JLabel("A Cuenta..");
+		lblNewLabelAcuentaVenta.setFont(new Font("Dialog", Font.BOLD, 11));
 		lblNewLabelAcuentaVenta.setBounds(380, 320, 60, 14);
 		contentPane.add(lblNewLabelAcuentaVenta);
 
 		JLabel lblNewLabelRestanteVenta = new JLabel("Restante");
+		lblNewLabelRestanteVenta.setFont(new Font("Dialog", Font.BOLD, 11));
 		lblNewLabelRestanteVenta.setBounds(380, 361, 60, 14);
 		contentPane.add(lblNewLabelRestanteVenta);
 
 		textFieldTotalVenta = new JTextField();
-		textFieldTotalVenta.setBounds(436, 282, 116, 20);
+		textFieldTotalVenta.setEditable(false);
+		textFieldTotalVenta.setBounds(446, 282, 106, 20);
 		contentPane.add(textFieldTotalVenta);
 		textFieldTotalVenta.setColumns(10);
 
 		textFieldAcuentaVenta = new JTextField();
-		textFieldAcuentaVenta.setBounds(436, 314, 116, 20);
+		textFieldAcuentaVenta.setBounds(446, 314, 106, 20);
 		contentPane.add(textFieldAcuentaVenta);
 		textFieldAcuentaVenta.setColumns(10);
 
 		textFieldRestanteVenta = new JTextField();
-		textFieldRestanteVenta.setBounds(436, 358, 116, 20);
+		textFieldRestanteVenta.setEditable(false);
+		textFieldRestanteVenta.setBounds(446, 359, 106, 20);
 		contentPane.add(textFieldRestanteVenta);
 		textFieldRestanteVenta.setColumns(10);
 
 		textFieldNombre = new JTextField();
-		textFieldNombre.setBounds(64, 108, 193, 20);
+		textFieldNombre.setBounds(72, 97, 193, 20);
 		contentPane.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 
 		textFieldApellido = new JTextField();
-		textFieldApellido.setBounds(380, 108, 181, 20);
+		textFieldApellido.setBounds(351, 98, 181, 20);
 		contentPane.add(textFieldApellido);
 		textFieldApellido.setColumns(10);
 
-		JLabel lblNewLabelNombreDelEmpleado = new JLabel("New label");
-		lblNewLabelNombreDelEmpleado.setBounds(463, 73, 46, 14);
+		JLabel lblNewLabelNombreDelEmpleado = new JLabel(ctrl.getempleadoaut());
+		lblNewLabelNombreDelEmpleado.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabelNombreDelEmpleado.setBounds(436, 73, 86, 15);
 		contentPane.add(lblNewLabelNombreDelEmpleado);
 
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(486, 24, 46, 14);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(
+				"C:\\Users\\Maribel\\Desktop\\Sistema-gestor-de-papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\calendario.png"));
+		lblNewLabel_1.setBounds(495, 0, 85, 67);
 		contentPane.add(lblNewLabel_1);
 
+		JLabel lblEmpleado = new JLabel("Empleado");
+		lblEmpleado.setFont(new Font("Dialog", Font.BOLD, 11));
+		lblEmpleado.setBounds(366, 73, 60, 14);
+		contentPane.add(lblEmpleado);
+
 	}
-	public VentanaRealizaPedido() {
-		// TODO Auto-generated constructor stub
-	}
+
 	/**
 	 * Mensaje de alerta
 	 * 

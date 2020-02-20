@@ -25,8 +25,8 @@ public class DAOPedidos {
 			// Crea el statement para hacer la conexion a la base de datos
 			Statement statement2 = ManejadorBD.dameConnection().createStatement();
 			// Envia instruccion SQL, nota el DEFAULT es para insertar la llave autogenerada
-			
-			statement2.execute("insert into Venta values(DEFAULT ,'" + P.getFechaPedido() + "','" + P.getNombreCliente()
+			System.out.println(P.toString());
+			statement2.execute("insert into Pedido values(DEFAULT ,'" + P.getFechaPedido() + "','" + P.getNombreCliente()
 					+ "','" + P.getApellidoCliente() + "'," + P.getImporteDejado() + ","+P.getImporteTotal()+")", Statement.RETURN_GENERATED_KEYS);
 			
 			ResultSet rs = statement2.getGeneratedKeys();

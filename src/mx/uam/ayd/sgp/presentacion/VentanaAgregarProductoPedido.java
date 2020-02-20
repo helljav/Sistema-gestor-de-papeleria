@@ -39,6 +39,7 @@ public class VentanaAgregarProductoPedido extends JFrame {
 	private int contador = 0;
 	private JTextField textFieldCantidad;
 	int cantidadProductos;
+	double totalVenta;
 	
 public VentanaAgregarProductoPedido(ControlAlmacen ctrl, ControlVentaPedido ctrl2, VentanaRealizaPedido vRv2) {
 	this.controlAlmacen = ctrl;
@@ -79,6 +80,7 @@ public VentanaAgregarProductoPedido(ControlAlmacen ctrl, ControlVentaPedido ctrl
 
 			}
 
+			setVisible(false);
 		}
 
 	});
@@ -159,13 +161,13 @@ public VentanaAgregarProductoPedido(ControlAlmacen ctrl, ControlVentaPedido ctrl
 
 	textFieldCantidad = new JTextField();
 	textFieldCantidad.setBorder(null);
-	textFieldCantidad.setBounds(200, 122, 138, 20);
+	textFieldCantidad.setBounds(200, 114, 156, 32);
 	contentPane.add(textFieldCantidad);
 	textFieldCantidad.setColumns(10);
 
 	JLabel lblNewLabel = new JLabel("CANTIDAD (PZS)");
 	lblNewLabel.setForeground(Color.GRAY);
-	lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+	lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 16));
 	lblNewLabel.setBounds(35, 114, 155, 32);
 	contentPane.add(lblNewLabel);
 
@@ -203,18 +205,13 @@ public void llenaTPedido(Almacen producto) {
 	vRv.tablaPedido.setValueAt(producto.getPrecioProducto(), vRv.contador, 1);
 	vRv.tablaPedido.setValueAt(cantidadProductos, vRv.contador, 2);
 	vRv.tablaPedido.setValueAt(cantidadProductos * producto.getPrecioProducto(), vRv.contador, 3);
+	//totalVenta = totalVenta+(double)vRv.tablaPedido.getValueAt(contador, 3);
+	totalVenta=totalVenta+cantidadProductos * producto.getPrecioProducto();
+	String totalMostrar = String.valueOf(totalVenta);
+	vRv.textFieldTotalVenta.setText(totalMostrar);
 	vRv.contador++;
+
 }
 
 
-//public void llenaTPedido(Almacen producto) {
-//	cantidadProductos = Integer.parseInt(textFieldCantidad.getText());
-//	vRv.tablaVenta.setValueAt(producto.getNombreProducto(), vRv.contador, 0);
-//	vRv.tablaVenta.setValueAt(producto.getPrecioProducto(), vRv.contador, 1);
-//	// vRv.tablaVenta.setValueAt(producto.getCantidadProducto(),vRv.contador, 2);
-//	vRv.tablaVenta.setValueAt(cantidadProductos, vRv.contador, 2);
-//	vRv.tablaVenta.setValueAt(cantidadProductos * producto.getPrecioProducto(), vRv.contador, 3);
-//	vRv.contador++;
-//
-//}
 }

@@ -27,5 +27,10 @@ public class ControlVEmpleado {
 	public void iniciaVenta() {
 		ctrlVenta.iniciarealizarventa();
 	}
+	/////////
+	public void empleadoautentificado(String NombreEmpleado){
+	String Nombre=NombreEmpleado;
+	ctrlPedido.empleadoaut(Nombre);
+	}
 
 }

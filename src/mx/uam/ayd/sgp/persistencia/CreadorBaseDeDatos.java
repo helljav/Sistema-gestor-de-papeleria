@@ -48,11 +48,10 @@ public class CreadorBaseDeDatos {
 	        
 	        statement.execute("CREATE TABLE Pedido("+
 	        "numPedido INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"+
-	        //"nombreProducto varchar(40),"+
 	        "fechaPedido varchar(20),"+
 	        "nombreCliente varchar(20),"+
 	        "apellidoCliente varchar(40),"+
-	        "importeDejado double"+
+	        "importeDejado double,"+
 	        "importeTotal double )");
 	        
 	        

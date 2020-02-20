@@ -12,6 +12,15 @@ public class Pedido {
 	private double importeDejado;
 
 	
+	@Override
+	public String toString() {
+		return "Pedido [numPedido=" + numPedido + ", fechaPedido=" + fechaPedido + ", empleado=" + empleado
+				+ ", nombreCliente=" + nombreCliente + ", apellidoCliente=" + apellidoCliente + ", importeTotal="
+				+ importeTotal + ", importeDejado=" + importeDejado + "]";
+	}
+
+
+
 	public Pedido(String fechaPedido, String nombreCliente, String apellidoCliente, double importeTotal,
 			double importeDejado,String empleado) {
 		
