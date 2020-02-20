@@ -63,7 +63,7 @@ public class VentanaMenuProveedores extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				crtlProveedor =new ControlProveedores();
-				crtlProveedor.MuestraVentanaAñadirProveedor();
+				crtlProveedor.VentanaAñadirProveedor();
 			
 			}
 		});

@@ -1,13 +1,15 @@
 package mx.uam.ayd.sgp.negocio;
 import mx.uam.ayd.sgp.modelo.Proveedor;
 import mx.uam.ayd.sgp.persistencia.DAOProveedores;
-import mx.uam.ayd.sgp.presentacion.VentanaAÃ±adirProveedor;
+
+import mx.uam.ayd.sgp.presentacion.VentanaAñadirProveedor;
+import mx.uam.ayd.sgp.presentacion.VentanaEliminarProveedor;
 
 public class ControlProveedores {
 	private DAOProveedores dao;
 	private static VentanaEliminarProveedor deleteP;
 	private VentanaEliminarProveedor GUIEliProv;
-	private VentanaAÃ±adirProveedor GUIAddProv;
+	private VentanaAñadirProveedor GUIAddProv;
 	
 	
 	public ControlProveedores() {}
@@ -16,8 +18,8 @@ public class ControlProveedores {
 		dao = new DAOProveedores();
 		
 	}
-	public void MuestraVentanaAÃ±adirProveedor() {
-		GUIAddProv = new VentanaAÃ±adirProveedor(this);
+	public void VentanaAñadirProveedor() {
+		GUIAddProv = new VentanaAñadirProveedor(this);
 		GUIAddProv.setUndecorated(true);
 		GUIAddProv.setVisible(true);
 		GUIAddProv.setLocationRelativeTo(null);
@@ -40,8 +42,8 @@ public class ControlProveedores {
 	 * @return false si no se pudo eliminar
 	 * ***/
 	public boolean deleteProvider(String nombre){
-		daop=new DAOProveedor();
-		if(daop.EliminaUsuario(nombre)){
+		dao=new DAOProveedores();
+		if(dao.EliminaUsuario(nombre)){
 			return true;
 		}
 		return false;

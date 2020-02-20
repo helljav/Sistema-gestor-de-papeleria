@@ -19,7 +19,7 @@ public class CreadorBaseDeDatos {
 			 * CREA TABLA USUARIOS
 			 */
 			Statement statement = connection.createStatement();
-			statement.execute("create table Usuarios(idempleado varchar(20) PRIMARY KEY,usuario varchar(40), contraseï¿½a varchar(40),tipoCuenta varchar(20),nombre varchar(40),apellidos varchar(100),telefono varchar(40))");// , CONSTRAINT primary_key PRIMARY KEY (autorId)
+			statement.execute("create table Usuarios(idempleado varchar(20) PRIMARY KEY,usuario varchar(40), contraseña varchar(40),tipoCuenta varchar(20),nombre varchar(40),apellidos varchar(100),telefono varchar(40))");// , CONSTRAINT primary_key PRIMARY KEY (autorId)
 			System.out.println("Tabla de Usuarios creada exitosamente");
 			statement.execute("insert into Usuarios values('" +"1245"+"','"+ "admin" + "','" + "123"+ "','" + "ADMINISTRADOR" +"','"+"Hernan"+"','"+"Dominguez"+"','"+"5959571482"+ "')");
 			statement.execute("insert into Usuarios values('"+"1996"+"','" + "empleado" + "','" + "321"+ "','" + "EMPLEADO" +"','"+"eduardo"+"','"+"oseguera"+"','"+"5568971845"+ "')");

@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import mx.uam.ayd.sgp.negocio.ControlProveedor;
+import mx.uam.ayd.sgp.negocio.ControlProveedores;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -27,7 +27,7 @@ public class VentanaEliminarProveedor extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private ControlProveedor ctrl;
+	private ControlProveedores ctrl;
 
 	/**
 	 * Launch the application.
@@ -51,7 +51,7 @@ public class VentanaEliminarProveedor extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaEliminarProveedor(ControlProveedor control) {
+	public VentanaEliminarProveedor(ControlProveedores control) {
 		
 		String path = new java.io.File("").getAbsolutePath();
 		ctrl=control;
