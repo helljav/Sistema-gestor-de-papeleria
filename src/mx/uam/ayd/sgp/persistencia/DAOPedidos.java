@@ -44,11 +44,16 @@ public class DAOPedidos {
 		}
 	}
 	////////////////////////////////////////////////////
+	/**
+	 * Este metodo obtiene todos los pedidos relacionados  con el nombre de un cliente 
+	 * @param nombreCliente
+	 * @return PedidoTempArreglo devuelve un arreglo con los pedidos relacionados
+	 */
 	public Pedido[] damePedido(String nombreCliente) {
 		
 		ArrayList<Pedido> PedidoTemp = new ArrayList<Pedido>();
 		try {
-			// Crea el statement
+			// Crea el statement para hacer la conexion a la base de datos
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 			// Recibe los resutados
 			ResultSet rs = statement.executeQuery("SELECT * FROM Pedido WHERE nombreCliente LIKE  '%" + nombreCliente + "%'");
@@ -70,18 +75,21 @@ public class DAOPedidos {
 		
 	}
 	///////////////////////////////////////////////////////
+	/**
+	 * Este metodobusca pedidos con el nombre de un cliente 
+	 * @param Pedido P
+	 * @return verdadero en caso de haberlo removido y falso en caso contrario
+	 */
 	public boolean cancelaPedido(Pedido P) {
 		
 		int pedido = 0;
 		try {
+			// Crea el statement para hacer la conexion a la base de datos
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 
-			/* Checar esta Query */
+			
 			System.out.println(P.getNombreCliente());
-			
-			//pedido = statement.executeUpdate("DELETE FROM Pedido WHERE nombreCliente = '" + P.getNombreCliente()
-			//		+ "' AND apellidoCliente= '" + P.getApellidoCliente() + "'");
-			
+			/* Realiza Query */
 			pedido = statement.executeUpdate("DELETE FROM Pedido WHERE numPedido = " + P.getNumPedido() );
 
 		} catch (SQLException e) {

@@ -82,25 +82,25 @@ public class ControlVentaPedido {
 	}
 	
 	/**
-	 * This method find pedidos with the name of cliente 
+	 * Este metodobusca pedidos con el nombre de un cliente 
 	 * @param nombreCliente
-	 * @return
+	 * @return pedido en relacion al cliente buscado
 	 */
 	public Pedido buscarPedido(String nombreCliente) {
 		// Se crea la lista de autores para poder mostrarle al usuario
-		Pedido arregloPedidos[] = dao.damePedido(nombreCliente); // Obtiene lista de autores
+		Pedido arregloPedidos[] = dao.damePedido(nombreCliente); // Obtiene lista de pedidos
 		DialogoMostrarPedido dialogo = new DialogoMostrarPedido(new JFrame(), arregloPedidos); // Crea el dialogo
-																											// con la lista de																								// productos
+																											// con la lista 																								// productos
 		if (arregloPedidos.length == 0) {
 			guiCancelarPedido.alertaMensaje("No se encontro ningun pedido con ese nombre de cliente", "Error", 0);
 		} else {
 			dialogo.setVisible(true); // Muestra el dialogo
 		}
-		return dialogo.getClienteSeleccionado(); // Regresa el usuario seleccionado en el dialogo
+		return dialogo.getClienteSeleccionado(); // Regresa el pedido del cliente seleccionado en el dialogo
 	}
 	
 	/**
-	 * 
+	 * Este metodo manda a llamar al DAO de pedido para que se encargue de cancelar el pedido
 	 * @param pedido
 	 */
 	public void cancelaPedido(Pedido pedido) {
