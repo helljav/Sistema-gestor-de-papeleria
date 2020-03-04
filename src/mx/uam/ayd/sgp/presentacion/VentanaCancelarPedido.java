@@ -60,7 +60,7 @@ public class VentanaCancelarPedido extends JFrame {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//controlAlmacen.eliminarProducto(producto);
+				controlPedido.cancelaPedido(pedido);
 			}
 		});
 		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

@@ -38,7 +38,8 @@ public class ControlVentaPedido {
 		GUIRP.setVisible(true);
 		GUIRP.setLocationRelativeTo(null);
 	}
-	
+
+
 	public void IniciaVentanaCancelarPedido() {
 		
 		guiCancelarPedido = new VentanaCancelarPedido(this);
@@ -96,6 +97,26 @@ public class ControlVentaPedido {
 			dialogo.setVisible(true); // Muestra el dialogo
 		}
 		return dialogo.getClienteSeleccionado(); // Regresa el usuario seleccionado en el dialogo
+	}
+	
+	/**
+	 * 
+	 * @param pedido
+	 */
+	public void cancelaPedido(Pedido pedido) {
+		try {
+			if (dao.cancelaPedido(pedido)) {
+				guiCancelarPedido.alertaMensaje("El pedido fue eliminado ", "Success exito", 1);
+				guiCancelarPedido.setVisible(false);
+
+			} else {
+				guiCancelarPedido.alertaMensaje("El pedido no se pudo eliminar", "Error :(", 0);
+
+			}
+
+		} catch (Exception e) {
+			guiCancelarPedido.alertaMensaje("Ocurrio un error, llame al administrador ", "Error", 0);
+		}
 	}
 
 }
