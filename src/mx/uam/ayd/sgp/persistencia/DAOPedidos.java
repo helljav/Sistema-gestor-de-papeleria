@@ -3,8 +3,10 @@ package mx.uam.ayd.sgp.persistencia;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import mx.uam.ayd.sgp.modelo.Pedido;
+import mx.uam.ayd.sgp.modelo.Usuario;
 
 public class DAOPedidos {
 
@@ -40,6 +42,59 @@ public class DAOPedidos {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	////////////////////////////////////////////////////
+	public Pedido[] damePedido(String nombreCliente) {
+		
+		ArrayList<Pedido> PedidoTemp = new ArrayList<Pedido>();
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+			// Recibe los resutados
+			ResultSet rs = statement.executeQuery("SELECT * FROM Pedido WHERE nombreCliente LIKE  '%" + nombreCliente + "%'");
+			while (rs.next()) {
+				// Crea una nueva instancia del objeto
+				Pedido pedido = new Pedido(rs.getInt("numPedido"), rs.getString("fechaPedido"), rs.getString("nombreCliente"), rs.getString("apellidoCliente"),
+						rs.getDouble("importeTotal"), rs.getDouble("importeDejado"));
+				PedidoTemp.add(pedido);
+			}
+			Pedido PedidoTempArreglo[] = new Pedido[PedidoTemp.size()];
+			PedidoTemp.toArray(PedidoTempArreglo);
+			return PedidoTempArreglo;
+		} catch (SQLException e) {
+
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	///////////////////////////////////////////////////////
+	public boolean cancelaPedido(Pedido P) {
+		
+		int pedido = 0;
+		try {
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+
+			/* Checar esta Query */
+			System.out.println(P.getNombreCliente());
+			
+			//pedido = statement.executeUpdate("DELETE FROM Pedido WHERE nombreCliente = '" + P.getNombreCliente()
+			//		+ "' AND apellidoCliente= '" + P.getApellidoCliente() + "'");
+			
+			pedido = statement.executeUpdate("DELETE FROM Pedido WHERE numPedido = " + P.getNumPedido() );
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		System.out.println(pedido);
+		if (pedido == 0) {
+			return false;
+		} else {
+			return true;
+		}
+		
 	}
 
 	
