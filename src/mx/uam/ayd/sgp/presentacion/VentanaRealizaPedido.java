@@ -123,8 +123,8 @@ public class VentanaRealizaPedido extends JFrame {
 					int cantidad;
 					double importeDejado;
 					double importeTotal;
-					nombreCliente = textFieldNombre.getText();
-					apellidoCliente = textFieldApellido.getText();
+					nombreCliente = textFieldNombre.getText().toUpperCase();
+					apellidoCliente = textFieldApellido.getText().toUpperCase();
 					importeDejado = Double.parseDouble(textFieldAcuentaVenta.getText());
 					// importeTotal=Double.parseDouble(textFieldTotalVenta.getText());
 					DefaultTableModel modelo = (DefaultTableModel) tablaPedido.getModel();

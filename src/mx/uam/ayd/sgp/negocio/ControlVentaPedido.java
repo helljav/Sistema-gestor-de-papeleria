@@ -1,12 +1,18 @@
 package mx.uam.ayd.sgp.negocio;
 
+import javax.swing.JFrame;
+
 import mx.uam.ayd.sgp.modelo.Pedido;
+import mx.uam.ayd.sgp.modelo.Usuario;
 import mx.uam.ayd.sgp.persistencia.DAOPedidos;
 import mx.uam.ayd.sgp.persistencia.DAOProducto;
+import mx.uam.ayd.sgp.presentacion.DialogoMostrarPedido;
+import mx.uam.ayd.sgp.presentacion.DialogoMostrarUsuarios;
 import mx.uam.ayd.sgp.presentacion.VentanaAdminPedido;
 import mx.uam.ayd.sgp.presentacion.VentanaAgregarProductoPedido;
 import mx.uam.ayd.sgp.presentacion.VentanaAgregarProductoVenta;
 import mx.uam.ayd.sgp.presentacion.VentanaCRUDAlmacen;
+import mx.uam.ayd.sgp.presentacion.VentanaCancelarPedido;
 import mx.uam.ayd.sgp.presentacion.VentanaModificarProducto;
 import mx.uam.ayd.sgp.presentacion.VentanaRealizaPedido;
 
@@ -19,6 +25,7 @@ public class ControlVentaPedido {
 	private Pedido ped;
 	ControlAlmacen controlAlmacen;
 	private String Nombre;
+	private VentanaCancelarPedido guiCancelarPedido;
 	
 	public ControlVentaPedido() {
 		dao = new DAOPedidos();
@@ -30,6 +37,14 @@ public class ControlVentaPedido {
 		GUIRP = new VentanaRealizaPedido(this);
 		GUIRP.setVisible(true);
 		GUIRP.setLocationRelativeTo(null);
+	}
+	
+	public void IniciaVentanaCancelarPedido() {
+		
+		guiCancelarPedido = new VentanaCancelarPedido(this);
+		guiCancelarPedido.setVisible(true);
+		guiCancelarPedido.setLocationRelativeTo(null);
+		
 	}
 	
 	public void DespliegaVCRUD() {
@@ -63,6 +78,24 @@ public class ControlVentaPedido {
 		dao.almacenaPedido(ped);
 		return true;
 		
+	}
+	
+	/**
+	 * This method find pedidos with the name of cliente 
+	 * @param nombreCliente
+	 * @return
+	 */
+	public Pedido buscarPedido(String nombreCliente) {
+		// Se crea la lista de autores para poder mostrarle al usuario
+		Pedido arregloPedidos[] = dao.damePedido(nombreCliente); // Obtiene lista de autores
+		DialogoMostrarPedido dialogo = new DialogoMostrarPedido(new JFrame(), arregloPedidos); // Crea el dialogo
+																											// con la lista de																								// productos
+		if (arregloPedidos.length == 0) {
+			guiCancelarPedido.alertaMensaje("No se encontro ningun pedido con ese nombre de cliente", "Error", 0);
+		} else {
+			dialogo.setVisible(true); // Muestra el dialogo
+		}
+		return dialogo.getClienteSeleccionado(); // Regresa el usuario seleccionado en el dialogo
 	}
 
 }
