@@ -148,16 +148,22 @@ public class VentanaRealizaPedido extends JFrame {
 					System.out.println(precioTotal);
 					System.out.println(empleado);
 					
+					double totalVenta = precioTotal-importeDejado;
+					String total = String.valueOf(totalVenta);
+					textFieldRestanteVenta.setText(total);
+					
 					if(importeDejado>=(precioTotal*0.1)) {
 						controlventa.realizaPedido(fecha1, nombreCliente, apellidoCliente, importeDejado, precioTotal);
+						alertaMensaje("Pedido registrado", "Alerta", 1);
+						setVisible(false);
 					}else {
-						alertaMensaje("Anticipo menor del 10%", "Alerta", 1);
+						alertaMensaje("Anticipo menor del 10%", "Alerta", 0);
 					}
 				}
 			}
 		});
 		btnLiquidarVenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnLiquidarVenta.setText("LIQUIDAR VENTA");
+		btnLiquidarVenta.setText("REGISTRAR PEDIDO");
 		btnLiquidarVenta.setSelected(true);
 		btnLiquidarVenta.setLocation(new Point(15, 330));
 		btnLiquidarVenta.setHideActionText(true);
@@ -172,6 +178,8 @@ public class VentanaRealizaPedido extends JFrame {
 		btnCancelarVenta.setSize(189, 33);
 		btnCancelarVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				contador=0;
+				contadorProductos = 0;
 				for (int i = 0; i < 4; i++) {
 					tablaPedido.setValueAt("", i, 0);
 					tablaPedido.setValueAt("", i, 1);
@@ -181,7 +189,7 @@ public class VentanaRealizaPedido extends JFrame {
 				}
 			}
 		});
-		btnCancelarVenta.setText("CANCELAR VENTA");
+		btnCancelarVenta.setText("CANCELAR ");
 		btnCancelarVenta.setSelected(true);
 		btnCancelarVenta.setLocation(new Point(15, 385));
 		btnCancelarVenta.setHideActionText(true);
@@ -304,6 +312,7 @@ public class VentanaRealizaPedido extends JFrame {
 		textFieldRestanteVenta.setBounds(446, 359, 106, 20);
 		contentPane.add(textFieldRestanteVenta);
 		textFieldRestanteVenta.setColumns(10);
+		
 
 		textFieldNombre = new JTextField();
 		textFieldNombre.setBounds(72, 97, 193, 20);
