@@ -19,7 +19,7 @@ public class Pedido {
 				+ importeTotal + ", importeDejado=" + importeDejado + "]";
 	}
 
-
+	
 
 	public Pedido(String fechaPedido, String nombreCliente, String apellidoCliente, double importeTotal,
 			double importeDejado,String empleado) {
@@ -44,6 +44,29 @@ public class Pedido {
 		this.importeDejado = importeDejado;
 		
 	}
+
+	/**
+	 * Constructor que utilizo al obtener los pedidos de la BD
+	 * @param numpedido int 
+	 * @param fecha String
+	 * @param empleado String
+	 * @param nombre String
+	 * @param apellido String
+	 * @param importeT double
+	 * @param importeD double
+	 * @author Hector Hernan Dominguez Gonzalez
+	 * **/
+	public Pedido(int numpedido, String fecha, String empleado, String nombre, String apellido, double importeT, double importeD) {
+		this.numPedido=numpedido;
+		this.fechaPedido=fecha;
+		this.empleado=empleado;
+		this.nombreCliente=nombre;
+		this.apellidoCliente=apellido;
+		this.importeTotal=importeT;
+		this.importeDejado=importeD;
+		
+	}
+
 
 
 	public int getNumPedido() {

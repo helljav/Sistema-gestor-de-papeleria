@@ -124,23 +124,50 @@ public class VentanaAdminPedido extends JFrame {
 		lblCancelarPedido.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCancelarPedido
 				.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Eliminar pedido.png"));
+		
+		JLabel consultarpedido = new JLabel("Consultar Pedido");
+		consultarpedido.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				controlVE.MuestraVentanapedidos();
+			}
+		});
+		consultarpedido.setIcon(new ImageIcon(path+"\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\pedido-online.png"));
+		consultarpedido.setVerticalTextPosition(SwingConstants.BOTTOM);
+		consultarpedido.setHorizontalTextPosition(SwingConstants.CENTER);
+		consultarpedido.setHorizontalAlignment(SwingConstants.CENTER);
+		
+
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup().addGap(35)
-						.addComponent(lblRegistarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-						.addGap(130)
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap(35, Short.MAX_VALUE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+							.addComponent(lblRegistarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+							.addGap(130))
+						.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+							.addComponent(lblCancelarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+							.addGap(122)))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblLiquidarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-						.addGap(26))
-				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup().addContainerGap(160, Short.MAX_VALUE)
-						.addComponent(lblCancelarPedido, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-						.addGap(142)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
-				.createSequentialGroup().addContainerGap()
-				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(consultarpedido, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE))
+					.addGap(23))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblRegistarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblLiquidarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
-				.addGap(32).addComponent(lblCancelarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
-				.addGap(24)));
+					.addGap(27)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblCancelarPedido, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
+						.addComponent(consultarpedido, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+					.addGap(29))
+		);
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);
 	}
