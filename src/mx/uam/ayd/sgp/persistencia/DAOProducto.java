@@ -144,4 +144,26 @@ public class DAOProducto {
 
 	}
 
+	/**
+	 * Metodo que modifica la cantidad de productos que hay en el almacen
+	 * 
+	 * @param producto
+	 * @param cantidad
+	 * @return verdadero o falso si se realizo la operacion
+	 */
+	public boolean modificarProductocantidad(Almacen producto, int cantidad) {
+		try {
+
+			int cantidadNueva = producto.getCantidadProducto() - cantidad;
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+			statement.execute("UPDATE Productos SET cantidad =" + cantidadNueva + "WHERE nombre='"
+					+ producto.getNombreProducto() + "'");
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
 }
