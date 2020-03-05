@@ -158,4 +158,17 @@ public class ControlAlmacen {
 
 	}
 
+	/**
+	 * Metodo que pasa los elementos a modificar de la cantidad de porductos que hay
+	 * en el almacen
+	 * 
+	 * @param producto
+	 * @param cantidad
+	 */
+
+	public void modificarProductocantidad(Almacen producto, int cantidad) {
+		boolean bandera;
+		bandera = dao.modificarProductocantidad(producto, cantidad);
+	}
+
 }
