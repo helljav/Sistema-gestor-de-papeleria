@@ -37,6 +37,7 @@ public class DialogoMostrarPedido extends JDialog {
 	private JScrollPane scroll;
 	
 	/**
+	 * 
 	 * @param owner
 	 */	
 	public DialogoMostrarPedido(Frame owner, Pedido pedidos[]) {
@@ -55,7 +56,7 @@ public class DialogoMostrarPedido extends JDialog {
 	}
 	
 	/**
-	 * This method initializes this
+	 * Este metodo inicializa la ventana (contentpane)
 	 *
 	 * @return void
 	 */
@@ -101,10 +102,9 @@ public class DialogoMostrarPedido extends JDialog {
 		return jListPedidos;
 	}
 	/**
-	 * This method gets pedidos and put in the table
+	 * Estemetodo ayuda a poner un scroll a la tabla al momento de mostrar los pedidos
 	 * @return scroll
-	 */
-	
+	 */	
 	
 	private JScrollPane getjScrollPane() {
 		if (scroll == null) {

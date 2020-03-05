@@ -39,7 +39,9 @@ public class ControlVentaPedido {
 		GUIRP.setLocationRelativeTo(null);
 	}
 
-
+	/**
+	 * Este metodo es llamado por la ventana Admin pedido, y se encarga de mostrar la ventana para cancelar un pedido
+	 */
 	public void IniciaVentanaCancelarPedido() {
 		
 		guiCancelarPedido = new VentanaCancelarPedido(this);

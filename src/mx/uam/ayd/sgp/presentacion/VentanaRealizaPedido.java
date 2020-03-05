@@ -172,7 +172,7 @@ public class VentanaRealizaPedido extends JFrame {
 		btnLiquidarVenta.setBorder(UIManager.getBorder("CheckBoxMenuItem.border"));
 		btnLiquidarVenta.setBackground(new Color(0, 171, 197));
 		/*
-		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON CANCELAR VENTA
+		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON CANCELAR Pedido
 		 */
 		JButton btnCancelarVenta = new JButton();
 		btnCancelarVenta.setSize(189, 33);
