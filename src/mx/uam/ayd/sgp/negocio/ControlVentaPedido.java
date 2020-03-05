@@ -125,7 +125,7 @@ public class ControlVentaPedido {
 		dao=new DAOPedidos();
 		p=dao.recuperaPedido(ID);
 		return p;
-	
+	}
 	/**
 	 * Este metodobusca pedidos con el nombre de un cliente 
 	 * @param nombreCliente

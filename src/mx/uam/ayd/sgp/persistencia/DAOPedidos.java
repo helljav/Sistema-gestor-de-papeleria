@@ -67,6 +67,9 @@ public class DAOPedidos {
 			return listapedidos;
 		}catch(SQLException ex) {
 			ex.printStackTrace();
+			return null;
+		}
+	}
 	////////////////////////////////////////////////////
 	/**
 	 * Este metodo obtiene todos los pedidos relacionados  con el nombre de un cliente 
@@ -129,6 +132,7 @@ public class DAOPedidos {
 			ex.printStackTrace();
 			return null;
 		}
+	}
 	///////////////////////////////////////////////////////
 	/**
 	 * Este metodobusca pedidos con el nombre de un cliente 
