@@ -33,7 +33,7 @@ public class VentanaAñadirProveedor extends JFrame{
 	private JTextField textFieldCorreoElectronico;
 	private JTextField textFieldNumeroTelefonico;
 	private JTextField textFieldDescripcion;
-
+	private JTextField textFieldApellidos;
 	/**
 	 * Launch the application.
 	 */
@@ -55,9 +55,14 @@ public class VentanaAñadirProveedor extends JFrame{
 		lblRegistrar.setBounds(194, 26, 114, 16);
 		contentPane.add(lblRegistrar);
 		
-		JLabel lblNombreDeLa = new JLabel("Nombre de la empresa:");
+		JLabel lblNombreDeLa = new JLabel("Nombre:");
 		lblNombreDeLa.setBounds(12, 70, 136, 16);
 		contentPane.add(lblNombreDeLa);
+		
+		JLabel lblApellidos = new JLabel("Apellidos:");
+		lblApellidos.setBounds(12, 80, 136, 16);
+		contentPane.add(lblApellidos);
+		
 		
 		JLabel lblCorreoElectronico = new JLabel("Correo electronico:");
 		lblCorreoElectronico.setBounds(12, 99, 136, 16);
@@ -75,6 +80,11 @@ public class VentanaAñadirProveedor extends JFrame{
 		textFieldNomEmpresa.setBounds(160, 67, 275, 22);
 		contentPane.add(textFieldNomEmpresa);
 		textFieldNomEmpresa.setColumns(10);
+		
+		textFieldApellidos = new JTextField();
+		textFieldApellidos.setBounds(160, 67, 275, 22);
+		contentPane.add(textFieldApellidos);
+		textFieldApellidos.setColumns(10);
 		
 		textFieldCorreoElectronico = new JTextField();
 		textFieldCorreoElectronico.setBounds(160, 96, 275, 22);
@@ -109,6 +119,7 @@ public class VentanaAñadirProveedor extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String Nombre_Empresa=textFieldNomEmpresa.getText();
+				String Apellido=textFieldApellidos.getText();
 				String Correo_Electronico=textFieldCorreoElectronico.getText();
 				String Numero_Telefono =textFieldNumeroTelefonico.getText();
 				String Descripcion=textFieldDescripcion.getText();
@@ -121,7 +132,7 @@ public class VentanaAñadirProveedor extends JFrame{
 				{
 					alertaMensaje("Debes llenar todos los campos para registrar un proveedor","",0);
 				}else {
-					if(ctrlProveedor.addProv(Nombre_Empresa, Correo_Electronico, Numero_Telefono, Descripcion)) {
+					if(ctrlProveedor.addProv(Nombre_Empresa,Apellido, Correo_Electronico, Numero_Telefono, Descripcion)) {
 						
 						JOptionPane.showMessageDialog(null, "Se agrego al proveedor exitosamente");
 					}else {

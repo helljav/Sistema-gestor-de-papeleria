@@ -23,6 +23,7 @@ import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 import mx.uam.ayd.sgp.negocio.ControlProveedores;
 import mx.uam.ayd.sgp.negocio.ControlVAdministrador;
 
+
 public class VentanaMenuProveedores extends JFrame {
 	private JPanel contentPane;
 	private ControlAlmacen ctrlAlmacen;
@@ -121,53 +122,69 @@ public class VentanaMenuProveedores extends JFrame {
 		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnCancelar.setBorder(UIManager.getBorder("EditorPane.border"));
 		btnCancelar.setBackground(new Color(0, 171, 197));
+		
+		JLabel lblModificarProveedor = new JLabel("Modificar Proveedor");
+		lblModificarProveedor.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				crtlProveedor =new ControlProveedores();
+				crtlProveedor.MuestraModificaProveedor();
+			}
+		});
+		lblModificarProveedor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblModificarProveedor.setVerticalTextPosition(SwingConstants.BOTTOM);
+		lblModificarProveedor.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblModificarProveedor.setHorizontalAlignment(SwingConstants.CENTER);
+		lblModificarProveedor.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Logout_37127.png"));
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(375, Short.MAX_VALUE)
-					.addComponent(label)
-					.addGap(137))
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap(181, Short.MAX_VALUE)
 					.addComponent(lblqueDeseaHacer)
 					.addGap(178))
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(58)
+					.addGap(35)
 					.addComponent(lblAgregarProveedor)
-					.addPreferredGap(ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
-					.addComponent(lblEliminaProveedor)
-					.addGap(62))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addGap(220)
+					.addGap(55)
+					.addComponent(lblModificarProveedor)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(label)
+							.addGap(137))
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+							.addComponent(lblEliminaProveedor)
+							.addGap(24))))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(226)
 					.addComponent(lblRegresar)
-					.addContainerGap(240, Short.MAX_VALUE))
+					.addContainerGap(234, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(19)
-					.addComponent(label)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblqueDeseaHacer)
+							.addPreferredGap(ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblAgregarProveedor)
+								.addComponent(lblModificarProveedor)
+								.addComponent(lblEliminaProveedor))
+							.addGap(81)
+							.addComponent(lblRegresar))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(19)
+							.addComponent(label)))
 					.addContainerGap())
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblqueDeseaHacer)
-					.addPreferredGap(ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblAgregarProveedor)
-						.addComponent(lblEliminaProveedor))
-					.addGap(59)
-					.addComponent(lblRegresar)
-					.addGap(35))
 		);
 		contentPane.setLayout(gl_contentPane);
 		
 		
 	}
-
-	
-
-
-
-	
 }

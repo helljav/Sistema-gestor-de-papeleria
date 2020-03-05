@@ -68,6 +68,7 @@ public class ControlAdminUsuario {
 																									// productos
 		if (arregloUsuarios.length == 0) {
 			GUIMU.alertaMensaje("No se encontro el usuario", "Error", 0);
+			
 		} else {
 			dialogo.setVisible(true); // Muestra el dialogo
 		}
