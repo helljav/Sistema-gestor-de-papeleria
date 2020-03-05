@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -27,6 +28,7 @@ import mx.uam.ayd.sgp.modelo.Almacen;
 import mx.uam.ayd.sgp.modelo.Producto;
 import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 import mx.uam.ayd.sgp.negocio.ControlRealizaVenta;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -42,7 +44,10 @@ public class VentanaAgregarProductoVenta extends JFrame {
 	private VentanaRealizaVenta vRv;
 	private int contador = 0;
 	private JTextField textFieldCantidad;
-	int cantidadProductos;
+	public int cantidadProductos;
+	public int cantidadProductosGuardados;
+	double totalVenta;
+	public ArrayList<Almacen> productosau;
 
 	public VentanaAgregarProductoVenta(ControlAlmacen ctrl, ControlRealizaVenta ctrl2, VentanaRealizaVenta vRv2) {
 		this.controlAlmacen = ctrl;
@@ -68,7 +73,7 @@ public class VentanaAgregarProductoVenta extends JFrame {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				if (textFieldCantidad.getText().length() == 0) {
+				if (textFieldCantidad.getText().length() == 0) {// de validan campos vacios en la tabla
 					alertaMensaje("Llena el campo cantidad", "Alerta", 1);
 				} else {
 
@@ -77,9 +82,14 @@ public class VentanaAgregarProductoVenta extends JFrame {
 					if (cantidadProductos == 0) {
 						alertaMensaje("Llena el campo cantidad", "Alerta", 0);
 					} else {
+						if(producto.getCantidadProducto()==0) {
+							alertaMensaje("No hay Productos en el almacen", "Sin Productos X(", 1);
+						}else {
+						// si la cantidad de productos es mayor a cero y no es vacio se agregan
+						// productos a la tabla
 						controlVenta.agregarProductoAviso(producto);
 						llenaT(producto);
-					}
+					}}
 
 				}
 
@@ -132,7 +142,7 @@ public class VentanaAgregarProductoVenta extends JFrame {
 				String productoABuscar = textField.getText().toUpperCase();
 				producto = controlAlmacen.buscarProductoVenta(productoABuscar);
 				if (producto != null) {
-					lblMostrarP.setText(producto.toString()); // Muestra el nombre del autor actualmente
+					lblMostrarP.setText(producto.toString()); // Muestra el nombre del producto actualmente
 																// seleccionado
 				}
 			}
@@ -176,7 +186,7 @@ public class VentanaAgregarProductoVenta extends JFrame {
 	}
 
 	/**
-	 * Constructor vacio
+	 * Constructor vacio para que otras clases puedan acceder a los datos
 	 */
 	public VentanaAgregarProductoVenta() {
 
@@ -201,16 +211,35 @@ public class VentanaAgregarProductoVenta extends JFrame {
 	 * Este metodo llena la tabla que se encuentra en la VentanaRealizarVenta
 	 * 
 	 * @param producto
-	 *            es el producto a mostrar en la tabla
+	 *            es el producto a mostrar en la tabla (esto lo hace cuantas veces sea necesario al agregar productos)
 	 */
+
 	public void llenaT(Almacen producto) {
+		productosau = new ArrayList();
+		double money = 0;
+		int cont = vRv.getContadorProductos();
 		cantidadProductos = Integer.parseInt(textFieldCantidad.getText());
 		vRv.tablaVenta.setValueAt(producto.getNombreProducto(), vRv.contador, 0);
 		vRv.tablaVenta.setValueAt(producto.getPrecioProducto(), vRv.contador, 1);
-		// vRv.tablaVenta.setValueAt(producto.getCantidadProducto(),vRv.contador, 2);
 		vRv.tablaVenta.setValueAt(cantidadProductos, vRv.contador, 2);
 		vRv.tablaVenta.setValueAt(cantidadProductos * producto.getPrecioProducto(), vRv.contador, 3);
+		totalVenta = totalVenta + cantidadProductos * producto.getPrecioProducto();
+		String totalMostrar = String.valueOf(totalVenta);
+		vRv.textFieldImporteFinal.setText(totalMostrar);
 		vRv.contador++;
+		
+		cont++;
+		vRv.setContadorProductos(cont);
+		//este for sirve para ir guardando los datos de la venta y se muestre como venta final
+		for (int i = 0; i < cont; i++) {
+			money = money + Double.parseDouble(vRv.tablaVenta.getValueAt(i, 3).toString());
+
+		}
+
+		totalMostrar = String.valueOf(money);
+		vRv.textFieldImporteFinal.setText(totalMostrar);
+
+		productosau.add(producto);
 
 	}
 }

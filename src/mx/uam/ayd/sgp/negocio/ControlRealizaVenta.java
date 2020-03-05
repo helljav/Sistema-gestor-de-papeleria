@@ -16,11 +16,19 @@ public class ControlRealizaVenta {
 	private DAOProducto dao;
 	private DAOVenta daoV;
 	ControlAlmacen controlAlmacen;
+	private String Nombre;
+	public boolean bandera;
 
+	/**
+	 * Constructor de la clase que inicializa el dao Venta
+	 */
 	public ControlRealizaVenta() {
 		daoV = new DAOVenta();
 	}
 
+	/**
+	 * Metodo que inicializa la Ventana Agregar Producto a venta
+	 */
 	public void iniciaVAPV() {
 		controlAlmacen = new ControlAlmacen();
 		ventanaAgregarProductoVenta = new VentanaAgregarProductoVenta(controlAlmacen, this, ventanarealizarventa);
@@ -29,7 +37,9 @@ public class ControlRealizaVenta {
 
 	}
 
-	// se inicializa la ventana
+	/**
+	 * Metodo que inicializa la clase Ventana Realizar Venta
+	 */
 	public void iniciarealizarventa() {
 		// definir el constructor
 		ventanarealizarventa = new VentanaRealizaVenta(this);
@@ -37,6 +47,16 @@ public class ControlRealizaVenta {
 		ventanarealizarventa.setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Manda datos al dao agregar una venta para que se guarde y posteriormente se
+	 * muestre en consultar ventas
+	 * 
+	 * @param fechaVenta
+	 * @param empleado
+	 *            Nombre del empleado
+	 * @param importe
+	 *            importe de la venta final
+	 */
 	public void agregarProductoVenta(String fechaVenta, String empleado, double importe) {
 		try {
 			Venta V = new Venta(fechaVenta, empleado, importe);
@@ -48,6 +68,11 @@ public class ControlRealizaVenta {
 		}
 	}
 
+	/**
+	 * Mensaje de aviso para saber si se guardo bien el producto o no
+	 * 
+	 * @param producto
+	 */
 	public void agregarProductoAviso(Almacen producto) {
 		try {
 			System.out.println(producto.getNombreProducto() + " " + producto.getFechaIngreso());
@@ -59,4 +84,47 @@ public class ControlRealizaVenta {
 
 	}
 
+	/**
+	 * Son los datos del empleado que se van guardando para poder mostrarlo en las
+	 * tablas
+	 * 
+	 * @param Nombre
+	 */
+	public void empleadoaut(String Nombre) {
+		this.Nombre = Nombre;
+	}
+
+	/**
+	 * Devuelve el empleado
+	 * 
+	 * @return Nombre del empleado
+	 */
+	public String getempleadoaut() {
+		return Nombre;
+	}
+
+	/**
+	 * Aqui se hacen los calculos del descuento que el empleado selecciono
+	 * 
+	 * @param descuento
+	 * @return descuento final
+	 */
+	public double realizadescuento(double descuento) {
+		String Importe = ventanarealizarventa.textFieldImporteFinal.getText().toUpperCase();
+		double fin = Double.valueOf(Importe);
+		fin = fin * descuento;
+		return fin;
+	}
+
+	/**
+	 * Metodo que hace el descuento de productos que se encuentran en el almacen
+	 */
+	public void cerrarVentaProductos() {
+		for (int i = 0; i < ventanaAgregarProductoVenta.productosau.size(); i++) {
+			int cantidad = ventanaAgregarProductoVenta.cantidadProductos;
+			controlAlmacen.modificarProductocantidad(ventanaAgregarProductoVenta.productosau.get(i), cantidad);
+
+		}
+
+	}
 }

@@ -81,6 +81,9 @@ public class VentanaAdminPedido extends JFrame {
 						.addPreferredGap(ComponentPlacement.UNRELATED)
 						.addComponent(button, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(17, Short.MAX_VALUE)));
+		
+		
+		//CARACTERISTICAS Y CONFIGURAZIONES DE REGISTRAR PEDIDO
 
 		JLabel lblRegistarPedido = new JLabel("Registrar pedido");
 		lblRegistarPedido.addMouseListener(new MouseAdapter() {
@@ -103,8 +106,19 @@ public class VentanaAdminPedido extends JFrame {
 		lblLiquidarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblLiquidarPedido
 				.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Liquidar pedido.png"));
-
+		
+		
+		
+		//CARACTERISTICAS Y CONFIGURACIONES PARA CANCELAR PEDIDO
+		
+		
 		JLabel lblCancelarPedido = new JLabel("Cancelar pedido");
+		lblCancelarPedido.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				controlVE.IniciaVentanaCancelarPedido();
+			}
+		});
 		lblCancelarPedido.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblCancelarPedido.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblCancelarPedido.setHorizontalAlignment(SwingConstants.CENTER);

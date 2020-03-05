@@ -31,7 +31,19 @@ public class Pedido {
 		this.importeDejado = importeDejado;
 		this.empleado = empleado;
 	}
-
+	
+	
+	public Pedido(int numPedido, String fechaPedido, String nombreCliente, String apellidoCliente, double importeTotal,
+			double importeDejado) {
+		
+		this.numPedido = numPedido;
+		this.fechaPedido = fechaPedido;
+		this.nombreCliente = nombreCliente;
+		this.apellidoCliente = apellidoCliente;
+		this.importeTotal = importeTotal;
+		this.importeDejado = importeDejado;
+		
+	}
 
 	/**
 	 * Constructor que utilizo al obtener los pedidos de la BD

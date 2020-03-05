@@ -79,8 +79,8 @@ public class VentanaMenuProveedores extends JFrame {
 		lblEliminaProveedor.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//ctrlAlmacen.iniciaSeleccionDeAlmacen();
-				//ctrl1.DespliegaVCRUD();
+				crtlProveedor =new ControlProveedores();
+				crtlProveedor.eliminaProveedor();
 			}
 		});
 		

@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import mx.uam.ayd.sgp.modelo.Pedido;
+import mx.uam.ayd.sgp.modelo.Usuario;
 
 public class DAOPedidos {
 
@@ -66,6 +67,33 @@ public class DAOPedidos {
 			return listapedidos;
 		}catch(SQLException ex) {
 			ex.printStackTrace();
+	////////////////////////////////////////////////////
+	/**
+	 * Este metodo obtiene todos los pedidos relacionados  con el nombre de un cliente 
+	 * @param nombreCliente
+	 * @return PedidoTempArreglo devuelve un arreglo con los pedidos relacionados
+	 */
+	public Pedido[] damePedido(String nombreCliente) {
+		
+		ArrayList<Pedido> PedidoTemp = new ArrayList<Pedido>();
+		try {
+			// Crea el statement para hacer la conexion a la base de datos
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+			// Recibe los resutados
+			ResultSet rs = statement.executeQuery("SELECT * FROM Pedido WHERE nombreCliente LIKE  '%" + nombreCliente + "%'");
+			while (rs.next()) {
+				// Crea una nueva instancia del objeto
+				Pedido pedido = new Pedido(rs.getInt("numPedido"), rs.getString("fechaPedido"), rs.getString("nombreCliente"), rs.getString("apellidoCliente"),
+						rs.getDouble("importeTotal"), rs.getDouble("importeDejado"));
+				PedidoTemp.add(pedido);
+			}
+			Pedido PedidoTempArreglo[] = new Pedido[PedidoTemp.size()];
+			PedidoTemp.toArray(PedidoTempArreglo);
+			return PedidoTempArreglo;
+		} catch (SQLException e) {
+
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return null;
 		}
 		
@@ -101,6 +129,35 @@ public class DAOPedidos {
 			ex.printStackTrace();
 			return null;
 		}
+	///////////////////////////////////////////////////////
+	/**
+	 * Este metodobusca pedidos con el nombre de un cliente 
+	 * @param Pedido P
+	 * @return verdadero en caso de haberlo removido y falso en caso contrario
+	 */
+	public boolean cancelaPedido(Pedido P) {
+		
+		int pedido = 0;
+		try {
+			// Crea el statement para hacer la conexion a la base de datos
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+
+			
+			System.out.println(P.getNombreCliente());
+			/* Realiza Query */
+			pedido = statement.executeUpdate("DELETE FROM Pedido WHERE numPedido = " + P.getNumPedido() );
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		System.out.println(pedido);
+		if (pedido == 0) {
+			return false;
+		} else {
+			return true;
+		}
+		
 	}
 
 	
