@@ -56,9 +56,9 @@ public class VentanaMuestraPedidos extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblListaDePedidos = new JLabel("Lista de pedidos");
-		lblListaDePedidos.setBounds(31, 11, 121, 33);
+		lblListaDePedidos.setBounds(31, 11, 201, 33);
 		lblListaDePedidos.setForeground(Color.GRAY);
-		lblListaDePedidos.setFont(new Font("Dialog", Font.BOLD, 12));
+		lblListaDePedidos.setFont(new Font("Dialog", Font.BOLD, 23));
 		contentPane.add(lblListaDePedidos);
 		
 		JScrollPane scrollPaneRealizados = new JScrollPane();

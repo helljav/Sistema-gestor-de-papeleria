@@ -48,8 +48,8 @@ public class VentanaDetallesPedido extends JFrame {
 		
 		JLabel lblDetallesDelPedido = new JLabel("Detalles del pedido.");
 		lblDetallesDelPedido.setForeground(Color.GRAY);
-		lblDetallesDelPedido.setFont(new Font("Dialog", Font.BOLD, 12));
-		lblDetallesDelPedido.setBounds(25, 11, 115, 14);
+		lblDetallesDelPedido.setFont(new Font("Dialog", Font.BOLD, 20));
+		lblDetallesDelPedido.setBounds(25, 11, 204, 31);
 		contentPane.add(lblDetallesDelPedido);
 		
 		JLabel lblIdPedido = new JLabel("ID Pedido:");
