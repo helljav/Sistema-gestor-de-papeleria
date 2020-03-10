@@ -135,7 +135,7 @@ public class VentanaMenuProveedores extends JFrame {
 		lblModificarProveedor.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblModificarProveedor.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblModificarProveedor.setHorizontalAlignment(SwingConstants.CENTER);
-		lblModificarProveedor.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Logout_37127.png"));
+		lblModificarProveedor.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\ModifProv.png"));
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
