@@ -164,12 +164,12 @@ public class VentanaModificarProveedor extends JFrame{
 		JButton btnBuscar = new JButton();
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {		
-				String ProveedorABuscar = "Hernan";
-				System.out.println(ProveedorABuscar+"proveedor");
+				String ProveedorABuscar = textFieldNombre.getText()
+;				System.out.println(ProveedorABuscar+"  proveedor");
 				proveedor = ControlProveedores.BuscaProveedor(ProveedorABuscar);
 
 				if (proveedor != null) {
-					textFieldNombre.setText(proveedor.getNombre());
+					nameProv.setText(proveedor.getNombre());
 
 					apellido.setEnabled(true);
 					apellido.setText(proveedor.getApellido());
@@ -198,7 +198,7 @@ public class VentanaModificarProveedor extends JFrame{
 		btnBuscar.setBounds(235, 128, 156, 33);
 		contentPane.add(btnBuscar);
 		
-		//Caracteristicas ty funcionamiento del boton buscar
+		//Caracteristicas ty funcionamiento del boton modificar
 		
 		
 		JButton btnModificar = new JButton();
