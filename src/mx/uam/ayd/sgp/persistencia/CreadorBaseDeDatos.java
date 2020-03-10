@@ -28,11 +28,11 @@ public class CreadorBaseDeDatos {
 			 */
 			//////////////////////////////////////////////////////////////////////////////////////
 			statement.execute("create table Productos(nombre varchar(40), precio double precision,descripcion varchar(50),cantidad int, descuento double precision, fecha varchar(12), tipoAlmacen varchar(40))");
-			statement.execute("insert into Productos values('" + "Prit 11g" + "'," + 15 + ",'" + "pega de locuraaaaaa" + "' ," + 20 + "," + 0 + "," +"'2018-12-07'" +",'" + "Almacen general" + "')");
-			statement.execute("insert into Productos values('" + "Resistol 850 110g" + "'," + 25 + ",'" + "Pegamento blanco escolar" + "' ," + 20 + "," + 0 + "," +"'2018-12-07'" +",'" + "Almacen general" + "')");
-			statement.execute("insert into Productos values('" + "Hojas Blancas Scribe" + "'," + 80 + ",'" + "Hojas blancas de 500 hojas" + "' ," + 20 + "," + 0 + "," +"'2018-12-07'" +",'" + "Almacen general" + "')");
-			statement.execute("insert into Productos values('" + "Carpeta panoramica OFFIS" + "'," + 40 + ",'" + " Carpeta de 2.5 cm capacidad aprox 200 hojas" + "' ," + 20 + "," + 5 + "," +"'2018-12-07'" +",'" + "Almacen general" + "')");
-			statement.execute("insert into Productos values('" + "Colores Norma 24 pzs" + "'," + 150 + ",'" + "Lapices de colores punta gruesa" + "' ," + 5 + "," + 0 + "," +"'2018-12-07'" +",'" + "Almacen general" + "')");
+			statement.execute("insert into Productos values('" + "PRIT 11g" + "'," + 15 + ",'" + "pega de locuraaaaaa" + "' ," + 20 + "," + 0 + "," +"'2018-12-07'" +",'" + "ALMACEN GENERAL" + "')");
+			statement.execute("insert into Productos values('" + "Resistol 850 110g" + "'," + 25 + ",'" + "Pegamento blanco escolar" + "' ," + 20 + "," + 0 + "," +"'2018-12-07'" +",'" + "ALMACEN GENERAL" + "')");
+			statement.execute("insert into Productos values('" + "Hojas Blancas Scribe" + "'," + 80 + ",'" + "Hojas blancas de 500 hojas" + "' ," + 20 + "," + 0 + "," +"'2018-12-07'" +",'" + "ALMACEN GENERAL" + "')");
+			statement.execute("insert into Productos values('" + "Carpeta panoramica OFFIS" + "'," + 40 + ",'" + " Carpeta de 2.5 cm capacidad aprox 200 hojas" + "' ," + 20 + "," + 5 + "," +"'2018-12-07'" +",'" + "ALMACEN GENERAL" + "')");
+			statement.execute("insert into Productos values('" + "Colores Norma 24 pzs" + "'," + 150 + ",'" + "Lapices de colores punta gruesa" + "' ," + 5 + "," + 0 + "," +"'2018-12-07'" +",'" + "ALMACEN GENERAL" + "')");
 					
 			//////////////////////////////////////////////////////////////////////////////////////
 			 /**

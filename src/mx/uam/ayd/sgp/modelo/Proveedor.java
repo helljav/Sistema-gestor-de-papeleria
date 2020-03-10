@@ -36,5 +36,13 @@ public class Proveedor {
 	public String getDescripcion() {
 		return Descripcion;
 	}
+	@Override
+	public String toString() {
+		return "Nombre : " + Nombre
+				+ "   |||Correo Electronico : " + Correo_Electronico
+				+ "   |||Apellido : " + Apellido
+				+ "   |||Numero Telefonico : " + Numero_Telefonico
+				+ "   ||| Descripcion : " + Descripcion;
+	}
 
 }
