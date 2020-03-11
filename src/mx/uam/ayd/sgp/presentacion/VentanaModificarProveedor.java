@@ -33,8 +33,9 @@ import javax.swing.SwingConstants;
 
 
 public class VentanaModificarProveedor extends JFrame{
+	
+	/*****************Variables***********************/
 	private JPanel contentPane;
-	private JTextField nombre;
 	private JTextField apellido;
 	private JTextField numTel;
 	private JTextField correo;
@@ -45,24 +46,8 @@ public class VentanaModificarProveedor extends JFrame{
 	private Proveedor proveedor;
 	private Proveedor proveedorAnterior;
 	private JTextField nameProv;
-	/**
-	 * Launch the application.
-	 * metodo solo para probar la ventana individualmente
-	 */
-	/***public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaModificarProveedor frame = new VentanaModificarProveedor();
-					frame.setUndecorated(true);
-					frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}**/
+	/*****************Variables***********************/
+	
 	
 	
 	public VentanaModificarProveedor (ControlProveedores ctrl) {
@@ -82,7 +67,7 @@ public class VentanaModificarProveedor extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		//Declaracion de etiquetas de la ventana
+		/*********************Declaracion de etiquetas de la ventana************************/
 		
 		JLabel lblModificarProveedor = new JLabel("Modificar Proveedor");
 		lblModificarProveedor.setForeground(Color.GRAY);
@@ -121,7 +106,10 @@ public class VentanaModificarProveedor extends JFrame{
 		lblDescripcion.setBounds(22, 302, 76, 16);
 		contentPane.add(lblDescripcion);
 		
-		//Declaracion de los TextField usados en la ventana
+		/*********************Declaracion de etiquetas de la ventana************************/
+
+		
+		/**********************Declaracion de los TextField usados en la ventana*****************/
 		
 		textFieldNombre.setPlaceholder("Ingrese el nombre del proveedor a  buscar");
 		textFieldNombre.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -159,17 +147,20 @@ public class VentanaModificarProveedor extends JFrame{
 		descripcion.setBounds(164, 299, 392, 22);
 		contentPane.add(descripcion);
 		
-		//Caracteristicas y funcionamiento del boton Buscar
+		/**********************Declaracion de los TextField usados en la ventana*****************/
+		
+		/**********************************Creacion y funcionamiento del boton Buscar************/
 		
 		JButton btnBuscar = new JButton();
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {		
-				String ProveedorABuscar = "Hernan";
-				System.out.println(ProveedorABuscar+"proveedor");
+				
+				//Se requiere un proveedor que es el que ingresa el usuario en la ventana
+				String ProveedorABuscar = textFieldNombre.getText();
 				proveedor = ControlProveedores.BuscaProveedor(ProveedorABuscar);
-
+				//Al momento de tomar un proveedor ya existente se agregan kis datos del proveedor a la ventana
 				if (proveedor != null) {
-					textFieldNombre.setText(proveedor.getNombre());
+					nameProv.setText(proveedor.getNombre());
 
 					apellido.setEnabled(true);
 					apellido.setText(proveedor.getApellido());
@@ -198,7 +189,10 @@ public class VentanaModificarProveedor extends JFrame{
 		btnBuscar.setBounds(235, 128, 156, 33);
 		contentPane.add(btnBuscar);
 		
-		//Caracteristicas ty funcionamiento del boton buscar
+		/**********************************Creacion y funcionamiento del boton Buscar************/
+		
+		
+		//Caracteristicas ty funcionamiento del boton modificar
 		
 		
 		JButton btnModificar = new JButton();
