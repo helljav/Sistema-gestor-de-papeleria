@@ -99,7 +99,14 @@ public class VentanaAñadirProducto extends JFrame {
 					int cantidad = Integer.parseInt(txtCantidad.getText());
 					String tipoAlmacen = ctrlAlmacen.getTipoAlmacen().toUpperCase();
 					String fecha = txtFecha.getText();
-					ctrlAlmacen.agregarProducto(nombre, precio, descripcion, cantidad, descuento, fecha, tipoAlmacen);
+					if(descuento<=100) {
+						precio=precio-(precio*(descuento/100));
+						ctrlAlmacen.agregarProducto(nombre, precio, descripcion, cantidad, descuento, fecha, tipoAlmacen);
+					}else {
+						alertaMensaje("Los valores que trata de ingresar son invalidos", "Error fatality", 0);
+					}
+					
+					
 				} catch (Exception e2) {
 					alertaMensaje("Los valores que trata de ingresar son invalidos", "Error fatality", 0);
 				}
