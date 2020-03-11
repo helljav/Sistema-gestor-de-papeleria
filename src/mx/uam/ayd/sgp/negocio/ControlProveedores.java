@@ -31,7 +31,7 @@ public class ControlProveedores {
 	 * ***/
 	public void eliminaProveedor(){
 		deleteP= new VentanaEliminarProveedor(this);
-		deleteP.setUndecorated(false);
+		deleteP.setUndecorated(true);
 		deleteP.setVisible(true);
 		deleteP.setLocationRelativeTo(null);
 	}
