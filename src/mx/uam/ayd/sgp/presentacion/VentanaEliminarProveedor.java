@@ -51,12 +51,12 @@ public class VentanaEliminarProveedor extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaEliminarProveedor(ControlProveedores ctrl) {
+	public VentanaEliminarProveedor(ControlProveedores control) {
 		setResizable(false);
 		
 		String path = new java.io.File("").getAbsolutePath();
 		
-		ctrl=ctrl;
+		ctrl=control;
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		
