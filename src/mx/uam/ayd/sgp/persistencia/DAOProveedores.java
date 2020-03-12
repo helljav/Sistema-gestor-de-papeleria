@@ -25,23 +25,36 @@ public class DAOProveedores {
 	 * accede a la base de datos para eliminar un Proveedor
 	 * 
 	 * ***/
-	public boolean EliminaUsuario(String nombre) {
+	public boolean EliminaUsuario(int id) {
 		try {
 			Statement statement = ManejadorBD.dameConnection().createStatement();
-			String name;
-			String lastname;
-			String[] nombres=nombre.split(" ");
-			name=nombres[0];
-			lastname=nombres[1];
-			if(statement.execute("DELETE FROM proveedores WHERE nombre='"+name+"'AND apellidos='"+lastname+"'")) {
-				return true;
-			}else {
-				return false;
-			}
+			statement.execute("DELETE FROM proveedores WHERE idproveedor="+id);
+			return true;
 
 		}catch(SQLException ex) {
 			ex.printStackTrace();
 			return false;
 		}
+	}
+	public static ArrayList<Proveedor> traeProveedores(){
+		try {
+			ArrayList<Proveedor> lista=new ArrayList();
+			Statement statement=ManejadorBD.dameConnection().createStatement();
+			ResultSet rs=statement.executeQuery("SELECT * FROM proveedores");
+			while(rs.next()) {
+				int id=rs.getInt("idproveedor");
+				String name1=rs.getString("nombre");
+				String lastname1=rs.getString("apellidos");
+				String telefono=rs.getString("telefono"); 
+				String email=rs.getString("email");
+				String desc=rs.getString("descripcion");
+				
+				lista.add(new Proveedor(id,name1+" "+lastname1,email,telefono,desc));	
+			}
+			return lista;
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}
+		return null;
 	}
 }

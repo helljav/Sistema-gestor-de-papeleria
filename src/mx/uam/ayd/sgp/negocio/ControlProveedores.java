@@ -1,4 +1,6 @@
 package mx.uam.ayd.sgp.negocio;
+import java.util.ArrayList;
+
 import mx.uam.ayd.sgp.modelo.Proveedor;
 import mx.uam.ayd.sgp.persistencia.DAOProveedores;
 
@@ -41,9 +43,9 @@ public class ControlProveedores {
 	 * @return true si elimina el usuario exitosamente
 	 * @return false si no se pudo eliminar
 	 * ***/
-	public boolean deleteProvider(String nombre){
+	public boolean deleteProvider(int id){
 		dao=new DAOProveedores();
-		if(dao.EliminaUsuario(nombre)){
+		if(dao.EliminaUsuario(id)){
 			return true;
 		}
 		return false;
@@ -56,5 +58,12 @@ public class ControlProveedores {
 			return true;
 		}
 		return false;
+	}
+	public ArrayList<Proveedor> traeproveedor() {
+		ArrayList proveedoresL=new ArrayList();
+		dao=new DAOProveedores();
+		proveedoresL=DAOProveedores.traeProveedores();
+		return proveedoresL;
+		
 	}
 }
