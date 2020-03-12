@@ -155,7 +155,7 @@ public class VentanaAñadirProveedor extends JFrame{
 				);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnRegresar = new JButton("Regresar");
+		JButton btnRegresar = new JButton("REGRESAR");
 		btnRegresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
