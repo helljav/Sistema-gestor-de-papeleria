@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import mx.uam.ayd.sgp.modelo.Proveedor;
 import mx.uam.ayd.sgp.persistencia.DAOProveedores;
 import mx.uam.ayd.sgp.presentacion.DialogoMostrarProveedor;
-import mx.uam.ayd.sgp.presentacion.VentanaAï¿½adirProveedor;
+import mx.uam.ayd.sgp.presentacion.VentanaAñadirProveedor;
 import mx.uam.ayd.sgp.presentacion.VentanaEliminarProveedor;
 import mx.uam.ayd.sgp.presentacion.VentanaModificarProveedor;
 
@@ -14,7 +14,7 @@ public class ControlProveedores {
 	private static DAOProveedores dao;
 	private static VentanaEliminarProveedor deleteP;
 	private VentanaEliminarProveedor GUIEliProv;
-	private VentanaAï¿½adirProveedor GUIAddProv;
+	private VentanaAñadirProveedor GUIAddProv;
 	private static VentanaModificarProveedor ModifProv;
 
 	
@@ -41,8 +41,8 @@ public class ControlProveedores {
 	}	
 		
 	
-	public void VentanaAï¿½adirProveedor() {
-		GUIAddProv = new VentanaAï¿½adirProveedor(this);
+	public void VentanaAñadirProveedor() {
+		GUIAddProv = new VentanaAñadirProveedor(this);
 		GUIAddProv.setUndecorated(true);
 		GUIAddProv.setVisible(true);
 		GUIAddProv.setLocationRelativeTo(null);

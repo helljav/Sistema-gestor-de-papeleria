@@ -3,6 +3,7 @@ package mx.uam.ayd.sgp.modelo;
 public class Proveedor {
 	
 	private String Nombre;
+	private String Nombre_Empresa;
 	private String Correo_Electronico;
 	private String Apellido;
 	private String Numero_Telefonico;
@@ -30,6 +31,9 @@ public class Proveedor {
 	
 	public String  getNombre() {
 		return Nombre;
+	}
+	public String  getNombre_Empresa() {
+		return Nombre_Empresa;
 	}
 	public String getApellido() {
 		return Apellido;
