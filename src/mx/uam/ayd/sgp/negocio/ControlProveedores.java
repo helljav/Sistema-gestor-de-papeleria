@@ -72,9 +72,9 @@ public class ControlProveedores {
 	 * @return true si elimina el usuario exitosamente
 	 * @return false si no se pudo eliminar
 	 * ***/
-	public boolean deleteProvider(String nombre){
+	public boolean deleteProvider(int id){
 		dao=new DAOProveedores();
-		if(dao.EliminaUsuario(nombre)){
+		if(dao.EliminaUsuario(id)){
 			return true;
 		}
 		return false;
@@ -98,6 +98,12 @@ public class ControlProveedores {
 			return true;
 		}
 		return false;
+	}
+	public ArrayList<Proveedor> traeproveedor() {
+		ArrayList proveedoresL=new ArrayList();
+		dao=new DAOProveedores();
+		proveedoresL=DAOProveedores.traeProveedores();
+		return proveedoresL;
 	}
 
 	/**Metodo que nos regresa el estado del proveedor Modificado
