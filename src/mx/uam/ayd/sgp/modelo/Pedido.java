@@ -14,12 +14,16 @@ public class Pedido {
 	
 	@Override
 	public String toString() {
-		return "Pedido [numPedido=" + numPedido + ", fechaPedido=" + fechaPedido + ", empleado=" + empleado
-				+ ", nombreCliente=" + nombreCliente + ", apellidoCliente=" + apellidoCliente + ", importeTotal="
-				+ importeTotal + ", importeDejado=" + importeDejado + "]";
+		return "NumPedido : " + numPedido 
+				+ "   |||FechaPedido : " + fechaPedido 
+				+ "   |||Empleado : " + empleado
+				+ "   |||NombreCliente : " + nombreCliente 
+				+ "   |||ApellidoCliente : " + apellidoCliente 
+				+ "   |||Importe Total : " + importeTotal 
+				+ "   |||A cuenta : " + importeDejado;
 	}
 
-
+	
 
 	public Pedido(String fechaPedido, String nombreCliente, String apellidoCliente, double importeTotal,
 			double importeDejado,String empleado) {
@@ -30,6 +34,41 @@ public class Pedido {
 		this.importeTotal = importeTotal;
 		this.importeDejado = importeDejado;
 		this.empleado = empleado;
+	}
+	
+	
+	public Pedido(int numPedido, String fechaPedido, String nombreCliente, String apellidoCliente, double importeTotal,
+			double importeDejado) {
+		
+		this.numPedido = numPedido;
+		this.fechaPedido = fechaPedido;
+		this.nombreCliente = nombreCliente;
+		this.apellidoCliente = apellidoCliente;
+		this.importeTotal = importeTotal;
+		this.importeDejado = importeDejado;
+		
+	}
+
+	/**
+	 * Constructor que utilizo al obtener los pedidos de la BD
+	 * @param numpedido int 
+	 * @param fecha String
+	 * @param empleado String
+	 * @param nombre String
+	 * @param apellido String
+	 * @param importeT double
+	 * @param importeD double
+	 * @author Hector Hernan Dominguez Gonzalez
+	 * **/
+	public Pedido(int numpedido, String fecha, String empleado, String nombre, String apellido, double importeT, double importeD) {
+		this.numPedido=numpedido;
+		this.fechaPedido=fecha;
+		this.empleado=empleado;
+		this.nombreCliente=nombre;
+		this.apellidoCliente=apellido;
+		this.importeTotal=importeT;
+		this.importeDejado=importeD;
+		
 	}
 
 

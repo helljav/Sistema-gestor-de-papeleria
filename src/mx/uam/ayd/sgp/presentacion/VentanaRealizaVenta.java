@@ -37,8 +37,12 @@ import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JList;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.ComboBoxEditor;
+import javax.swing.DefaultComboBoxModel;
 
 public class VentanaRealizaVenta extends JFrame {
 
@@ -48,6 +52,11 @@ public class VentanaRealizaVenta extends JFrame {
 	private Almacen producto;
 	int contador = 0;;
 	JTable tablaVenta;
+	private JTextField textFieldDescuentoporVenta;
+	public JTextField textFieldImporteFinal;
+	private int contadorProductos = 0;
+	Double importefin;
+	double importeFinal;
 
 	/**
 	 * Metodo que obtiene la fecha del sistema
@@ -78,15 +87,22 @@ public class VentanaRealizaVenta extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		JLabel lblDescuento = new JLabel("Venta");
-		lblDescuento.setBounds(15, 16, 95, 26);
-		lblDescuento.setFont(new Font("Dialog", Font.BOLD, 15));
+		JLabel lblDescuento = new JLabel();
+		lblDescuento.setText("Realizar una Venta");
+		lblDescuento.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDescuento.setBounds(15, 16, 367, 26);
+		lblDescuento.setForeground(new Color(153, 153, 153));
+		lblDescuento.setFont(new Font("Dialog", Font.BOLD, 24));
+
 		/*
 		 * CONFIGURACION Y CARACTERISTICAS DEL BOTON AGREGAR PRODUCTOS
 		 */
 		JButton btnAgregaProductos = new JButton();
-		btnAgregaProductos.setSize(320, 33);
+		btnAgregaProductos.setSize(196, 33);
 		btnAgregaProductos.addActionListener(new ActionListener() {
+			/**
+			 * Inicia la ventana Agregar Producto A Venta
+			 */
 			public void actionPerformed(ActionEvent e) {
 				controlventa.iniciaVAPV();
 			}
@@ -94,7 +110,7 @@ public class VentanaRealizaVenta extends JFrame {
 		btnAgregaProductos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAgregaProductos.setText("AGREGAR PRODUCTOS");
 		btnAgregaProductos.setSelected(true);
-		btnAgregaProductos.setLocation(new Point(15, 198));
+		btnAgregaProductos.setLocation(new Point(15, 219));
 		btnAgregaProductos.setHideActionText(true);
 		btnAgregaProductos.setForeground(Color.WHITE);
 		btnAgregaProductos.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -104,32 +120,12 @@ public class VentanaRealizaVenta extends JFrame {
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON CERRAR VENTA
 		 */
 		JButton btnCerrarVenta = new JButton();
-		btnCerrarVenta.setSize(320, 33);
-		btnCerrarVenta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				// Fecha
-				String fecha1 = fecha();
-				double precioTotal = 0;
-				String usuario = "Empleado";
-				String nombre;
-				double precio;
-				double descuento;
-				int cantidad;
-				DefaultTableModel modelo = (DefaultTableModel) tablaVenta.getModel();
-				for (int i = 0; i < contador; i++) {
-					nombre = (String) modelo.getValueAt(i, 0);
-					precio = (double) modelo.getValueAt(i, 1);
-					cantidad = (int) modelo.getValueAt(i, 2);
-					descuento = (double) modelo.getValueAt(i, 3);
-					precioTotal = precioTotal + precio;
-				}
-				controlventa.agregarProductoVenta(fecha1, usuario, precioTotal);
-			}
-		});
+		btnCerrarVenta.setSize(196, 33);
+
 		btnCerrarVenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCerrarVenta.setText("LIQUIDAR VENTA");
 		btnCerrarVenta.setSelected(true);
-		btnCerrarVenta.setLocation(new Point(15, 264));
+		btnCerrarVenta.setLocation(new Point(15, 269));
 		btnCerrarVenta.setHideActionText(true);
 		btnCerrarVenta.setForeground(Color.WHITE);
 		btnCerrarVenta.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -139,8 +135,11 @@ public class VentanaRealizaVenta extends JFrame {
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON CANCELAR VENTA
 		 */
 		JButton btnCancelarVenta = new JButton();
-		btnCancelarVenta.setSize(320, 33);
+		btnCancelarVenta.setSize(196, 33);
 		btnCancelarVenta.addActionListener(new ActionListener() {
+			/**
+			 * Esta accion coloca los datos de la tabla sin nada 
+			 */
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < 4; i++) {
 					tablaVenta.setValueAt("", i, 0);
@@ -149,6 +148,7 @@ public class VentanaRealizaVenta extends JFrame {
 					tablaVenta.setValueAt(null, i, 3);
 
 				}
+
 			}
 		});
 		btnCancelarVenta.setText("CANCELAR VENTA");
@@ -168,7 +168,7 @@ public class VentanaRealizaVenta extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnRegresar.setBounds(363, 412, 189, 33);
+		btnRegresar.setBounds(210, 409, 167, 33);
 		btnRegresar.setText("REGRESAR");
 		btnRegresar.setSelected(true);
 		btnRegresar.setHideActionText(true);
@@ -178,13 +178,13 @@ public class VentanaRealizaVenta extends JFrame {
 		btnRegresar.setBackground(new Color(0, 171, 197));
 
 		JLabel label = new JLabel("");
-		label.setBounds(384, 226, 159, 191);
+		label.setBounds(231, 207, 136, 191);
 		label.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPaneRealizados = new JScrollPane();
 		scrollPaneRealizados.setToolTipText("");
-		scrollPaneRealizados.setBounds(15, 53, 507, 124);
+		scrollPaneRealizados.setBounds(15, 84, 507, 124);
 		getContentPane().add(scrollPaneRealizados);
 
 		tablaVenta = new JTable();
@@ -214,7 +214,8 @@ public class VentanaRealizaVenta extends JFrame {
 
 		});
 		JLabel lblfecha = new JLabel("dd/MM/AA");
-		lblfecha.setBounds(436, 11, 86, 14);
+		lblfecha.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblfecha.setBounds(395, 16, 86, 20);
 		contentPane.add(lblfecha);
 		lblfecha.setText(fecha());
 
@@ -227,6 +228,112 @@ public class VentanaRealizaVenta extends JFrame {
 		contentPane.add(btnCerrarVenta);
 		contentPane.add(btnRegresar);
 
+		JLabel lblAplicarDescuento = new JLabel("Aplicar Descuento");
+		lblAplicarDescuento.setFont(new Font("Dialog", Font.BOLD, 12));
+		lblAplicarDescuento.setBounds(380, 206, 115, 27);
+		contentPane.add(lblAplicarDescuento);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			/**
+			 * Accion para hacer el descuento y se vea reflejado en el importe final
+			 */
+			public void actionPerformed(ActionEvent arg0) {
+				String opcion = comboBox.getSelectedItem().toString();
+				if (opcion == "5%") {
+					importefin = controlventa.realizadescuento(0.05);
+				}
+				if (opcion == "10%") {
+					importefin = controlventa.realizadescuento(0.1);
+				}
+				if (opcion == "15%") {
+					importefin = controlventa.realizadescuento(0.15);
+				}
+				if (opcion == "20%") {
+					importefin = controlventa.realizadescuento(0.20);
+				}
+				String dato = textFieldImporteFinal.getText().toUpperCase();
+			
+				double datof = Double.valueOf(dato);
+				String importe = String.valueOf(importefin);
+				textFieldDescuentoporVenta.setText(importe);
+
+				importeFinal = datof - importefin;// <----------------------------------------->
+				String importeaMostrar = String.valueOf(importeFinal);
+				textFieldImporteFinal.setText(importeaMostrar);
+
+			}
+		});
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "0%", "5%", "10%", "15%", "20%" }));
+		comboBox.setBounds(380, 244, 142, 26);
+		contentPane.add(comboBox);
+
+		textFieldDescuentoporVenta = new JTextField();
+		textFieldDescuentoporVenta.setSelectionColor(Color.WHITE);
+		textFieldDescuentoporVenta.setForeground(Color.BLACK);
+		textFieldDescuentoporVenta.setBounds(380, 311, 142, 26);
+		contentPane.add(textFieldDescuentoporVenta);
+		textFieldDescuentoporVenta.setColumns(10);
+
+		textFieldImporteFinal = new JTextField();
+		textFieldImporteFinal.setBounds(380, 370, 142, 26);
+		contentPane.add(textFieldImporteFinal);
+		textFieldImporteFinal.setColumns(10);
+
+		JLabel lblDescuentoPorVenta = new JLabel("Descuento por Venta");
+		lblDescuentoPorVenta.setFont(new Font("Dialog", Font.BOLD, 12));
+		lblDescuentoPorVenta.setBounds(380, 280, 142, 22);
+		contentPane.add(lblDescuentoPorVenta);
+
+		JLabel lblImporteFinal = new JLabel("Importe Final");
+		lblImporteFinal.setFont(new Font("Dialog", Font.BOLD, 12));
+		lblImporteFinal.setBounds(380, 338, 131, 22);
+		contentPane.add(lblImporteFinal);
+
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(
+				"C:\\Users\\Maribel\\Desktop\\Sistema-gestor-de-papeleria\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\calendario.png"));
+		label_1.setBounds(491, 16, 28, 20);
+		contentPane.add(label_1);
+
+		JLabel label_2 = new JLabel("Empleado");
+		label_2.setFont(new Font("Dialog", Font.BOLD, 11));
+		label_2.setBounds(322, 59, 60, 14);
+		contentPane.add(label_2);
+
+		JLabel lblNewLabelNombreDelEmpleado = new JLabel(ctrl.getempleadoaut());
+		lblNewLabelNombreDelEmpleado.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabelNombreDelEmpleado.setBounds(395, 58, 86, 15);
+		contentPane.add(lblNewLabelNombreDelEmpleado);
+		btnCerrarVenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// Fecha
+				String fecha1 = fecha();
+				double precioTotal = 0;
+				String usuario = "Empleado";
+				String nombre;
+				double precio;
+				double descuento;
+				int cantidad;
+				DefaultTableModel modelo = (DefaultTableModel) tablaVenta.getModel();
+				for (int i = 0; i < contador; i++) {
+					nombre = (String) modelo.getValueAt(i, 0);
+					precio = (double) modelo.getValueAt(i, 1);
+					cantidad = (int) modelo.getValueAt(i, 2);
+					descuento = (double) modelo.getValueAt(i, 3);
+					precioTotal = precioTotal + precio * cantidad;
+
+				}
+				String opcion = comboBox.getSelectedItem().toString();
+				if (opcion == "5%" || opcion == "10%" || opcion == "15%" || opcion == "20%") {
+					
+					controlventa.agregarProductoVenta(fecha1, usuario, importeFinal);
+				} else
+					controlventa.agregarProductoVenta(fecha1, usuario, precioTotal);
+					controlventa.cerrarVentaProductos();
+
+			}
+		});
 	}
 
 	/**
@@ -243,4 +350,24 @@ public class VentanaRealizaVenta extends JFrame {
 	public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
 		JOptionPane.showMessageDialog(null, mensajeVentana, tituloventana, numero);
 	}
+
+	/**
+	 * Obtiene el contador de productos para hacer calculo del costo de la venta
+	 * final en la Ventana Realizar Venta
+	 * 
+	 * @return el contador de productos
+	 */
+	public int getContadorProductos() {
+		return contadorProductos;
+	}
+
+	/**
+	 * Establede el dato del contador de productos
+	 * 
+	 * @param contadorProductos
+	 */
+	public void setContadorProductos(int contadorProductos) {
+		this.contadorProductos = contadorProductos;
+	}
+
 }

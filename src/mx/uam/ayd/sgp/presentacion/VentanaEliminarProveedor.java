@@ -52,34 +52,36 @@ public class VentanaEliminarProveedor extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaEliminarProveedor(ControlProveedores control) {
+		setResizable(false);
 		
 		String path = new java.io.File("").getAbsolutePath();
+		
 		ctrl=control;
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 615, 266);
+		setBounds(100, 100, 615, 251);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNombreProveedor = new JLabel("Nombre proveedor");
-		lblNombreProveedor.setBounds(10, 40, 121, 14);
-		lblNombreProveedor.setText("Nombre Proveedor:");
+		JLabel lblNombreProveedor = new JLabel("Nombre o Empresa proveedor");
+		lblNombreProveedor.setBounds(30, 65, 204, 14);
+		lblNombreProveedor.setText("Empresa o Nombre Proveedor:");
 		lblNombreProveedor.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNombreProveedor.setForeground(Color.BLACK);
 		lblNombreProveedor.setFont(new Font("Dialog", Font.BOLD, 12));
 		contentPane.add(lblNombreProveedor);
 		
 		textField = new JTextField();
-		textField.setBounds(166, 37, 193, 20);
+		textField.setBounds(40, 90, 193, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnRegresar = new JButton("Regresar");
-		btnRegresar.setBounds(41, 153, 116, 23);
+		btnRegresar.setBounds(40, 156, 116, 23);
 		btnRegresar.setText("REGRESAR");
 		btnRegresar.setSelected(true);
 		btnRegresar.setHideActionText(true);
@@ -102,7 +104,7 @@ public class VentanaEliminarProveedor extends JFrame {
 		
 		
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(219, 153, 140, 23);
+		btnEliminar.setBounds(209, 156, 140, 23);
 		btnEliminar.setText("ELIMINAR");
 		btnEliminar.setSelected(true);
 		btnEliminar.setHideActionText(true);
@@ -117,13 +119,16 @@ public class VentanaEliminarProveedor extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String nombreC=textField.getText();
-				if(ctrl.deleteProvider(nombreC)) {
-					JOptionPane.showMessageDialog(null, "Se elimino al proveedor exitosamente");
+				if(nombreC.compareTo("")==0) {
+					JOptionPane.showMessageDialog(null, "El campo no debe estar vacio");
+				}else {
+					if(ctrl.deleteProvider(nombreC)) {
+						JOptionPane.showMessageDialog(null, "Se elimino al proveedor exitosamente");
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "El proveedor ya fue eliminado");
+					}
 				}
-				else {
-					JOptionPane.showMessageDialog(null, "El proveedor ya fue eliminado");
-				}
-				
 			}
 				
 
@@ -133,5 +138,11 @@ public class VentanaEliminarProveedor extends JFrame {
 		label.setIcon(new ImageIcon(path+"\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		label.setBounds(418, 40, 138, 136);
 		contentPane.add(label);
+		
+		JLabel lblEliminarProveedor = new JLabel("Eliminar Proveedor");
+		lblEliminarProveedor.setForeground(Color.GRAY);
+		lblEliminarProveedor.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblEliminarProveedor.setBounds(41, 21, 193, 33);
+		contentPane.add(lblEliminarProveedor);
 	}
 }

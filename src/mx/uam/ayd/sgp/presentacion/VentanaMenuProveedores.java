@@ -80,8 +80,8 @@ public class VentanaMenuProveedores extends JFrame {
 		lblEliminaProveedor.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//ctrlAlmacen.iniciaSeleccionDeAlmacen();
-				//ctrl1.DespliegaVCRUD();
+				crtlProveedor =new ControlProveedores();
+				crtlProveedor.eliminaProveedor();
 			}
 		});
 		
@@ -135,7 +135,7 @@ public class VentanaMenuProveedores extends JFrame {
 		lblModificarProveedor.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblModificarProveedor.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblModificarProveedor.setHorizontalAlignment(SwingConstants.CENTER);
-		lblModificarProveedor.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\Logout_37127.png"));
+		lblModificarProveedor.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\ModifProv.png"));
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

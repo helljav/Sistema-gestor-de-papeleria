@@ -44,14 +44,16 @@ public class DAOProveedores {
 			String[] nombres=nombre.split(" ");
 			name=nombres[0];
 			lastname=nombres[1];
-			
-			statement.execute("DELETE FROM proveedores WHERE nombre='"+name+"'AND apellidos='"+lastname+"'");
-			return true;
-			
+			if(statement.execute("DELETE FROM proveedores WHERE nombre='"+name+"'AND apellidos='"+lastname+"'")) {
+				return true;
+			}else {
+				return false;
+			}
+
 		}catch(SQLException ex) {
 			ex.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 

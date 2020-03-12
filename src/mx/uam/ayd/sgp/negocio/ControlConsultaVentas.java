@@ -27,6 +27,7 @@ public class ControlConsultaVentas {
 	public void iniciaConsultarVentas() {
 		ventanaconsultarventas = new VentanaConsultaVentas(this);
 		ventanaconsultarventas.setVisible(true);
+		ventanaconsultarventas.setLocationRelativeTo(null);
 
 	}
 

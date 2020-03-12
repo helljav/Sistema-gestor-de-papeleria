@@ -31,6 +31,7 @@ public class ControlVEmpleado {
 	public void empleadoautentificado(String NombreEmpleado){
 	String Nombre=NombreEmpleado;
 	ctrlPedido.empleadoaut(Nombre);
+	ctrlVenta.empleadoaut(Nombre);
 	}
 
 }

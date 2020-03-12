@@ -167,18 +167,25 @@ public class VentanaModificarProducto extends JFrame {
 					double descuento = Double.parseDouble(textField_3.getText());
 					int cantidad = Integer.parseInt(textField_4.getText());
 					String fecha = textField_5.getText();
+					
+					if(descuento<=100) {
+						precio=precio-(precio*(descuento/100));
+						Producto nproducto = new Producto(nombre.toUpperCase(), precio, descripcion.toUpperCase(),
+								descuento);
+						Almacen nuevoproducto = new Almacen(nproducto, cantidad, fecha,
+								controlAlmacen.getTipoAlmacen().toUpperCase());
+						controlAlmacen.modificarProducto(nuevoproducto, produtoAnterior);
+						textField.setText("");
+						textField_1.setText("");
+						textField_2.setText("");
+						textField_3.setText("");
+						textField_4.setText("");
+						textField_5.setText("");
+					}else {
+						alertaMensaje("Error al intentar modificar el producto", "Error", 0);
+					}
 
-					Producto nproducto = new Producto(nombre.toUpperCase(), precio, descripcion.toUpperCase(),
-							descuento);
-					Almacen nuevoproducto = new Almacen(nproducto, cantidad, fecha,
-							controlAlmacen.getTipoAlmacen().toUpperCase());
-					controlAlmacen.modificarProducto(nuevoproducto, produtoAnterior);
-					textField.setText("");
-					textField_1.setText("");
-					textField_2.setText("");
-					textField_3.setText("");
-					textField_4.setText("");
-					textField_5.setText("");
+					
 				} catch (Exception e2) {
 					alertaMensaje("Error al intentar modificar el producto", "Error", 0);
 				}

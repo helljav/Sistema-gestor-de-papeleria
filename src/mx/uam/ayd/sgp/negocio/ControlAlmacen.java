@@ -90,6 +90,7 @@ public class ControlAlmacen {
 	}
 
 	public Almacen buscarProducto(String productoABuscar, String tipoAlmacen) {
+		GUIEliminarP = new VentanaEliminarProducto(this);
 		// Se crea la lista de autores para poder mostrarle al usuario
 		Almacen arregloProdutos[] = dao.dameProductos(productoABuscar, tipoAlmacen); // Obtiene lista de autores
 		DialogoMostrarProducto dialogo = new DialogoMostrarProducto(new JFrame(), arregloProdutos); // Crea el dialogo
@@ -156,6 +157,19 @@ public class ControlAlmacen {
 			GUIModificarP.alertaMensaje("Ocurrio un error, llame al administrador ", "Error", 0);
 		}
 
+	}
+
+	/**
+	 * Metodo que pasa los elementos a modificar de la cantidad de porductos que hay
+	 * en el almacen
+	 * 
+	 * @param producto
+	 * @param cantidad
+	 */
+
+	public void modificarProductocantidad(Almacen producto, int cantidad) {
+		boolean bandera;
+		bandera = dao.modificarProductocantidad(producto, cantidad);
 	}
 
 }
