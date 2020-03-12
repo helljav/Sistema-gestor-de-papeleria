@@ -29,6 +29,7 @@ import mx.uam.ayd.sgp.negocio.ControlAlmacen;
 import mx.uam.ayd.sgp.negocio.ControlConsultaVentas;
 import mx.uam.ayd.sgp.negocio.ControlRealizaVenta;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class VentanaConsultaVentas extends JFrame {
 
@@ -58,9 +59,12 @@ public class VentanaConsultaVentas extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		JLabel lblDescuento = new JLabel("Venta");
-		lblDescuento.setBounds(15, 16, 33, 16);
-		lblDescuento.setFont(new Font("Dialog", Font.BOLD, 12));
+		JLabel lblTitulo = new JLabel("Venta");
+		lblTitulo.setBounds(10, 11, 119, 28);
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setFont(new Font("Dialog", Font.BOLD, 24));
+		lblTitulo.setForeground(new Color(153, 153, 153));
+
 		/*
 		 * CARACTERISTICAS Y CONFIGURACIONES DEL BOTON REGRESAR
 		 */
@@ -80,13 +84,13 @@ public class VentanaConsultaVentas extends JFrame {
 		btnRegresar.setBackground(new Color(0, 171, 197));
 
 		JLabel label = new JLabel("");
-		label.setBounds(28, 273, 149, 160);
+		label.setBounds(30, 273, 149, 160);
 		label.setIcon(new ImageIcon(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPaneRealizados = new JScrollPane();
 		scrollPaneRealizados.setToolTipText("");
-		scrollPaneRealizados.setBounds(10, 43, 507, 180);
+		scrollPaneRealizados.setBounds(10, 82, 507, 180);
 		getContentPane().add(scrollPaneRealizados);
 
 		tablaVenta = new JTable();
@@ -118,13 +122,13 @@ public class VentanaConsultaVentas extends JFrame {
 
 		scrollPaneRealizados.setViewportView(tablaVenta);
 		contentPane.add(scrollPaneRealizados);
-		contentPane.add(lblDescuento);
+		contentPane.add(lblTitulo);
 		contentPane.add(label);
 		contentPane.add(btnRegresar);
 
 		JLabel lblImporteTotalDel = new JLabel("IMPORTE TOTAL DEL DIA ");
-		lblImporteTotalDel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblImporteTotalDel.setBounds(187, 273, 201, 33);
+		lblImporteTotalDel.setFont(new Font("Dialog", Font.BOLD, 12));
+		lblImporteTotalDel.setBounds(227, 282, 150, 33);
 		contentPane.add(lblImporteTotalDel);
 
 		textFieldVentaTotal = new JTextField();
@@ -139,7 +143,7 @@ public class VentanaConsultaVentas extends JFrame {
 		textFieldVentaTotal.setToolTipText("");
 
 		textFieldVentaTotal.setForeground(Color.WHITE);
-		textFieldVentaTotal.setBounds(398, 273, 119, 28);
+		textFieldVentaTotal.setBounds(387, 285, 119, 28);
 		contentPane.add(textFieldVentaTotal);
 		textFieldVentaTotal.setColumns(10);
 	}

@@ -20,9 +20,10 @@ public class Venta {
 	}
 
 	public String toString() {
-		return "numFolio: " + this.numFolio + "\n\n " + "Importe de Venta: " + this.importe + "\n\n"
-				+ "Quien lo atendio: " + this.empleado/* usuario.getNombre() */ + "\n\n" + "Fecha de Venta: "
-				+ this.fechaVenta + "\n\n";
+		return "Numero de Folio : " + this.numFolio + "\n\n " 
+				+"   |||Importe de Venta : " + this.importe + "\n\n"
+				+"   |||Quien lo atendio :  " + this.empleado/* usuario.getNombre() */ 
+				+"   |||Fecha de Venta : " + this.fechaVenta;
 	}
 
 	public int getNumFolio() {

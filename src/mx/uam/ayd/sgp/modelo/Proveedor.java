@@ -2,15 +2,17 @@ package mx.uam.ayd.sgp.modelo;
 
 public class Proveedor {
 	
-	private String Nombre_Empresa;
+	private String Nombre;
 	private String Correo_Electronico;
+	private String Apellido;
 	private String Numero_Telefonico;
 	private String Descripcion;
 	private int idproveedor;
 	
-	public Proveedor(String Nombre_Empresa,String Correo_Electronico, String Numero_Telefonico, String Descripcion) {
-		this.Nombre_Empresa =Nombre_Empresa;
+	public Proveedor(String Nombre_Empresa,String Apellido,String Correo_Electronico, String Numero_Telefonico, String Descripcion) {
+		this.Nombre =Nombre_Empresa;
 		this.Correo_Electronico=Correo_Electronico;
+		this.Apellido =Apellido;
 		this.Numero_Telefonico=Numero_Telefonico;
 		this.Descripcion=Descripcion;
 		
@@ -26,8 +28,12 @@ public class Proveedor {
 	public Proveedor() {}
 	
 	
-	public String  getNombre_Empresa() {
-		return Nombre_Empresa;
+	public String  getNombre() {
+		return Nombre;
+	}
+	public String getApellido() {
+		return Apellido;
+		
 	}
 	public int getidproveedor() {
 		return this.idproveedor;
@@ -40,6 +46,14 @@ public class Proveedor {
 	}
 	public String getDescripcion() {
 		return Descripcion;
+	}
+	@Override
+	public String toString() {
+		return "Nombre : " + Nombre
+				+ "   |||Correo Electronico : " + Correo_Electronico
+				+ "   |||Apellido : " + Apellido
+				+ "   |||Numero Telefonico : " + Numero_Telefonico
+				+ "   ||| Descripcion : " + Descripcion;
 	}
 
 }

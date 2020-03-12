@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
 import javax.swing.JTextPane;
 import app.bolivia.swing.JCTextField;
 import mx.uam.ayd.sgp.modelo.Usuario;

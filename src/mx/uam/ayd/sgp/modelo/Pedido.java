@@ -14,9 +14,13 @@ public class Pedido {
 	
 	@Override
 	public String toString() {
-		return "Pedido [numPedido=" + numPedido + ", fechaPedido=" + fechaPedido + ", empleado=" + empleado
-				+ ", nombreCliente=" + nombreCliente + ", apellidoCliente=" + apellidoCliente + ", importeTotal="
-				+ importeTotal + ", importeDejado=" + importeDejado + "]";
+		return "NumPedido : " + numPedido 
+				+ "   |||FechaPedido : " + fechaPedido 
+				+ "   |||Empleado : " + empleado
+				+ "   |||NombreCliente : " + nombreCliente 
+				+ "   |||ApellidoCliente : " + apellidoCliente 
+				+ "   |||Importe Total : " + importeTotal 
+				+ "   |||A cuenta : " + importeDejado;
 	}
 
 	
