@@ -29,7 +29,7 @@ public class VentanaAñadirProveedor extends JFrame{
 	private JPanel contentPane;
 	private ControlProveedores ctrlProveedor;
 	private ControlAlmacen ctrlAlmacen;
-	private JTextField textFieldNomEmpresa;
+	private JTextField textFieldNombre;
 	private JTextField textFieldCorreoElectronico;
 	private JTextField textFieldNumeroTelefonico;
 	private JTextField textFieldDescripcion;
@@ -52,52 +52,59 @@ public class VentanaAñadirProveedor extends JFrame{
 		contentPane.setLayout(null);
 		
 		JLabel lblRegistrar = new JLabel("Registrar Proveedor");
-		lblRegistrar.setBounds(194, 26, 114, 16);
+		lblRegistrar.setBounds(12, 28, 357, 33);
+		lblRegistrar.setForeground(Color.GRAY);
+		lblRegistrar.setFont(new Font("Dialog", Font.BOLD, 19));
 		contentPane.add(lblRegistrar);
 		
 		JLabel lblNombreDeLa = new JLabel("Nombre:");
-		lblNombreDeLa.setBounds(12, 70, 136, 16);
+		lblNombreDeLa.setBounds(12, 88, 136, 16);
+		lblNombreDeLa.setFont(new Font("Dialog", Font.BOLD, 12));
 		contentPane.add(lblNombreDeLa);
 		
 		JLabel lblApellidos = new JLabel("Apellidos:");
-		lblApellidos.setBounds(12, 80, 136, 16);
+		lblApellidos.setBounds(12, 117, 136, 16);
+		lblApellidos.setFont(new Font("Dialog", Font.BOLD, 12));
 		contentPane.add(lblApellidos);
 		
 		
 		JLabel lblCorreoElectronico = new JLabel("Correo electronico:");
-		lblCorreoElectronico.setBounds(12, 99, 136, 16);
+		lblCorreoElectronico.setBounds(12, 149, 136, 16);
+		lblCorreoElectronico.setFont(new Font("Dialog", Font.BOLD, 12));
 		contentPane.add(lblCorreoElectronico);
 		
 		JLabel lblNumeroDeTelefono = new JLabel("Numero de telefono:");
-		lblNumeroDeTelefono.setBounds(12, 128, 144, 16);
+		lblNumeroDeTelefono.setBounds(12, 178, 144, 16);
+		lblNumeroDeTelefono.setFont(new Font("Dialog", Font.BOLD, 12));
 		contentPane.add(lblNumeroDeTelefono);
 		
 		JLabel lblDescripcion = new JLabel("Descripcion:");
-		lblDescripcion.setBounds(12, 157, 136, 16);
+		lblDescripcion.setBounds(12, 212, 136, 16);
+		lblDescripcion.setFont(new Font("Dialog", Font.BOLD, 12));
 		contentPane.add(lblDescripcion);
 		
-		textFieldNomEmpresa = new JTextField();
-		textFieldNomEmpresa.setBounds(160, 67, 275, 22);
-		contentPane.add(textFieldNomEmpresa);
-		textFieldNomEmpresa.setColumns(10);
+		textFieldNombre = new JTextField();
+		textFieldNombre.setBounds(149, 85, 275, 22);
+		contentPane.add(textFieldNombre);
+		textFieldNombre.setColumns(10);
 		
 		textFieldApellidos = new JTextField();
-		textFieldApellidos.setBounds(160, 67, 275, 22);
+		textFieldApellidos.setBounds(149, 114, 275, 22);
 		contentPane.add(textFieldApellidos);
 		textFieldApellidos.setColumns(10);
 		
 		textFieldCorreoElectronico = new JTextField();
-		textFieldCorreoElectronico.setBounds(160, 96, 275, 22);
+		textFieldCorreoElectronico.setBounds(149, 146, 275, 22);
 		contentPane.add(textFieldCorreoElectronico);
 		textFieldCorreoElectronico.setColumns(10);
 		
 		textFieldNumeroTelefonico = new JTextField();
-		textFieldNumeroTelefonico.setBounds(160, 125, 275, 22);
+		textFieldNumeroTelefonico.setBounds(149, 175, 275, 22);
 		contentPane.add(textFieldNumeroTelefonico);
 		textFieldNumeroTelefonico.setColumns(10);
 		
 		textFieldDescripcion = new JTextField();
-		textFieldDescripcion.setBounds(160, 154, 275, 22);
+		textFieldDescripcion.setBounds(149, 209, 275, 22);
 		contentPane.add(textFieldDescripcion);
 		textFieldDescripcion.setColumns(10);
 		
@@ -118,7 +125,7 @@ public class VentanaAñadirProveedor extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String Nombre_Empresa=textFieldNomEmpresa.getText();
+				String Nombre=textFieldNombre.getText();
 				String Apellido=textFieldApellidos.getText();
 				String Correo_Electronico=textFieldCorreoElectronico.getText();
 				String Numero_Telefono =textFieldNumeroTelefonico.getText();
@@ -128,11 +135,11 @@ public class VentanaAñadirProveedor extends JFrame{
 				 * 
 				 * */
 				 
-				if (textFieldNomEmpresa.getText().isEmpty() || textFieldCorreoElectronico.getText().isEmpty()||textFieldNumeroTelefonico.getText().isEmpty()||textFieldDescripcion.getText().isEmpty() )
+				if (textFieldNombre.getText().isEmpty()||textFieldApellidos.getText().isEmpty() || textFieldCorreoElectronico.getText().isEmpty()||textFieldNumeroTelefonico.getText().isEmpty()||textFieldDescripcion.getText().isEmpty() )
 				{
 					alertaMensaje("Debes llenar todos los campos para registrar un proveedor","",0);
 				}else {
-					if(ctrlProveedor.addProv(Nombre_Empresa,Apellido, Correo_Electronico, Numero_Telefono, Descripcion)) {
+					if(ctrlProveedor.addProv(Nombre,Apellido, Correo_Electronico, Numero_Telefono, Descripcion)) {
 						
 						JOptionPane.showMessageDialog(null, "Se agrego al proveedor exitosamente");
 					}else {
@@ -148,21 +155,30 @@ public class VentanaAñadirProveedor extends JFrame{
 				);
 		contentPane.add(btnRegistrar);
 		
-		
-		
-		
-		JLabel lblRegresar = new JLabel("regresar");
-		lblRegresar.setBounds(12, 309, 56, 16);
-		lblRegresar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
+		JButton btnRegresar = new JButton("REGRESAR");
+		btnRegresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
 			}
 		});
+		btnRegresar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnRegresar.setSelected(true);
+		btnRegresar.setLocation(new Point(28, 7));
+		btnRegresar.setHideActionText(true);
+		btnRegresar.setForeground(Color.WHITE);
+		btnRegresar.setFont(new Font("Dialog", Font.BOLD, 14));
+		btnRegresar.setBorder(UIManager.getBorder("CheckBoxMenuItem.border"));
+		btnRegresar.setBackground(new Color(0, 171, 197));
+
+		btnRegresar.setBounds(12, 300, 136, 25);
+		contentPane.add(btnRegresar);
 		
 		
-		contentPane.add(lblRegresar);
-	
+		
+		
+		
+		
+		
 	}
 
 	public void alertaMensaje(String mensajeVentana, String tituloventana, int numero) {
