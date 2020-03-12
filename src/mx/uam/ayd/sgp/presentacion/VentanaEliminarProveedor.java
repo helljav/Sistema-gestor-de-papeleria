@@ -51,12 +51,12 @@ public class VentanaEliminarProveedor extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaEliminarProveedor(ControlProveedores control) {
+	public VentanaEliminarProveedor(ControlProveedores ctrl) {
 		setResizable(false);
 		
 		String path = new java.io.File("").getAbsolutePath();
 		
-		ctrl=control;
+		ctrl=ctrl;
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(path + "\\src\\mx\\uam\\ayd\\sgp\\presentacion\\img\\logo.png"));
 		
@@ -119,13 +119,16 @@ public class VentanaEliminarProveedor extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String nombreC=textField.getText();
-				if(ctrl.deleteProvider(nombreC)) {
-					JOptionPane.showMessageDialog(null, "Se elimino al proveedor exitosamente");
+				if(nombreC.compareTo("")==0) {
+					JOptionPane.showMessageDialog(null, "El campo no debe estar vacio");
+				}else {
+					if(ctrl.deleteProvider(nombreC)) {
+						JOptionPane.showMessageDialog(null, "Se elimino al proveedor exitosamente");
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "El proveedor ya fue eliminado");
+					}
 				}
-				else {
-					JOptionPane.showMessageDialog(null, "El proveedor ya fue eliminado");
-				}
-				
 			}
 				
 
