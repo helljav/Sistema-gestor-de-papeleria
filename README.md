@@ -2,6 +2,7 @@
 # StarShop (Ingieneria de Software)
 
 ### Modulos
+
 [[Login](##LOGIN)]
 
 Proyecto analisis y diseño de sistemas e ingenieria de software
@@ -20,5 +21,8 @@ El lenguaje que se utilizo fue java 8, el entorno de desarrollo fue ecliupse y l
 
 ## LOGIN
 
-1) El epmpleado o administrador del negocio podra comprobar sus creedenciales y dependiendo de su funcion en la papeleria se mostrara 
-una ventana mostrando las funciones que podra realizar con el sistema
+1) El epmpleado o administrador del negocio podra comprobar sus creedenciales y dependiendo de su funcion en la papeleria se mostrara una ventana principal mostrando las funciones que podra realizar con el sistema.
+
+2) Para poder ingresar tendra que poner su nombre de usuario y contraseña
+
+- ![Imagen Login](https://i.ibb.co/tKCF90x/Login.jpg)
