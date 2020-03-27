@@ -5,8 +5,7 @@
 
 ### Modulos
 
-[[Login](##LOGIN)]
-[[Paginas principales ](##PAGINAS)]
+[[Login](#LOGIN)][[Paginas principales ](#PAGINAS)]
 
 Proyecto analisis y diseño de sistemas e ingenieria de software. Este proyecto consiste en la gestion de productos de una papeleria, manejandolos por almacenes, gestion en usuarios y proveedores. Se planteo la posibilidad de poder registrar y realizar una venta y gestionar pedidos.
 
