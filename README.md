@@ -7,15 +7,15 @@
 
 - ([Login](#login)) 
 - ([Paginas principales](#paginas-principales))
-- ([Administrador](##administrador))
-  - ([Administrador Consulta ventas](###Consulta-ventas))
-  - ([Administrador usuarios](###Administrar-usuarios))
-  - ([Administrador proveedores y almacenes](###Proveedores-Almacen))
-- ([Empleado](##empleado))
-  - ([Realiza pedido](##Realiza-pedido))
-  - ([Realiza venta](##Realiza-venta))
+- ([Administrador](#administrador))
+  - ([Administrador Consulta ventas](#Consulta-ventas))
+  - ([Administrador usuarios](#Administrar-usuarios))
+  - ([Administrador proveedores y almacenes](#Proveedores-Almacen))
+- ([Empleado](#empleado))
+  - ([Realiza pedido](#Realiza-pedido))
+  - ([Realiza venta](#Realiza-venta))
 
-Proyecto analisis y diseño de sistemas e inge([Administrador](##administrador))nieria de software. Este proyecto consiste en la gestion de productos de una papeleria, manejandolos por almacenes, gestion en usuarios y proveedores. Se planteo la posibilidad de poder registrar y realizar una venta y gestionar pedidos.
+Proyecto analisis y diseño de sistemas e ingenieria de software. Este proyecto consiste en la gestion de productos de una papeleria, manejandolos por almacenes, gestion en usuarios y proveedores. Se planteo la posibilidad de poder registrar y realizar una venta y gestionar pedidos.
 
 Este proyecto se inicio en la clase de analisis y diseño de sistemas (año 2018) en el cual se empezo con el manejo de de documentacion, conceptos de arquitectura, diagramas, etc. Y a la par se realizaba la construcción del sistema con un modelo en cascada. Se presentaron alrededor de 16 casos de uso de los cuales solo se entregaron 4 para esta primera parte de entrega del proyecto.
 
@@ -107,3 +107,6 @@ En esta parte del sistema es similar al de realiza venta, con la caracteristica 
 Las caracteristicas que debe de tener un pedido son las siguientes:
 
   ![Imagen ventana pedido](https://i.ibb.co/xJZPz9V/Ventana-Pedido.jpg)
+
+
+  gracias
