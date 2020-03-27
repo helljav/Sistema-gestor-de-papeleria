@@ -30,5 +30,10 @@ El lenguaje que se utilizo fue java 8, el entorno de desarrollo fue ecliupse y l
 
 Dependiendo de los permisos que se tengan al momento de registrarse, se mostrara una pagina principal para un administrador y un empleado, el cual cada uno podra hacer tareas especificas
 
-1) Ventana administrador  
+1. Ventana administrador  
+
+![Imagen ventana administrador](https://i.ibb.co/kg6rWQG/VAdmin.jpg)
+
+2. Ventana administrador  
+  
 ![Imagen ventana administrador](https://i.ibb.co/kg6rWQG/VAdmin.jpg)
